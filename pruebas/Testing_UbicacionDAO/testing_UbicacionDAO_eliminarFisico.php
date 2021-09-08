@@ -2,12 +2,12 @@
 
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloLibros/LibroDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloUbicacion/ubicacionDAO.php';
 
-$sId=array(129);
+$sId=array(12);
 
-$libros=new LibroDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$libros=new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
 $libroEliminadoFisico=$libros->eliminar($sId);
 

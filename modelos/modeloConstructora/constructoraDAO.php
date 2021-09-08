@@ -8,7 +8,7 @@ class ConstructoraDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "SELECT * FROM constructora;";
+        $planconsulta = "select * from constructora;";
 
         $registroConstructora = $this->conexion->prepare($planconsulta);
         $registroConstructora->execute();
@@ -24,7 +24,7 @@ class ConstructoraDAO extends ConBdMySql{
 
     public function seleccionarID($sId){
 
-        $consulta="SELECT * FROM constructora WHERE con_id=?";
+        $consulta="select * from constructora where con_id=?";
 
         $lista=$this->conexion->prepare($consulta);
         $lista->execute(array($sId[0]));
@@ -43,17 +43,39 @@ class ConstructoraDAO extends ConBdMySql{
 
     }
 
-    public function insertar($registro){ 
+    public function insertar($registro){
+       // "<pre>";
+       //print_r($registro);
+       //echo "</pre>";
+
+       //exit();
 
         try {
             
-            $consulta="INSERT INTO constructora (con_id, con_nombre_empresa, con_numero_documento) VALUES (:con_id, :con_nombre_empresa, :con_numero_documento);" ;
+            $consulta="insert into  constructora ";
+            $consulta.= "(con_id, 
+                          con_nombre_empresa, 
+                          con_numero_documento,
+                          con_id_tipo_documento,
+                          usuario_s_usuId,
+                          con_estado) ";
+            $consulta.= "values (:con_id, 
+                                 :con_nombre_empresa, 
+                                 :con_numero_documento,
+                                 :con_id_tipo_documento,
+                                 :usuario_s_usuId,
+                                 :con_estado);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
-            $insertar -> bindParam(":con_id",$registro['con_id']);
-            $insertar -> bindParam(":con_nombre_empresa",$registro['con_nombre_empresa']);
-            $insertar -> bindParam(":con_numero_documento",$registro['con_numero_documento']);
+
+            $insertar -> bindParam(":con_id", $registro['con_id']);
+            $insertar -> bindParam(":con_nombre_empresa", $registro['con_nombre_empresa']);
+            $insertar -> bindParam(":con_numero_documento", $registro['con_numero_documento']);
+            $insertar -> bindParam(":con_id_tipo_documento", $registro['con_id_tipo_documento']);
+            $insertar -> bindParam(":usuario_s_usuId", $registro['usuario_s_usuId']);
+            $insertar -> bindParam(":con_estado", $registro['con_estado']);
+
 
             $insercion = $insertar->execute();
 
@@ -73,15 +95,23 @@ class ConstructoraDAO extends ConBdMySql{
 
             $nombreEmpresa = $registro[0]['con_nombre_empresa'];
             $numeroDocumento = $registro[0]['con_numero_documento'];
+            $tipoDocumento = $registro[0]['con_id_tipo_documento'];
+            $usuario = $registro[0]['usuario_s_usuId'];
+            $estado = $registro[0]['con_estado'];
             $con_id = $registro[0]['con_id'];
             
             if(isset($con_id)){
-                $consulta = "UPDATE constructora SET  con_nombre_empresa = ?, con_numero_documento = ?
-                WHERE con_id = ?";
+                $consulta = "update constructora ";
+                $consulta.= "set  con_nombre_empresa = ?, 
+                                  con_numero_documento = ?,
+                                  con_id_tipo_documento = ?,
+                                  usuario_s_usuId = ?,
+                                  con_estado = ?";
+                $consulta.= "where con_id = ?;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
 
-                $actualizacion = $actualizar->execute(array($con_id, $numeroDocumento, $nombreEmpresa));
+                $actualizacion = $actualizar->execute(array($nombreEmpresa, $numeroDocumento, $tipoDocumento, $usuario, $estado, $con_id));
 
                 $this->cierreBd();
 
@@ -95,7 +125,7 @@ class ConstructoraDAO extends ConBdMySql{
 
     public function eliminar($sId = array()){
 
-        $consulta = "DELETE FROM constructora WHERE con_id = :con_id;";
+        $consulta = "delete from constructora where con_id = :con_id;";
 
         $eliminar = $this->conexion->prepare($consulta);
         $eliminar->bindParam(':con_id', $sId[0],PDO::PARAM_INT);
@@ -117,7 +147,7 @@ class ConstructoraDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE constructora SET con_autEstado = ? WHERE con_id = ?";
+                $actualizar = "UPDATE constructora SET con_estado = ? WHERE con_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -133,7 +163,7 @@ class ConstructoraDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE constructora SET con_autEstado = ? WHERE con_id = ?";
+                $actualizar = "UPDATE constructora SET con_estado = ? WHERE con_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

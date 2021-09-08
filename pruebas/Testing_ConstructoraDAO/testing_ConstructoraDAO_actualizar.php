@@ -1,21 +1,19 @@
-<?php 
+<?php
 
-include_once "../../modelos/ConBdMysql.php";
-include_once  "../../modelos/ConstantesConexion.php";
-include_once "../../modelos/modeloConstructora/constructoraDAO.php";
+include_once '../../modelos/ConstantesConexion.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloConstructora/constructoraDAO.php';
 
+$registro[0]['con_id'] = 2;
+$registro[0]['con_nombre_empresa'] = 'miguel';
+$registro[0]['con_numero_documento'] = '1010091';
+$registro[0]['con_id_tipo_documento'] = 2;
+$registro[0]['usuario_s_usuId'] = 2;
+$registro[0]['con_estado'] = 1;
 
-$constructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-
-$registro['con_nombre_empresa']="camilo";
-$registro['con_numero_documento']="1010091680";
-$registro['con_id']=2;
-            
-
-$constructoraActualizada = $constructora -> actualizar($registro);
+$libroActualizado = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$resultadoActualizacion = $libroActualizado->actualizar($registro);
 
 echo "<pre>";
-print_r($constructoraActualizada);
+print_r($resultadoActualizacion);
 echo "</pre>";
-
-?>

@@ -77,7 +77,7 @@ class TipoDocumentoDAO extends ConBdMySql{
             
             if(isset( $tip_id)){
                 $consulta = "UPDATE tipo_documento SET  tip_sigla = ?, tip_nombre_documento = ?
-                WHERE tip_id = ?";
+                WHERE tip_id = ?;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
 
