@@ -1,16 +1,15 @@
 <?php
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH . 'modelos/ConBdMysql.php';
-include_once PATH . 'modelos/modeloLibros/LibroDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloRegistro/registroDAO.php';
 
-$registro[0]['isbn'] = 387;
-$registro[0]['titulo'] = "2252819 CRUD INSERTAR";
-$registro[0]['autor'] = "Henry";
-$registro[0]['precio'] = "1000000";
-$registro[0]['categoriaLibro_catLibId'] = 2;
+$registro[0]['reg_id'] = 12;
+$registro[0]['reg_numero_registro'] = 99;
+$registro[0]['reg_comentarios'] = "yo yo yo yo";
+$registro[0]['reg_stock_id'] = 3;
 
-$libroActualizado = new LibroDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$libroActualizado = new RegistroDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 $resultadoActualizacion = $libroActualizado->actualizar($registro);
 
 echo "<pre>";

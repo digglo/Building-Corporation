@@ -2,15 +2,14 @@
 
 include_once '../../modelos/ConstantesConexion.php';
 include_once PATH . 'modelos/ConBdMysql.php';
-include_once PATH . 'modelos/modeloLibros/LibroDAO.php';
+include_once PATH . 'modelos/modeloStock/stockDAO.php';
 
-$registro[0]['isbn'] = 387;
-$registro[0]['titulo'] = "2252819 CRUD INSERTAR";
-$registro[0]['autor'] = "Henry";
-$registro[0]['precio'] = "1000000";
-$registro[0]['categoriaLibro_catLibId'] = 2;
+$registro[0]['sto_id'] = 1;
+$registro[0]['sto_cantidad_almacenado'] = 29;
+$registro[0]['sto_recibido_id'] = 4;
+$registro[0]['sto_utilizado_id'] = 4;
 
-$libroActualizado = new LibroDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$libroActualizado = new StockDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 $resultadoActualizacion = $libroActualizado->actualizar($registro);
 
 echo "<pre>";

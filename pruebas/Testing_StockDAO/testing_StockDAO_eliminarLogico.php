@@ -3,11 +3,11 @@
 
 include_once '../../modelos/ConstantesConexion.php';
 include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloLibros/LibroDAO.php';
+include_once PATH.'modelos/modeloStock/stockDAO.php';
 
-$sId=array(258);
+$sId=array(1);
 
-$libros=new LibroDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$libros=new StockDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
 
 $libroElimandoLogico=$libros->eliminarLogico($sId);
