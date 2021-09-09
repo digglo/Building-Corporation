@@ -2,10 +2,10 @@
 
 include_once '../../modelos/ConstantesConexion.php';
 include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloLibros/LibroDAO.php';
+include_once PATH.'modelos/modeloUtilizado/utilizadoDAO.php';
 
 
-$libros=new LibroDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$libros=new UtilizadoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
 $listadoCompleto=$libros->seleccionarTodos();
 
