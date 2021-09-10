@@ -39,27 +39,27 @@ if (isset($_SESSION['mensaje'])) {
     </head>
     <body>
 	<div id="provisional"> Interface Provisional
-	     <div class="gestion">Menú Operaciones en Tabla Libros
+	     <div class="gestion">Menú Operaciones en Tabla Rol
 	       <br/>
-	         <a href="Controlador.php?ruta=listarLibros&pag=0">Listar Libros</a>
+	         <a href="Controlador.php?ruta=listarRoles&pag=0">Listar Roles</a>
            <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarLibros">Agregar Libros</a>   	 
+              <a href="Controlador.php?ruta=mostrarInsertarRol">Agregar Rol</a>   	 
 	     </div>
-	 <div class="gestion">Menú Operaciones en Tabla X_1
+	     <div class="gestion">Menú Operaciones en Tabla Rol
 	       <br/>
-	          <a href="">Listar X_1</a>
+	         <a href="Controlador.php?ruta=listarTipoDocumento&pag=0">Listar Tipos de Documento</a>
            <br/>
-              <a href="">Agregar X_1</a>   	 
-	 </div>
-	 <div class="gestion">Menú Operaciones en Tabla X_2
-	 <br/>
-	 <a href="">Listar X_2</a>
-     <br/>
-     <a href="">Agregar X_2</a>   	 
-	 </div>
+              <a href="Controlador.php?ruta=mostrarInsertarTipoDocumento">Agregar Tipo de Documento</a>   	 
+	     </div>
+		 <div class="gestion">Menú Operaciones en Constructora
+	       <br/>
+	         <a href="Controlador.php?ruta=listarConstrutora&pag=0">Listar Constructoras</a>
+           <br/>
+              <a href="Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>   	 
+	     </div>
+	 
      <div id="contenido">
 		 <br/>
-                Zona de Resultados (Aquí la funcionalidad!!!!)
 	 <br/>
 	 <br/>
 	 <?php

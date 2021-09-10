@@ -8,7 +8,7 @@ class ConstructoraDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "select * from constructora;";
+        $planconsulta = "select * from constructora c JOIN tipo_documento t on c.con_id_tipo_documento=t.tip_id JOIN usuario_s u on c.usuario_s_usuId=u.usuId;;";
 
         $registroConstructora = $this->conexion->prepare($planconsulta);
         $registroConstructora->execute();
