@@ -29,14 +29,14 @@ USE `mydb` ;
 -- Table `proyecto`.`rol`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`rol` (
-  `rol_id_rol` INT(10) NOT NULL,
+  `rol_id_rol` INT NOT NULL DEFAULT 1,
   `rol_tipo_rol` VARCHAR(10) NOT NULL,
-  `rol_created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `rol_updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `rol_usuSesion` VARCHAR(20) NULL DEFAULT NULL,
-  `rol_autEstado` TINYINT(1) NULL DEFAULT NULL,
+  `rol_estado` TINYINT NOT NULL DEFAULT 1,
+  `rol_created_at` TIMESTAMP(10) NULL,
+  `rol_updated_at` TIMESTAMP(10) NULL,
+  `rol_usuSesion` VARCHAR(45) NULL,
   PRIMARY KEY (`rol_id_rol`),
-  UNIQUE INDEX `rol_tipo_rol_UNIQUE` (`rol_tipo_rol` ASC))
+  UNIQUE INDEX `tipoRol_UNIQUE` (`rol_tipo_rol` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -89,47 +89,34 @@ USE `proyecto` ;
 -- -----------------------------------------------------
 -- Table `proyecto`.`tipo_documento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto`.`tipo_documento` (
-  `tip_id` INT(10) NOT NULL,
-  `tip_sigla` VARCHAR(10) NULL DEFAULT NULL,
-  `tip_nombre_documento` VARCHAR(10) NULL DEFAULT NULL,
-  `tip_estado` VARCHAR(10) NULL DEFAULT NULL,
-  `tip_aud_estado` TINYINT(1) NULL DEFAULT NULL,
-  `tip_created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `tip_updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tip_UsuSesion` VARCHAR(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`tip_id`),
-  UNIQUE INDEX `tip_sigla_UNIQUE` (`tip_sigla` ASC))
+CREATE TABLE IF NOT EXISTS `proyecto`.`identificacion` (
+  `ide_id` INT NOT NULL,
+  `ide_sigla` INT NULL,
+  `ide_estado` TINYINT NOT NULL DEFAULT 1,
+  `ide_created_at` TIMESTAMP NULL,
+  `ide_updated_at` TIMESTAMP NULL,
+  `ide_usuSesion` VARCHAR(20) NULL,
+  PRIMARY KEY (`ide_id`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `proyecto`.`constructora`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
-  `con_id` INT(10) NOT NULL,
-  `con_estado` VARCHAR(10) NOT NULL,
-  `con_nombre_empresa` VARCHAR(10) NOT NULL,
-  `con_id_tipo_documento` INT(10) NOT NULL,
-  `con_id_system_user` INT(10) NOT NULL,
-  `con_numero_documento` VARCHAR(10) NOT NULL,
-  `con_created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `con_updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `con_usuSesion` VARCHAR(20) NULL DEFAULT NULL,
-  `con_autEstado` TINYINT(1) NULL DEFAULT NULL,
-  `usuario_s_usuId` INT NOT NULL,
-  PRIMARY KEY (`con_id`, `con_id_tipo_documento`, `con_id_system_user`),
-  INDEX `fk_tipo_documento_has_system_user_tipo_documento1_idx` (`con_id_tipo_documento` ASC),
-  UNIQUE INDEX `con_nombre_empresa_UNIQUE` (`con_nombre_empresa` ASC),
-  UNIQUE INDEX `con_numero_documento_UNIQUE` (`con_numero_documento` ASC),
-  INDEX `fk_constructora_usuario_s1_idx` (`usuario_s_usuId` ASC),
-  CONSTRAINT `fk_tipo_documento_has_system_user_tipo_documento1`
-    FOREIGN KEY (`con_id_tipo_documento`)
-    REFERENCES `proyecto`.`tipo_documento` (`tip_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_constructora_usuario_s1`
-    FOREIGN KEY (`usuario_s_usuId`)
-    REFERENCES `proyecto`.`usuario_s` (`usuId`)
+  `con_id` INT NOT NULL,
+  `con_estado` TINYINT NOT NULL DEFAULT 1,
+  `con_nombre_empresa` VARCHAR(10) NULL,
+  `con_id_identificacion` INT NULL,
+  `con_sigla_identificacion` INT NULL,
+  `con_created_at` TIMESTAMP NULL,
+  `con_updated_at` TIMESTAMP NULL,
+  `con_usuSesion` VARCHAR(20) NULL,
+  `usuario_s_usuld` INT NULL,
+  PRIMARY KEY (`con_id`),
+  INDEX `fk_constructora_identificacion1_idx` (`con_id_identificacion` ASC, `con_sigla_identificacion` ASC) VISIBLE,
+  CONSTRAINT `fk_constructora_identificacion1`
+    FOREIGN KEY (`con_id_identificacion` , `con_sigla_identificacion`)
+    REFERENCES `proyecto`.`identificacion` (`ide_id` , `ide_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -138,41 +125,41 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`ubicacion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`ubicacion` (
-  `ubi_id` INT(10) NOT NULL,
-  `ubi_direccion` VARCHAR(50) NOT NULL,
-  `ubi_created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `ubi_updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `ubi_usuSesion` VARCHAR(20) NULL DEFAULT NULL,
-  `ubi_autEstado` TINYINT(1) NULL DEFAULT NULL,
-  PRIMARY KEY (`ubi_id`),
-  UNIQUE INDEX `ubi_direccion_UNIQUE` (`ubi_direccion` ASC))
+  `ubi_id` INT NOT NULL,
+  `ubi_estado` TINYINT NOT NULL DEFAULT 1,
+  `ubi_direccion` VARCHAR(50) NULL,
+  `ubi_created_at` TIMESTAMP NULL,
+  `ubi_updated_at` TIMESTAMP NULL,
+  `ubi_usuSesion` VARCHAR(20) NULL,
+  `ubicacioncol` VARCHAR(45) NULL,
+  PRIMARY KEY (`ubi_id`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `proyecto`.`sede`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`sede` (
-  `sed_id` INT(10) NOT NULL,
-  `sed_fecha_modificacion` TIMESTAMP NOT NULL,
-  `sed_estado` VARCHAR(50) NULL DEFAULT NULL,
-  `sed_ubicacion_id` INT(10) NOT NULL,
-  `sed_nombre_sede` VARCHAR(50) NOT NULL,
-  `sed_constructora_id` INT(10) NOT NULL,
-  `sed_created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `sed_updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sed_usuSesion` VARCHAR(20) NULL DEFAULT NULL,
-  `sed_autEstado` TINYINT(1) NULL DEFAULT NULL,
-  PRIMARY KEY (`sed_id`, `sed_ubicacion_id`, `sed_constructora_id`),
-  INDEX `fk_sede_ubicacion1_idx` (`sed_ubicacion_id` ASC),
-  INDEX `fk_sede_constructora1_idx` (`sed_constructora_id` ASC),
-  CONSTRAINT `fk_sede_ubicacion1`
-    FOREIGN KEY (`sed_ubicacion_id`)
-    REFERENCES `proyecto`.`ubicacion` (`ubi_id`)
+  `sede_id` INT NULL,
+  `sede_fecha_modificacion` VARCHAR(45) NULL,
+  `sede_estado` TINYINT NOT NULL DEFAULT 1,
+  `sede_ubicacion_id` INT NULL,
+  `sede_nombre_sede` VARCHAR(45) NULL,
+  `sede_constructora_id` INT NULL,
+  `sede_created_at` TIMESTAMP NULL,
+  `sede_updated_at` TIMESTAMP NULL,
+  `sede_usuSesion` VARCHAR(20) NULL,
+  PRIMARY KEY (`sede_id`),
+  UNIQUE INDEX `sede_ide_UNIQUE` (`sede_id` ASC) VISIBLE,
+  INDEX `fk_sede_constructora1_idx` (`sede_constructora_id` ASC) VISIBLE,
+  INDEX `fk_sede_ubicacion1_idx` (`sede_ubicacion_id` ASC) VISIBLE,
+  CONSTRAINT `fk_sede_constructora1`
+    FOREIGN KEY (`sede_constructora_id`)
+    REFERENCES `proyecto`.`constructora` (`con_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_sede_constructora1`
-    FOREIGN KEY (`sed_constructora_id`)
-    REFERENCES `proyecto`.`constructora` (`con_id`)
+  CONSTRAINT `fk_sede_ubicacion1`
+    FOREIGN KEY (`sede_ubicacion_id`)
+    REFERENCES `proyecto`.`ubicacion` (`ubi_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -238,12 +225,12 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`trabajador` (
   INDEX `fk_trabajador_tipo_documento1_idx` (`tra_tipo_documento_id` ASC),
   CONSTRAINT `fk_trabajador_sede1`
     FOREIGN KEY (`tra_sede_id`)
-    REFERENCES `proyecto`.`sede` (`sed_id`)
+    REFERENCES `proyecto`.`sede` (`sede_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_trabajador_tipo_documento1`
     FOREIGN KEY (`tra_tipo_documento_id`)
-    REFERENCES `proyecto`.`tipo_documento` (`tip_id`)
+    REFERENCES `proyecto`.`identificacion` (`ide_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -283,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`proyecto` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_proyecto_sede1`
     FOREIGN KEY (`pro_sede_id`)
-    REFERENCES `proyecto`.`sede` (`sed_id`)
+    REFERENCES `proyecto`.`sede` (`sede_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_proyecto_recibido1`
