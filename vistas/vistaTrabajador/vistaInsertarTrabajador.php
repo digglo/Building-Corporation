@@ -7,8 +7,8 @@ echo "</pre>"; */
 
 ?>
 <div class="panel-heading">
-    <h2 class="panel-title">Gestión de Roles</h2>
-    <h3 class="panel-title">Inserción de Roles.</h3>
+    <h2 class="panel-title">Gestión de Trabajador</h2>
+    <h3 class="panel-title">Inserción de Trabajador.</h3>
 </div>
 <div>
     <fieldset>
@@ -17,23 +17,49 @@ echo "</pre>"; */
                 <tr>
                     <td>ID</td>
                     <td>
-                        <input class="form-control" placeholder="Id" name="rol_id_rol" type="number" pattern="" required="required" autofocus 
-						value=<?php if(isset($_SESSION['rol_id_rol'])) echo $_SESSION['rol_id_rol']; unset($_SESSION['isbn']);  ?>>
+                        <input class="form-control" placeholder="Id" name="tra id" type="number" pattern="" required="required" autofocus 
+						value=<?php if(isset($_SESSION['tra_id'])) echo $_SESSION['tra_id']; unset($_SESSION['isbn']);  ?>>
                         <div></div>  
                     </td>
                 </tr>
                 <tr>
-                    <td>Tipo de Rol</td>
+                    <td>primer nombre </td>
                     <td>                
-                        <input class="form-control" placeholder="Tipo de Rol" name="rol_tipo_rol" type="text"   required="required" 
-						value=<?php if(isset($_SESSION['rol_tipo_rol'])) echo $_SESSION['rol_tipo_rol']; unset($_SESSION['titulo']);  ?>>
+                        <input class="form-control" placeholder="primer nombre" name="tra_primer_nombre" type="text"   required="required" 
+						value=<?php if(isset($_SESSION['tra_primer_nombre'])) echo $_SESSION['tra_primer_nombre']; unset($_SESSION['titulo']);  ?>>
                         <div></div>                              
                     </td>
                 </tr>
                 
+
+                
+                <tr>
+                    <td>Primer apellido</td>
+                    <td>                
+                        <input class="form-control" placeholder="primer apellido" name="tra_primer_apellido" type="text"   required="required" 
+						value=<?php if(isset($_SESSION['tra_primer_apellido'])) echo $_SESSION['tra_primer_apellido']; unset($_SESSION['titulo']);  ?>>
+                        <div></div>                              
+                    </td>
+                </tr> 
+
+
+                <tr>
+                    <td>Tipo documento</td>
+                    <td>                
+                        <input class="form-control" placeholder="Tipo documento" name="tra_tipo_documento_id" type="text"   required="required" 
+						value=<?php if(isset($_SESSION['tra_tipo_documento_id'])) echo $_SESSION['tra_tipo_documento_id']; unset($_SESSION['titulo']);  ?>>
+                        <div></div>                              
+                    </td>
+                </tr> 
+
+
+
                     <td>            
-                        <button type="submit" name="ruta" value="cancelarInsertarRol">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="insertarRol">Agregar Libro</button>
+                        <button type="submit" name="ruta" value="cancelarInsertarTrabajador">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
+                        <button type="submit" name="ruta" value="insertarTrabajador">Agregar Trabajador
+
+
+                        </button>
                     </td>
                 </tr>  
             </table>
