@@ -54,9 +54,9 @@ if(isset($_SESSION['listarTrabajador'])){
                 ?>
                 <tr>
                     <td><?php echo $listaTrabajador[$i]->tra_id; ?></td>  
-                    <td><?php echo $listaTrabajador[$i]->miguel; ?></td>
-                    <td><?php echo $listaTrabajador[$i]->urrego; ?></td> 
-                    <td><?php echo $listaTrabajador[$i]->c.c100072910; ?></td>   
+                    <td><?php echo $listaTrabajador[$i]->tra_primer_nombre; ?></td>
+                    <td><?php echo $listaTrabajador[$i]->tra_primer_apellido; ?></td> 
+                    <td><?php echo $listaTrabajador[$i]->tra_tipo_documento_id; ?></td>   
                      
                     <!--<td>d>-->  
                     <td><a href="Controlador.php?ruta=actualizarTrabajador&idAct=<?php echo $listaTrabajador[$i]->tra_id; ?>">Actualizar</a></td>  
