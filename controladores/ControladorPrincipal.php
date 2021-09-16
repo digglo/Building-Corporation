@@ -3,8 +3,13 @@
 include_once PATH . 'controladores/RolControlador.php';
 include_once PATH . 'controladores/TipoDocumentoControlador.php';
 include_once PATH . 'controladores/ConstructoraControlador.php';
+<<<<<<< HEAD
 include_once PATH . 'controladores/sedeControlador.php';
 include_once PATH . 'controladores/ubicacionControlador.php';
+=======
+include_once PATH . 'controladores/RecibidoControlador.php';
+include_once PATH . 'controladores/UtilizadoControlador.php';
+>>>>>>> main
 
 class ControladorPrincipal {
 
@@ -106,6 +111,7 @@ class ControladorPrincipal {
 
 
 
+<<<<<<< HEAD
             case "listarSede":
                 $this->listarSede();
                 break;
@@ -160,6 +166,61 @@ class ControladorPrincipal {
                 $this->eliminarUbicacion();
                 break;    
         
+=======
+
+            case "listarRecibido":
+                $this->listarRecibido();
+                break;
+            case "mostrarActualizarRecibido":
+                $this->mostrarActualizarRecibido();
+                break;
+            case "confirmarActualizarRecibido":
+                $this->confirmarActualizarRecibido();
+                break;
+            case "cancelarActualizarRecibido":
+                $this->cancelarActualizarRecibido();
+                break;
+            case "mostrarInsertarRecibido":
+                $this->mostrarInsertarRecibido();
+                break;
+            case "insertarRecibido":
+                $this->insertarRecibido();
+                break;
+            case "cancelarInsertarRecibido":
+                $this->cancelarInsertarRecibido();
+                break;
+            case "eliminarRecibido":
+                $this->eliminarRecibido();
+                break;
+
+
+
+
+            case "listarUtilizado":
+                $this->listarUtilizado();
+                break;
+            case "mostrarActualizarUtilizado":
+                $this->mostrarActualizarUtilizado();
+                break;
+            case "confirmarActualizarUtilizado":
+                $this->confirmarActualizarUtilizado();
+                break;
+            case "cancelarActualizarUtilizado":
+                $this->cancelarActualizarUtilizado();
+                break;
+            case "mostrarInsertarUtilizado":
+                $this->mostrarInsertarUtilizado();
+                break;
+            case "insertarUtilizado":
+                $this->insertarUtilizado();
+                break;
+            case "cancelarInsertarUtilizado":
+                $this->cancelarInsertarUtilizado();
+                break;
+            case "eliminarUtilizado":
+                $this->eliminarUtilizado();
+                break;
+>>>>>>> main
         }
     }
 
@@ -247,9 +308,14 @@ class ControladorPrincipal {
 
 
 
+<<<<<<< HEAD
       
 
 
+=======
+
+ 
+>>>>>>> main
     public function listarConstrutora() {
 
         $ConstuctoraControlador = new ConstuctoraControlador($this->datos);
@@ -293,6 +359,7 @@ class ControladorPrincipal {
 
 
 
+<<<<<<< HEAD
     public function listarSede() {
 
         $usuario_sControlador = new sedeControlador($this->datos);
@@ -377,6 +444,92 @@ class ControladorPrincipal {
 
 
         
+=======
+
+    public function listarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function mostrarActualizarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function confirmarActualizarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function cancelarActualizarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function mostrarInsertarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function insertarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function cancelarInsertarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function eliminarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+
+
+
+
+    public function listarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function mostrarActualizarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function confirmarActualizarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function cancelarActualizarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function mostrarInsertarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function insertarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function cancelarInsertarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function eliminarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+>>>>>>> main
 }
 
 ?>

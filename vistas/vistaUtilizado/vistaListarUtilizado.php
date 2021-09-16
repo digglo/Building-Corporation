@@ -28,10 +28,10 @@ if (isset($_SESSION['mensaje'])) {
 	
 	<body>
 <?php
-if(isset($_SESSION['listaDeRoles'])){
+if(isset($_SESSION['listaDeUtilizados'])){
 	
-	 $listaDeRoles=$_SESSION['listaDeRoles'];
-	 unset($_SESSION['listaDeRoles']);
+	 $listaDeUtilizados=$_SESSION['listaDeUtilizados'];
+	 unset($_SESSION['listaDeUtilizados']);
 	
 }
 ?>
@@ -39,7 +39,7 @@ if(isset($_SESSION['listaDeRoles'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>Tipo Rol</th> 
+                <th>Cantidad Utilizado</th> 
                 <!--<th>Estado</th>-->  
                 <th>Edit</th> 
                 <th>Delete</th> 
@@ -48,19 +48,19 @@ if(isset($_SESSION['listaDeRoles'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeRoles as $key => $value) {
+            foreach ($listaDeUtilizados as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeRoles[$i]->rol_id_rol; ?></td>  
-                    <td><?php echo $listaDeRoles[$i]->rol_tipo_rol; ?></td>  
+                    <td><?php echo $listaDeUtilizados[$i]->uti_id; ?></td>  
+                    <td><?php echo $listaDeUtilizados[$i]->uti_cantidad_utilizado; ?></td>  
                     <!--<td>d>-->   
-                    <td><a href="Controlador.php?ruta=mostrarActualizarUtilizado&idAct=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarUtilizado&idAct=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><a href="Controlador.php?ruta=mostrarActualizarUtilizado&idAct=<?php echo $listaDeUtilizados[$i]->uti_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarRol&idAct=<?php echo $listaDeUtilizados[$i]->uti_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeRoles=null;
+            $listaDeUtilizados=null;
             ?>
         </tbody>
     </table>

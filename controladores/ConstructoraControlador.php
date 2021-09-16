@@ -78,11 +78,12 @@ class ConstuctoraControlador {
     }
 
     public function confirmarActualizarConstructora() {
+
+
         $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarDatosConstructora = $gestarConstructora->actualizar(array($this->datos)); //Se envía datos del libro para actualizar. 				
+        $actualizarDatosConstructora = $gestarConstructora->actualizar(array($this->datos)); 		
 
         session_start();
-        $_SESSION['mensaje'] = "Actualización realizada.";
         header("location:Controlador.php?ruta=listarConstrutora");
     }
 
@@ -93,37 +94,47 @@ class ConstuctoraControlador {
 
     public function mostrarInsertarConstructora() {
 
-        session_start();
+        $gestarTipoDocumento = new TipoDocumentoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $listarTipoDocumento = $gestarTipoDocumento->seleccionarTodos();
 
-        header("Location: principal1.php?contenido=vistas/vistaTipoDocumento/vistaInsertarTipoDocumento.php");
+        $gestarUsuario = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $listarUsuario = $gestarUsuario->seleccionarTodos();
+
+        session_start();
+        $_SESSION['actualizarDatosTipoDocumento'] = $listarTipoDocumento;
+        $_SESSION['actualizarDatosUsuario'] = $listarUsuario;
+
+        header("Location: principal1.php?contenido=vistas/vistaConstructora/vistaInsertarConstructora.php");
     }
 
     public function insertarConstructora() {
 
         //Se instancia LibroDAO para insertar
-        $buscarTipoDocumento = new TipoDocumentoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $buscarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
         //Se consulta si existe ya el registro
-        $tipoDocumentoHallado = $buscarTipoDocumento->seleccionarId(array($this->datos['tip_id']));
+        $constructoraHallado = $buscarConstructora->seleccionarId(array($this->datos['con_id']));
         //Si no existe el libro en la base se procede a insertar ****  		
-        if (!$tipoDocumentoHallado['exitoSeleccionId']) {
-            $insertarTipoDocumento = new TipoDocumentoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-            $insertoTipoDocumento = $insertarTipoDocumento->insertar($this->datos);  //inserción de los campos en la tabla libros 
+        if (!$constructoraHallado['exitoSeleccionId']) {
+            $insertarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+            $insertoConstructora = $insertarConstructora->insertar($this->datos);  //inserción de los campos en la tabla libros 
 
             $resultadoInsercionTipoDocumento = $insertoTipoDocumento['resultado'];  //Traer el id con que quedó el libro de lo contrario la excepción o fallo  
 
             session_start();
             $_SESSION['mensaje'] = "Registrado " ;
 
-            header("location:Controlador.php?ruta=listarTipoDocumento");
+            header("location:Controlador.php?ruta=listarConstrutora");
         } else {// Si existe se retornan los datos y se envía el mensaje correspondiente ****
             session_start();
-            $_SESSION['tip_id'] = $this->datos['tip_id'];
-            $_SESSION['tip_nombre_documento'] = $this->datos['tip_nombre_documento'];
-            $_SESSION['tip_sigla'] = $this->datos['tip_sigla'];
+            $_SESSION['con_id'] = $this->datos['con_id'];
+            $_SESSION['con_nombre_empresa'] = $this->datos['con_nombre_empresa'];
+            $_SESSION['con_numero_documento'] = $this->datos['con_numero_documento'];
+            $_SESSION['con_id_tipo_documento'] = $this->datos['con_id_tipo_documento'];
+            $_SESSION['usuario_s_usuId'] = $this->datos['usuario_s_usuId'];
 
-            $_SESSION['mensaje'] = "   El código " . $this->datos['tip_id'] . " ya existe en el sistema.";
+            $_SESSION['mensaje'] = "   El código " . $this->datos['con_id'] . " ya existe en el sistema.";
 
-            header("location:Controlador.php?ruta=mostrarInsertarTipoDocumento");
+            header("location:Controlador.php?ruta=mostrarInsertarConstructora");
         }
     }
 
@@ -135,11 +146,11 @@ class ConstuctoraControlador {
     }
 
     public function eliminarConstructora() {
-        $gestarTipoDocumento = new TipoDocumentoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $gestarTipoDocumento = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
         $eliminarTipoDocumento = $gestarTipoDocumento->eliminar(array($this->datos[idAct])); //Se envía datos del libro para actualizar. 				
 
         session_start();
-        header("location:Controlador.php?ruta=listarTipoDocumento");
+        header("location:Controlador.php?ruta=listarConstrutora");
     }
 
 }

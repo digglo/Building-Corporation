@@ -97,7 +97,6 @@ class ConstructoraDAO extends ConBdMySql{
             $numeroDocumento = $registro[0]['con_numero_documento'];
             $tipoDocumento = $registro[0]['con_id_tipo_documento'];
             $usuario = $registro[0]['usuario_s_usuId'];
-            $estado = $registro[0]['con_estado'];
             $con_id = $registro[0]['con_id'];
             
             if(isset($con_id)){
@@ -105,13 +104,12 @@ class ConstructoraDAO extends ConBdMySql{
                 $consulta.= "set  con_nombre_empresa = ?, 
                                   con_numero_documento = ?,
                                   con_id_tipo_documento = ?,
-                                  usuario_s_usuId = ?,
-                                  con_estado = ?";
+                                  usuario_s_usuId = ?";
                 $consulta.= "where con_id = ?;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
 
-                $actualizacion = $actualizar->execute(array($nombreEmpresa, $numeroDocumento, $tipoDocumento, $usuario, $estado, $con_id));
+                $actualizacion = $actualizar->execute(array($nombreEmpresa, $numeroDocumento, $tipoDocumento, $usuario, $con_id));
 
                 $this->cierreBd();
 

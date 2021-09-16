@@ -28,10 +28,10 @@ if (isset($_SESSION['mensaje'])) {
 	
 	<body>
 <?php
-if(isset($_SESSION['listaDeRoles'])){
+if(isset($_SESSION['listaDeRecibidos'])){
 	
-	 $listaDeRoles=$_SESSION['listaDeRoles'];
-	 unset($_SESSION['listaDeRoles']);
+	 $listaDeRecibido=$_SESSION['listaDeRecibidos'];
+	 unset($_SESSION['listaDeRecibidos']);
 	
 }
 ?>
@@ -39,7 +39,9 @@ if(isset($_SESSION['listaDeRoles'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>Tipo Rol</th> 
+                <th>Material Recibido</th> 
+                <th>Numero de factura</th> 
+                <th>Cantidad Recibido</th> 
                 <!--<th>Estado</th>-->  
                 <th>Edit</th> 
                 <th>Delete</th> 
@@ -48,19 +50,21 @@ if(isset($_SESSION['listaDeRoles'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeRoles as $key => $value) {
+            foreach ($listaDeRecibido as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeRoles[$i]->rol_id_rol; ?></td>  
-                    <td><?php echo $listaDeRoles[$i]->rol_tipo_rol; ?></td>  
+                    <td><?php echo $listaDeRecibido[$i]->rec_id; ?></td>  
+                    <td><?php echo $listaDeRecibido[$i]->rec_material_construccion_id; ?></td>  
+                    <td><?php echo $listaDeRecibido[$i]->rec_num_factura; ?></td>  
+                    <td><?php echo $listaDeRecibido[$i]->rec_cantidad_recibido; ?></td> 
                     <!--<td>d>-->   
-                    <td><a href="Controlador.php?ruta=mostrarActualizarUtilizado&idAct=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarUtilizado&idAct=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><a href="Controlador.php?ruta=mostrarActualizarRecibido&idAct=<?php echo $listaDeRecibido[$i]->rec_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarRecibido&idAct=<?php echo $listaDeRecibido[$i]->rec_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeRoles=null;
+            $listaDeRecibido=null;
             ?>
         </tbody>
     </table>
