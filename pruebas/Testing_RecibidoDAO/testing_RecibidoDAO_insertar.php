@@ -10,7 +10,6 @@ $registro['rec_id']=12;
 $registro['rec_num_factura']="2252819rc";
 $registro['rec_cantidad_recibido']=12000;
 $registro['rec_material_construccion_id']=2;
-$registro['rec_fecha_recibido']='2001-07-20';
 
 //echo "<pre>";
 //print_r($registro);
