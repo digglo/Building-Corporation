@@ -13,7 +13,7 @@ if (isset($_SESSION['mensaje'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Contenido de la Tabla Ubicacion</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -28,21 +28,19 @@ if (isset($_SESSION['mensaje'])) {
 	
 	<body>
 <?php
-if(isset($_SESSION['listarTrabajador'])){
+if(isset($_SESSION['listaDeUbicacion'])){
 	
-	 $listaSede=$_SESSION['listarTrabajador'];
-	 unset($_SESSION['listarTrabajador']);
+	 $listaDeUbicacion=$_SESSION['listaDeUbicacion'];
+	 unset($_SESSION['listaDeUbicacion']);
 	
 }
 ?>
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>id</th> 
-                <th>miguel </th> 
-                <th>urrego </th> 
-                <th>c.c 1000572910 </th>  
-                <!--<th>Estado</th>--> 
+                <th>Id</th> 
+                <th>direccion</th> 
+                <!--<th>Estado</th>-->  
                 <th>Edit</th> 
                 <th>Delete</th> 
             </tr>
@@ -50,22 +48,19 @@ if(isset($_SESSION['listarTrabajador'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaTrabajador as $key => $value) {
+            foreach ($listaDeUbicacion as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaTrabajador[$i]->tra_id; ?></td>  
-                    <td><?php echo $listaTrabajador[$i]->tra_primer_nombre; ?></td>
-                    <td><?php echo $listaTrabajador[$i]->tra_primer_apellido; ?></td> 
-                    <td><?php echo $listaTrabajador[$i]->tra_tipo_documento_id; ?></td>   
-                     
-                    <!--<td>d>-->  
-                    <td><a href="Controlador.php?ruta=actualizarTrabajador&idAct=<?php echo $listaTrabajador[$i]->tra_id; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarTrabajador&idAct=<?php echo $listaTrabajador[$i]->tra_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeUbicacion[$i]->ubi_id; ?></td>  
+                    <td><?php echo $listaDeUbicacion[$i]->ubi_direccion; ?></td>  
+                    <!--<td>d>-->   
+                    <td><a href="Controlador.php?ruta=mostrarActualizarUbicacion&idAct=<?php echo $listaDeUbicacion[$i]->ubi_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarUbicacion&idAct=<?php echo $listaDeUbicacion[$i]->ubi_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaTrabajador=null;
+            $listaDeUbicacion=null;
             ?>
         </tbody>
     </table>
@@ -91,4 +86,3 @@ if(isset($_SESSION['listarTrabajador'])){
 
 </body>
 </html>
-	

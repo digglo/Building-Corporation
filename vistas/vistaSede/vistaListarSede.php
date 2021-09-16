@@ -28,10 +28,10 @@ if (isset($_SESSION['mensaje'])) {
 	
 	<body>
 <?php
-if(isset($_SESSION['listarSede'])){
+if(isset($_SESSION['listaDeSede'])){
 	
-	 $listaSede=$_SESSION['listarSede'];
-	 unset($_SESSION['listarSede']);
+	 $listaSede=$_SESSION['listaDeSede'];
+	 unset($_SESSION['listaDeSede']);
 	
 }
 ?>
@@ -39,8 +39,9 @@ if(isset($_SESSION['listarSede'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>sede constructora</th> 
-                <th>sede ubicacion</th> 
+                <th>ubicacion</th> 
+                <th>constructora</th>
+                <th>nombre sede</th>
                 <!--<th>Estado</th>--> 
                 <th>Edit</th> 
                 <th>Delete</th> 
@@ -53,10 +54,11 @@ if(isset($_SESSION['listarSede'])){
                 ?>
                 <tr>
                     <td><?php echo $listaSede[$i]->sed_id; ?></td>  
+                    <td><?php echo $listaSede[$i]->sed_ubicacion_id; ?></td>
                     <td><?php echo $listaSede[$i]->sed_constructora_id; ?></td>  
-                    <td><?php echo $listaSede[$i]->sed_ubicacion_id; ?></td>  
+                    <td><?php echo $listaSede[$i]->sed_nombre_sede; ?></td>  
                     <!--<td>d>-->  
-                    <td><a href="Controlador.php?ruta=actualizarSede&idAct=<?php echo $listaSede[$i]->sed_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=mostrarActualizarSede&idAct=<?php echo $listaSede[$i]->sed_id; ?>">Actualizar</a></td>  
                     <td><a href="Controlador.php?ruta=eliminarSede&idAct=<?php echo $listaSede[$i]->sed_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php

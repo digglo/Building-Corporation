@@ -57,7 +57,20 @@ if (isset($_SESSION['mensaje'])) {
            <br/>
               <a href="Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>   	 
 	     </div>
+		 <div class="gestion">Menú Operaciones en Sede
+	       <br/>
+	         <a href="Controlador.php?ruta=listarSede&pag=0">Listar Sede</a>
+           <br/>
+              <a href="Controlador.php?ruta=mostrarInsertarSede">Agregar Sede</a>   	 
+	     </div>
 	 
+		 <div class="gestion">Menú Operaciones en Ubicacion
+	       <br/>
+	         <a href="Controlador.php?ruta=listarUbicacion&pag=0">Listar Ubicacion</a>
+           <br/>
+              <a href="Controlador.php?ruta=mostrarInsertarUbicacion">Agregar Ubicacion</a>   	 
+	     </div>
+
      <div id="contenido">
 		 <br/>
 	 <br/>
