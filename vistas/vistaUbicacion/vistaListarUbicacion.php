@@ -28,10 +28,10 @@ if (isset($_SESSION['mensaje'])) {
 	
 	<body>
 <?php
-if(isset($_SESSION['listarUbicacion'])){
+if(isset($_SESSION['listaDeUbicaciones'])){
 	
-	 $listaSede=$_SESSION['listarUbicacion'];
-	 unset($_SESSION['listarUbicacion']);
+	 $listaUbicacion=$_SESSION['listaDeUbicaciones'];
+	 unset($_SESSION['listaDeUbicaciones']);
 	
 }
 ?>
@@ -48,11 +48,11 @@ if(isset($_SESSION['listarUbicacion'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaUbicacion as $key => $value) {
+            foreach ( $listaUbicacion as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaUbicacion[$i]->ubi_id; ?></td>  
-                    <td><?php echo $listaUbicacion[$i]->ubi_direccion; ?></td>  
+                    <td><?php echo  $listaUbicacion[$i]->ubi_id; ?></td>  
+                    <td><?php echo  $listaUbicacion[$i]->ubi_direccion; ?></td>  
                      
                     <!--<td>d>-->  
                     <td><a href="Controlador.php?ruta=actualizarUbicacion&idAct=<?php echo $listaUbicacion[$i]->ubi_id; ?>">Actualizar</a></td>  

@@ -45,34 +45,27 @@ class RecibidoDAO extends ConBdMySql{
 
     public function insertar($registro){
 
-        //echo "<pre>";
-        //print_r($registro);
-        //echo "</pre>";
-
-        //exit();
 
         try {
+
             
             $consulta="insert into recibido ";
             $consulta.= " (rec_id, 
                           rec_num_factura, 
                           rec_cantidad_recibido,
-                          rec_material_construccion_id,
-                          rec_fecha_recibido) ";
+                          rec_material_construccion_id) ";
             $consulta.= " values (:rec_id, 
                                  :rec_num_factura, 
                                  :rec_cantidad_recibido,
-                                 :rec_material_construccion_id,
-                                 :rec_fecha_recibido);" ;
+                                 :rec_material_construccion_id);" ;
+
 
             $insertar=$this->conexion->prepare($consulta);
-
 
             $insertar -> bindParam(":rec_id", $registro['rec_id']);
             $insertar -> bindParam(":rec_num_factura", $registro['rec_num_factura']);
             $insertar -> bindParam(":rec_cantidad_recibido", $registro['rec_cantidad_recibido']);
             $insertar -> bindParam(":rec_material_construccion_id", $registro['rec_material_construccion_id']);
-            $insertar -> bindParam(":rec_fecha_recibido", $registro['rec_fecha_recibido']);
 
 
             $insercion = $insertar->execute();
