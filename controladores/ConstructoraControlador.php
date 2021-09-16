@@ -1,8 +1,8 @@
 <?php
 
-include_once PATH . 'modelos/modeloConstructora/constructoraDAO.php';
-include_once PATH . 'modelos/modeloUsuario_s/Usuario_SDAO.php';
-include_once PATH . 'modelos/modeloTipoDocumento/tipoDocumentoDAO.php';
+include_once '../modelos/modeloConstructora/constructoraDAO.php';
+include_once '../modelos/modeloUsuario_s/Usuario_SDAO.php';
+include_once '../modelos/modeloTipoDocumento/tipoDocumentoDAO.php';
 
 class ConstuctoraControlador {
 

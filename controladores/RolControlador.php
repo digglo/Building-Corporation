@@ -1,6 +1,6 @@
 <?php
 
-include_once PATH . 'modelos/modeloRol/RolDAO.php';
+include_once '../modelos/modeloRol/RolDAO.php';
 
 class RolControlador {
 

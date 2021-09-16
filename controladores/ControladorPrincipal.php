@@ -1,10 +1,10 @@
 <?php
 
-include_once PATH . 'controladores/RolControlador.php';
-include_once PATH . 'controladores/TipoDocumentoControlador.php';
-include_once PATH . 'controladores/ConstructoraControlador.php';
-include_once PATH . 'controladores/RecibidoControlador.php';
-include_once PATH . 'controladores/UtilizadoControlador.php';
+include_once 'RolControlador.php';
+include_once 'TipoDocumentoControlador.php';
+include_once 'ConstructoraControlador.php';
+include_once 'RecibidoControlador.php';
+include_once 'UtilizadoControlador.php';
 
 class ControladorPrincipal {
 
