@@ -1,8 +1,18 @@
 <?php
 
 if (isset($_SESSION['actualizarDatosTrabajador'])) {
-    $actualizarDatosSede = $_SESSION['actualizarDatosTrabajador'];
+    $actualizarDatosTrabajador = $_SESSION['actualizarDatosTrabajador'];
     unset($_SESSION['actualizarDatosTrabajador']);
+}
+
+if (isset($_SESSION['actualizarDatosTrabajador'])) {
+    $listarTipoDocumento = $_SESSION['actualizarDatosTrabajador'];
+    $TipoDocumentoCantidad = count($listarTipoDocumento);
+}
+
+if (isset($_SESSION['actualizarDatosUsuario'])) {
+    $listarUsuario = $_SESSION['actualizarDatosUsuario'];
+    $usuarioCantidad = count($listarUsuario);
 }
 
 /* echo "<pre>";
@@ -11,7 +21,7 @@ echo "<pre>"; */
 
 ?>
 <div class="panel-heading">
-    <h2 class="panel-title">Gestión de trabajador</h2>
+    <h2 class="panel-title">Gestión de Trabajador</h2>
     <h3 class="panel-title">Actualización de Trabajador.</h3>
 </div>
 <div>
@@ -28,43 +38,41 @@ echo "<pre>"; */
                     </td>
                 </tr>                  
                 <tr>
-                    <td> tra_primer_nombre:</td>
+                    <td>Primer nombre:</td>
                     <td>                  
-                        <input class="form-control" placeholder="primer nombre" name="tra_primer_nombre" type="text"  required="required" 
+                        <input class="form-control" placeholder="Primer nombre" name="tra_primer_nombre" type="text"  required="required" 
                                value="<?php 
 									if(isset($actualizarDatosTrabajador->tra_primer_nombre)){ echo $actualizarDatosTrabajador->tra_primer_nombre; }
 							   ?>">
                     </td>
 
-                    
-                    <td> tra_primer_apellido:</td>
+                    <td>Primer apellido:</td>
                     <td>                  
-                        <input class="form-control" placeholder="primer apellido" name="tra_primer_apellido" type="text"  required="required" 
+                        <input class="form-control" placeholder="Primer apellido" name="tra_primer_apellido" type="text"  required="required" 
                                value="<?php 
 									if(isset($actualizarDatosTrabajador->tra_primer_apellido)){ echo $actualizarDatosTrabajador->tra_primer_apellido; }
 							   ?>">
                     </td>
 
-                    
-
-                    <td> tra_tipo_documento_id:</td>
+                    <td>Tipo documento:</td>
                     <td>                  
-                        <input class="form-control" placeholder="tipo documento" name="tra_tipo_documento_id" type="text"  required="required" 
+                        <input class="form-control" placeholder="Tipo documento" name="tra_tipo_documento_id" type="text"  required="required" 
                                value="<?php 
 									if(isset($actualizarDatosTrabajador->tra_tipo_documento_id)){ echo $actualizarDatosTrabajador->tra_tipo_documento_id; }
 							   ?>">
                     </td>
 
-                    
 
-                </tr>               
+
+        
+                </tr>              
                 <tr>            
                     <td>            
-                        <button type="submit" name="ruta" value="cancelarActualizarRol">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="confirmarActualizarRol">Actualizar Libro</button>
+                        <button type="submit" name="ruta" value="cancelarActualizarConstructora">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
+                        <button type="submit" name="ruta" value="confirmarActualizarConstructora">Actualizar Libro</button>
                     </td>
                 </tr>             
             </table>
         </form>
     </fieldset>
-</div>		
+</div>	
