@@ -95,7 +95,7 @@ class RolControlador {
         //Se consulta si existe ya el registro
         $RolHallado = $buscarRol->seleccionarId(array($this->datos['rol_id_rol']));
         //Si no existe el libro en la base se procede a insertar ****  		
-        if (!$RoloHallado['exitoSeleccionId']) {
+        if (!$RolHallado['exitoSeleccionId']) {
             $insertarRol = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
             $insertoRol = $insertarRol->insertar($this->datos);  //inserción de los campos en la tabla libros 
 
