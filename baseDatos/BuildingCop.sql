@@ -26,7 +26,7 @@ USE `mydb` ;
 -- Table `proyecto`.`rol`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`rol` (
-  `rol_id_rol` INT NOT NULL DEFAULT 1,
+  `rol_id_rol` INT NOT NULL AUTO_INCREMENT,
   `rol_tipo_rol` VARCHAR(10) NOT NULL,
   `rol_estado` TINYINT NOT NULL DEFAULT 1,
   `rol_created_at` TIMESTAMP(6) NULL,
@@ -41,7 +41,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`identificacion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`identificacion` (
-  `ide_id` INT NOT NULL,
+  `ide_id` INT NOT NULL AUTO_INCREMENT,
   `ide_sigla` INT NULL,
   `ide_estado` TINYINT NOT NULL DEFAULT 1,
   `ide_created_at` TIMESTAMP NULL,
@@ -55,7 +55,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`constructora`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
-  `con_id` INT NOT NULL,
+  `con_id` INT NOT NULL AUTO_INCREMENT,
   `con_estado` TINYINT NOT NULL DEFAULT 1,
   `con_nombre_empresa` VARCHAR(10) NULL,
   `con_id_identificacion` INT NULL,
@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`ubicacion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`ubicacion` (
-  `ubi_id` INT NOT NULL,
+  `ubi_id` INT NOT NULL AUTO_INCREMENT,
   `ubi_estado` TINYINT NOT NULL DEFAULT 1,
   `ubi_direccion` VARCHAR(50) NULL,
   `ubi_created_at` TIMESTAMP NULL,
@@ -92,7 +92,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`sede`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`sede` (
-  `sede_id` INT NULL,
+  `sede_id` INT NULL AUTO_INCREMENT,
   `sede_fecha_modificacion` VARCHAR(45) NULL,
   `sede_estado` TINYINT NOT NULL DEFAULT 1,
   `sede_ubicacion_id` INT NULL,
@@ -122,7 +122,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`material_construccion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`material_construccion` (
-  `mat_id` INT NOT NULL,
+  `mat_id` INT NOT NULL AUTO_INCREMENT,
   `mat_nombre_material` VARCHAR(50) NULL,
   `mat_tipo_material` VARCHAR(30) NULL,
   `mat_precio` DOUBLE NULL,
@@ -139,7 +139,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`recibido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`recibido` (
-  `rec_id` INT NOT NULL,
+  `rec_id` INT NOT NULL AUTO_INCREMENT,
   `rec_numero_factura` VARCHAR(50) NULL,
   `rec_cantidad_recibido` INT NULL,
   `rec_fecha_recibido` DATE NULL,
@@ -163,7 +163,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`trabajador`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`trabajador` (
-  `tra_id` INT NOT NULL,
+  `tra_id` INT NOT NULL AUTO_INCREMENT,
   `tra_primer_nombre` VARCHAR(20) NULL,
   `tra_sedungo_nombre` VARCHAR(20) NULL,
   `tra_primer_apellido` VARCHAR(20) NULL,
@@ -195,7 +195,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`proyecto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`proyecto` (
-  `pro_id` INT NOT NULL,
+  `pro_id` INT NOT NULL AUTO_INCREMENT,
   `material_construccion_mat_id` INT NULL,
   `pro_tipo_proyecto` VARCHAR(50) NULL,
   `pro_nombre_proyecto` VARCHAR(50) NULL,
@@ -242,7 +242,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`utilizado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`utilizado` (
-  `uti_id` INT NOT NULL,
+  `uti_id` INT NOT NULL AUTO_INCREMENT,
   `uti_cantidad_utilizado` INT NULL,
   `uti_fecha_uso` DATE NULL,
   `uti_fecha_modificacion` TIMESTAMP NULL,
@@ -259,7 +259,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`stock`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`stock` (
-  `sto_id` INT NOT NULL,
+  `sto_id` INT NOT NULL AUTO_INCREMENT,
   `sto_cantidad_almacenada` INT NULL,
   `sto_fecha_modificacion` TIMESTAMP NULL,
   `sto_estado` TINYINT NOT NULL DEFAULT 1,
@@ -307,7 +307,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`registro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`registro` (
-  `reg_id` INT NOT NULL,
+  `reg_id` INT NOT NULL AUTO_INCREMENT,
   `reg_numero_registro` INT NULL,
   `reg_fecha_modificacion` TIMESTAMP NULL,
   `reg_comentarios` VARCHAR(50) NULL,
