@@ -57,13 +57,11 @@ if (isset($_SESSION['mensaje'])) {
            <br/>
               <a href="Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>   	 
 	     </div>
-<<<<<<< HEAD
 		 <div class="gestion">Menú Operaciones en Sede
 	       <br/>
 	         <a href="Controlador.php?ruta=listarSede&pag=0">Listar Sede</a>
            <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarSede">Agregar Sede</a>   	 
-=======
+              <a href="Controlador.php?ruta=mostrarInsertarSede">Agregar Sede</a>
 		 <div class="gestion">Menú Operaciones en Recibido
 	       <br/>
 	         <a href="Controlador.php?ruta=listarRecibido&pag=0">Listar Materiales Recibidos</a>
@@ -74,8 +72,7 @@ if (isset($_SESSION['mensaje'])) {
 	       <br/>
 	         <a href="Controlador.php?ruta=listarUtilizado&pag=0">Listar Materiales Utilizado</a>
            <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarUtilizado">Agregar Material Utilizado</a>   	 
->>>>>>> main
+              <a href="Controlador.php?ruta=mostrarInsertarUtilizado">Agregar Material Utilizado</a>
 	     </div>
 	 
 		 <div class="gestion">Menú Operaciones en Ubicacion
