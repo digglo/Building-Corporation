@@ -24,7 +24,7 @@ class RolDAO extends ConBdMySql {
 
     public function seleccionarID($sId){
 
-        $consulta="select * FROM proyecto.rol WHERE rol_id_rol=?";
+        $consulta="select * FROM rol WHERE rol_id_rol=?";
 
         $lista=$this->conexion->prepare($consulta);
         $lista->execute(array($sId[0]));
@@ -47,7 +47,7 @@ class RolDAO extends ConBdMySql {
 
         try {
             
-            $consulta="INSERT INTO proyecto.rol (rol_id_rol, rol_tipo_rol) VALUES (:rol_id_rol, :rol_tipo_rol);" ;
+            $consulta="INSERT INTO rol (rol_id_rol, rol_tipo_rol) VALUES (:rol_id_rol, :rol_tipo_rol);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
@@ -74,7 +74,7 @@ class RolDAO extends ConBdMySql {
             $rol_id_rol = $registro[0]['rol_id_rol'];
             
             if(isset($rol_id_rol)){
-                $consulta = "UPDATE proyecto.rol SET  rol_tipo_rol = ?
+                $consulta = "UPDATE rol SET  rol_tipo_rol = ?
                 WHERE rol_id_rol = ?";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
@@ -93,7 +93,7 @@ class RolDAO extends ConBdMySql {
 
     public function eliminar($sId = array()){
 
-        $consulta = "DELETE FROM proyecto.rol WHERE rol_id_rol = :rol_id_rol;";
+        $consulta = "DELETE FROM rol WHERE rol_id_rol = :rol_id_rol;";
 
         $eliminar = $this->conexion->prepare($consulta);
         $eliminar->bindParam(':rol_id_rol', $sId[0],PDO::PARAM_INT);
@@ -115,7 +115,7 @@ class RolDAO extends ConBdMySql {
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE proyecto.rol SET rol_estado = ? WHERE rol_id_rol = ?";
+                $actualizar = "UPDATE rol SET rol_estado = ? WHERE rol_id_rol = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -131,7 +131,7 @@ class RolDAO extends ConBdMySql {
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE proyecto.rol SET rol_autEstado = ? WHERE rol_id_rol = ?";
+                $actualizar = "UPDATE rol SET rol_autEstado = ? WHERE rol_id_rol = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

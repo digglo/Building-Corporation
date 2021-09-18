@@ -8,7 +8,7 @@ class TipoDocumentoDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "select * FROM proyecto.identificacion;";
+        $planconsulta = "select * FROM identificacion;";
 
         $registroTipoDocumento = $this->conexion->prepare($planconsulta);
         $registroTipoDocumento->execute();
@@ -24,7 +24,7 @@ class TipoDocumentoDAO extends ConBdMySql{
 
     public function seleccionarID($sId){
 
-        $consulta="select * FROM proyecto.identificacion WHERE ide_id=?";
+        $consulta="select * FROM identificacion WHERE ide_id=?";
 
         $lista=$this->conexion->prepare($consulta);
         $lista->execute(array($sId[0]));
@@ -47,7 +47,7 @@ class TipoDocumentoDAO extends ConBdMySql{
 
         try {
             
-            $consulta="INSERT INTO proyecto.identificacion (ide_id,ide_sigla) VALUES (:ide_id, :ide_sigla);" ;
+            $consulta="INSERT INTO identificacion (ide_id,ide_sigla) VALUES (:ide_id, :ide_sigla);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
@@ -74,7 +74,7 @@ class TipoDocumentoDAO extends ConBdMySql{
             $tip_id = $registro[0]['ide_id'];
             
             if(isset( $tip_id)){
-                $consulta = "UPDATE proyecto.identificacion SET  ide_sigla = ?
+                $consulta = "UPDATE identificacion SET  ide_sigla = ?
                 WHERE ide_id = ?;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
@@ -93,7 +93,7 @@ class TipoDocumentoDAO extends ConBdMySql{
 
     public function eliminar($sId = array()){
 
-        $consulta = "DELETE FROM proyecto.identificacion WHERE ide_id = :ide_id;";
+        $consulta = "DELETE FROM identificacion WHERE ide_id = :ide_id;";
 
         $eliminar = $this->conexion->prepare($consulta);
         $eliminar->bindParam(':ide_id', $sId[0],PDO::PARAM_INT);
@@ -115,7 +115,7 @@ class TipoDocumentoDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE proyecto.identificacion SET ide_estado = ? WHERE ide_id = ?";
+                $actualizar = "UPDATE identificacion SET ide_estado = ? WHERE ide_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -131,7 +131,7 @@ class TipoDocumentoDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE proyecto.identificacion SET ide_estado = ? WHERE ide_id = ?";
+                $actualizar = "UPDATE identificacion SET ide_estado = ? WHERE ide_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

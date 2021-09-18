@@ -7,5 +7,5 @@ define("USUARIO_BD", "root");
 define("CONTRASENIA_BD", "");
 
 
-define("PATH", $_SERVER['DOCUMENT_ROOT']."/"."BUILDING-CORPORATION"."/");
+define("PATH", $_SERVER['DOCUMENT_ROOT']."/");
 
