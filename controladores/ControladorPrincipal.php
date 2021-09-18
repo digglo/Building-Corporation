@@ -3,13 +3,8 @@
 include_once PATH . 'controladores/RolControlador.php';
 include_once PATH . 'controladores/TipoDocumentoControlador.php';
 include_once PATH . 'controladores/ConstructoraControlador.php';
-<<<<<<< HEAD
-include_once PATH . 'controladores/sedeControlador.php';
-include_once PATH . 'controladores/ubicacionControlador.php';
-=======
 include_once PATH . 'controladores/RecibidoControlador.php';
 include_once PATH . 'controladores/UtilizadoControlador.php';
->>>>>>> main
 
 class ControladorPrincipal {
 
