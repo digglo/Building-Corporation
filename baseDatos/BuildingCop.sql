@@ -288,7 +288,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`usuario_s`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuario_s` (
+CREATE TABLE IF NOT EXISTS `proyecto`.`usuario_s` (
   `usuId` INT NOT NULL,
   `usulogin` VARCHAR(45) NULL,
   `usuPassword` VARCHAR(45) NULL,
