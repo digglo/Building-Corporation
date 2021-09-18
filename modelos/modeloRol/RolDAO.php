@@ -8,7 +8,7 @@ class RolDAO extends ConBdMySql {
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "SELECT * FROM proyecto.rol;";
+        $planconsulta = "SELECT * FROM rol;";
 
         $registroRol = $this->conexion->prepare($planconsulta);
         $registroRol->execute();
