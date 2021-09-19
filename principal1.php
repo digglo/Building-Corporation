@@ -57,23 +57,6 @@ if (isset($_SESSION['mensaje'])) {
            <br/>
               <a href="Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>   	 
 	     </div>
-		 <div class="gestion">Menú Operaciones en Sede
-	       <br/>
-	         <a href="Controlador.php?ruta=listarSede&pag=0">Listar Sede</a>
-           <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarSede">Agregar Sede</a>
-		 <div class="gestion">Menú Operaciones en Recibido
-	       <br/>
-	         <a href="Controlador.php?ruta=listarRecibido&pag=0">Listar Materiales Recibidos</a>
-           <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarRecibido">Agregar Material Recibido</a>   	 
-	     </div>
-		 <div class="gestion">Menú Operaciones en Utilizado
-	       <br/>
-	         <a href="Controlador.php?ruta=listarUtilizado&pag=0">Listar Materiales Utilizado</a>
-           <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarUtilizado">Agregar Material Utilizado</a>
-	     </div>
 
 		 <div class="gestion">Menú Operaciones en Sede
 	       <br/>
@@ -89,13 +72,6 @@ if (isset($_SESSION['mensaje'])) {
               <a href="Controlador.php?ruta=mostrarInsertarUbicacion">Agregar Ubicacion</a>   	 
 	     </div>
 	 
-		 <div class="gestion">Menú Operaciones en Ubicacion
-	       <br/>
-	         <a href="Controlador.php?ruta=listarUbicacion&pag=0">Listar Ubicacion</a>
-           <br/>
-              <a href="Controlador.php?ruta=mostrarInsertarUbicacion">Agregar Ubicacion</a>   	 
-	     </div>
-
         
 		 <div class="gestion">Menú Operaciones en Trabajador
 	       <br/>

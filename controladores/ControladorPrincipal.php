@@ -106,13 +106,8 @@ class ControladorPrincipal {
 
 
 
-<<<<<<< main
-<<<<<<< HEAD
-            case "listarSede":
-=======
 
            case "listarSede":
->>>>>>> Correcciones
                 $this->listarSede();
                 break;
             case "mostrarActualizarSede":
@@ -166,11 +161,7 @@ class ControladorPrincipal {
                 $this->eliminarUbicacion();
                 break;    
         
-<<<<<<< main
-=======
-=======
 
->>>>>>> Correcciones
 
             case "listarRecibido":
                 $this->listarRecibido();
@@ -224,9 +215,6 @@ class ControladorPrincipal {
             case "eliminarUtilizado":
                 $this->eliminarUtilizado();
                 break;
-<<<<<<< main
->>>>>>> main
-=======
 
 
              
@@ -257,7 +245,6 @@ class ControladorPrincipal {
             
 
 
->>>>>>> Correcciones
         }
     }
 
@@ -343,20 +330,8 @@ class ControladorPrincipal {
         $usuario_sControlador = new TipoDocumentoControlador($this->datos);
     }
 
-<<<<<<< main
-
-
-<<<<<<< HEAD
-      
-
-
-=======
-=======
  
->>>>>>> Correcciones
 
- 
->>>>>>> main
     public function listarConstrutora() {
 
         $ConstuctoraControlador = new ConstuctoraControlador($this->datos);
@@ -398,12 +373,6 @@ class ControladorPrincipal {
     }
 
 
-<<<<<<< main
-
-
-<<<<<<< HEAD
-=======
->>>>>>> Correcciones
     public function listarSede() {
 
         $usuario_sControlador = new sedeControlador($this->datos);
@@ -488,11 +457,7 @@ class ControladorPrincipal {
 
 
         
-<<<<<<< main
-=======
-=======
 
->>>>>>> Correcciones
 
     public function listarRecibido() {
 
@@ -577,9 +542,6 @@ class ControladorPrincipal {
 
         $ConstuctoraControlador = new UtilizadoControlador($this->datos);
     }
-<<<<<<< main
->>>>>>> main
-=======
 
     
 
@@ -625,7 +587,6 @@ class ControladorPrincipal {
 
 
 
->>>>>>> Correcciones
 }
 
 ?>

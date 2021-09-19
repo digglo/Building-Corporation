@@ -1,10 +1,6 @@
 <?php
 include_once 'modelos/ConBdMysql.php';
 
-<<<<<<< main
-include_once "../ConBdMysql.php";
-=======
->>>>>>> Correcciones
 
 class TipoDocumentoDAO extends ConBdMySql{
     public function __construct($servidor, $base, $loginDB, $passwordDB){
@@ -12,11 +8,7 @@ class TipoDocumentoDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-<<<<<<< main
-        $planconsulta = "select * FROM identificacion;";
-=======
         $planconsulta = "select * FROM tipo_documento  ;";
->>>>>>> Correcciones
 
         $registroTipoDocumento = $this->conexion->prepare($planconsulta);
         $registroTipoDocumento->execute();
@@ -55,8 +47,7 @@ class TipoDocumentoDAO extends ConBdMySql{
 
         try {
             
-<<<<<<< main
-            $consulta="INSERT INTO identificacion (ide_id,ide_sigla) VALUES (:ide_id, :ide_sigla);" ;
+            $consulta="INSERT INTO tipo_documento (tip_id,tip_sigla) VALUES (:tip_id, :tip_sigla);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
@@ -119,17 +110,10 @@ class TipoDocumentoDAO extends ConBdMySql{
 
     public function eliminar($sId = array()){
 
-<<<<<<< main
-        $consulta = "DELETE FROM identificacion WHERE ide_id = :ide_id;";
-
-        $eliminar = $this->conexion->prepare($consulta);
-        $eliminar->bindParam(':ide_id', $sId[0],PDO::PARAM_INT);
-=======
         $consulta = "DELETE FROM tipo_documento WHERE tip_id  = :tip_id ;";
 
         $eliminar = $this->conexion->prepare($consulta);
         $eliminar->bindParam(':tip_id ', $sId[0],PDO::PARAM_INT);
->>>>>>> Correcciones
         $resultado = $eliminar->execute();
 
         $this->cierreBd();
@@ -148,11 +132,7 @@ class TipoDocumentoDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-<<<<<<< main
-                $actualizar = "UPDATE identificacion SET ide_estado = ? WHERE ide_id = ?";
-=======
                 $actualizar = "UPDATE tipo_documento SET tip_estado  = ? WHERE tip_id  = ?";
->>>>>>> Correcciones
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -168,11 +148,7 @@ class TipoDocumentoDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-<<<<<<< main
-                $actualizar = "UPDATE identificacion SET ide_estado = ? WHERE ide_id = ?";
-=======
                 $actualizar = "UPDATE tipo_documento SET tip_estado  = ? WHERE tip_id  = ?";
->>>>>>> Correcciones
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => true, 'mensaje' => 'Resgistro Desactivado'];
