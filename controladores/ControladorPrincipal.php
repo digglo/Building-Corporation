@@ -106,8 +106,8 @@ class ControladorPrincipal {
 
 
 
-<<<<<<< HEAD
-            case "listarSede":
+
+           case "listarSede":
                 $this->listarSede();
                 break;
             case "mostrarActualizarSede":
@@ -161,7 +161,7 @@ class ControladorPrincipal {
                 $this->eliminarUbicacion();
                 break;    
         
-=======
+
 
             case "listarRecibido":
                 $this->listarRecibido();
@@ -215,7 +215,36 @@ class ControladorPrincipal {
             case "eliminarUtilizado":
                 $this->eliminarUtilizado();
                 break;
->>>>>>> main
+
+
+             
+                case "listarTrabajador":
+                    $this->listarTrabajador();
+                    break;
+                case "mostrarActualizarTrabajador":
+                    $this->mostrarActualizarTrabajador();
+                    break;
+                case "confirmarActualizarTrabajador":
+                    $this->confirmarActualizarTrabajador();
+                    break;
+                case "cancelarActualizarTrabajador":
+                    $this->cancelarActualizarTrabajador();
+                    break;
+                case "mostrarInsertarTrabajador":
+                    $this->mostrarInsertarTrabajador();
+                    break;
+                case "insertarTrabajor":
+                    $this->insertarTrabajador();
+                    break;
+                case "cancelarInsertarTrabajador":
+                    $this->cancelarInsertarTrabajador();
+                    break;
+                case "eliminarTrabajador":
+                    $this->eliminarTrabajador();
+                    break;
+            
+
+
         }
     }
 
@@ -301,16 +330,8 @@ class ControladorPrincipal {
         $usuario_sControlador = new TipoDocumentoControlador($this->datos);
     }
 
-
-
-<<<<<<< HEAD
-      
-
-
-=======
-
  
->>>>>>> main
+
     public function listarConstrutora() {
 
         $ConstuctoraControlador = new ConstuctoraControlador($this->datos);
@@ -352,9 +373,6 @@ class ControladorPrincipal {
     }
 
 
-
-
-<<<<<<< HEAD
     public function listarSede() {
 
         $usuario_sControlador = new sedeControlador($this->datos);
@@ -439,7 +457,7 @@ class ControladorPrincipal {
 
 
         
-=======
+
 
     public function listarRecibido() {
 
@@ -524,7 +542,51 @@ class ControladorPrincipal {
 
         $ConstuctoraControlador = new UtilizadoControlador($this->datos);
     }
->>>>>>> main
+
+    
+
+    public function listarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function mostrarActualizarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function confirmarActualizarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function cancelarActualizarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function mostrarInsertarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function insertarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function cancelarInsertarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function eliminarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+
+
 }
 
 ?>

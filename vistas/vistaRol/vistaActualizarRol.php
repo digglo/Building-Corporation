@@ -39,10 +39,10 @@ echo "<pre>"; */
                 <tr>            
                     <td>            
                         <button type="submit" name="ruta" value="cancelarActualizarRol">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="confirmarActualizarRol">Actualizar Libro</button>
+                        <button type="submit" name="ruta" value="confirmarActualizarRol">Actualizar</button>
                     </td>
                 </tr>             
             </table>
         </form>
     </fieldset>
-</div>		
+</div>		    

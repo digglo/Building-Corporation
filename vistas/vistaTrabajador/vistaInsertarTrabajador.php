@@ -17,31 +17,30 @@ echo "</pre>"; */
                 <tr>
                     <td>ID</td>
                     <td>
-                        <input class="form-control" placeholder="Id" name="tra id" type="number" pattern="" required="required" autofocus 
+                        <input class="form-control" placeholder="Id" name="tra_id" type="number" pattern="" required="required" autofocus 
 						value=<?php if(isset($_SESSION['tra_id'])) echo $_SESSION['tra_id']; unset($_SESSION['isbn']);  ?>>
                         <div></div>  
                     </td>
                 </tr>
                 <tr>
-                    <td>primer nombre </td>
+                    <td>Primer nombre</td>
                     <td>                
-                        <input class="form-control" placeholder="primer nombre" name="tra_primer_nombre" type="text"   required="required" 
+                        <input class="form-control" placeholder="Primer nombre" name="tra_primer_nombre" type="text"   required="required" 
 						value=<?php if(isset($_SESSION['tra_primer_nombre'])) echo $_SESSION['tra_primer_nombre']; unset($_SESSION['titulo']);  ?>>
                         <div></div>                              
                     </td>
                 </tr>
                 
 
-                
                 <tr>
                     <td>Primer apellido</td>
                     <td>                
-                        <input class="form-control" placeholder="primer apellido" name="tra_primer_apellido" type="text"   required="required" 
+                        <input class="form-control" placeholder="Primer apellido" name="tra_primer_apellido" type="text"   required="required" 
 						value=<?php if(isset($_SESSION['tra_primer_apellido'])) echo $_SESSION['tra_primer_apellido']; unset($_SESSION['titulo']);  ?>>
                         <div></div>                              
                     </td>
-                </tr> 
-
+                </tr>
+                
 
                 <tr>
                     <td>Tipo documento</td>
@@ -50,16 +49,12 @@ echo "</pre>"; */
 						value=<?php if(isset($_SESSION['tra_tipo_documento_id'])) echo $_SESSION['tra_tipo_documento_id']; unset($_SESSION['titulo']);  ?>>
                         <div></div>                              
                     </td>
-                </tr> 
-
-
+                </tr>
+                
 
                     <td>            
                         <button type="submit" name="ruta" value="cancelarInsertarTrabajador">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="insertarTrabajador">Agregar Trabajador
-
-
-                        </button>
+                        <button type="submit" name="ruta" value="insertarTrabajador">Agregar Libro</button>
                     </td>
                 </tr>  
             </table>
