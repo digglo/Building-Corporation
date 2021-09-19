@@ -55,7 +55,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `proyecto`.`constructora`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
+CREATE TABLE IF NOT EXISTS `mydb`.`constructora` (
   `con_id` INT NOT NULL,
   `con_estado` TINYINT NOT NULL DEFAULT 1,
   `con_nombre_empresa` VARCHAR(10) NULL,
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_constructora_usuario_s1`
     FOREIGN KEY (`usuario_s_usuld`)
-    REFERENCES `mydb`.`usuario_s` (`usuId`)
+    REFERENCES `proyecto`.`usuario_s` (`usuId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -294,9 +294,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuario_s`
+-- Table `proyecto`.`usuario_s`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuario_s` (
+CREATE TABLE IF NOT EXISTS `proyecto`.`usuario_s` (
   `usuId` INT NOT NULL,
   `usulogin` VARCHAR(45) NULL,
   `usuPassword` VARCHAR(45) NULL,
@@ -350,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`usuario_s_roles` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuario_s_roles_usuario_s1`
     FOREIGN KEY (`usuario_s_usuId`)
-    REFERENCES `mydb`.`usuario_s` (`usuId`)
+    REFERENCES `proyecto`.`usuario_s` (`usuId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
