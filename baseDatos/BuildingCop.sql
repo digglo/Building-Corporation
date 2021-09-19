@@ -61,7 +61,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`identificacion` (
   `ide_id` INT NOT NULL,
-  `ide_sigla` INT NULL,
+  `ide_sigla` VARCHAR(45) NULL,
   `ide_descripcion` VARCHAR(45) NULL,
   `ide_estado` TINYINT NOT NULL DEFAULT 1,
   `ide_created_at` TIMESTAMP NULL,

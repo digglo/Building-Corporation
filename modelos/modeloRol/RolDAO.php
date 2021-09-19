@@ -131,7 +131,7 @@ class RolDAO extends ConBdMySql {
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE rol SET rol_autEstado = ? WHERE rol_id_rol = ?";
+                $actualizar = "UPDATE rol SET rol_estado = ? WHERE rol_id_rol = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

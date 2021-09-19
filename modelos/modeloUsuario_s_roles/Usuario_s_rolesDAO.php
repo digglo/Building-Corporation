@@ -8,7 +8,7 @@ class Usuario_s_RolesDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "SELECT * FROM usuario_s;";
+        $planconsulta = "SELECT * FROM usuario_s_roles;";
 
         $registroRol = $this->conexion->prepare($planconsulta);
         $registroRol->execute();
@@ -24,7 +24,7 @@ class Usuario_s_RolesDAO extends ConBdMySql{
 
     public function seleccionarID($sId){
 
-        $consulta="select * FROM usuario_s WHERE usuId=?";
+        $consulta="select * FROM usuario_s_roles WHERE usuario_s_usuId=?";
 
         $lista=$this->conexion->prepare($consulta);
         $lista->execute(array($sId[0]));
@@ -47,14 +47,12 @@ class Usuario_s_RolesDAO extends ConBdMySql{
 
         try {
             
-            $consulta="INSERT INTO usuario_s (usuId, usuLogin, usuPassword, usuEstado) VALUES (:usuId, :usuLogin, :usuPassword, :usuEstado);" ;
+            $consulta="INSERT INTO usuario_s_roles (rol_rol_id_rol, usuario_s_usuId) VALUES (:rol_rol_id_rol, :usuario_s_usuId);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
-            $insertar -> bindParam(":usuId", $registro['usuId']);
-            $insertar -> bindParam(":usuLogin", $registro['usuLogin']);
-            $insertar -> bindParam(":usuPassword", $registro['usuPassword']);
-            $insertar -> bindParam(":usuEstado", $registro['usuEstado']);
+            $insertar -> bindParam(":rol_rol_id_rol", $registro['rol_rol_id_rol']);
+            $insertar -> bindParam(":usuario_s_usuId", $registro['usuario_s_usuId']);
 
             $insercion = $insertar->execute();
 
@@ -72,17 +70,16 @@ class Usuario_s_RolesDAO extends ConBdMySql{
 
         try {
 
-            $login = $registro[0]['usuLogin'];
-            $password = $registro[0]['usuPassword'];
-            $usuId = $registro[0]['usuId'];
+            $rol = $registro[0]['rol_rol_id_rol'];
+            $usuario_s_usuId = $registro[0]['usuario_s_usuId'];
             
-            if(isset($usuId)){
-                $consulta = "UPDATE usuario_s SET  usuLogin = ?, usuPassword = ?
-                WHERE usuId = ?";
+            if(isset($usuario_s_usuId)){
+                $consulta = "UPDATE usuario_s_roles SET  rol_rol_id_rol = ?
+                WHERE usuario_s_usuId = ?";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
 
-                $actualizacion = $actualizar->execute(array($login, $password, $usuId));
+                $actualizacion = $actualizar->execute(array($rol, $usuario_s_usuId));
 
                 $this->cierreBd();
 
@@ -96,7 +93,7 @@ class Usuario_s_RolesDAO extends ConBdMySql{
 
     public function eliminar($sId = array()){
 
-        $consulta = "DELETE FROM usuario_s WHERE usuId = :usuId;";
+        $consulta = "DELETE FROM usuario_s_roles WHERE usuario_s_usuId = :usuario_s_usuId;";
 
         $eliminar = $this->conexion->prepare($consulta);
         $eliminar->bindParam(':usuId', $sId[0],PDO::PARAM_INT);
