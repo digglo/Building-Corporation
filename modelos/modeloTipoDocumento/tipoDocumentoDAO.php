@@ -1,6 +1,6 @@
 <?php
+include_once 'modelos/ConBdMysql.php';
 
-include_once PATH . 'modelos/ConBdMysql.php';
 
 class TipoDocumentoDAO extends ConBdMySql{
     public function __construct($servidor, $base, $loginDB, $passwordDB){
@@ -8,7 +8,7 @@ class TipoDocumentoDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "select * FROM tipo_documento;";
+        $planconsulta = "select * FROM tipo_documento  ;";
 
         $registroTipoDocumento = $this->conexion->prepare($planconsulta);
         $registroTipoDocumento->execute();
@@ -47,12 +47,11 @@ class TipoDocumentoDAO extends ConBdMySql{
 
         try {
             
-            $consulta="INSERT INTO tipo_documento (tip_id, tip_sigla, tip_nombre_documento) VALUES (:tip_id, :tip_sigla, :tip_nombre_documento);" ;
+            $consulta="INSERT INTO tipo_documento (tip_id,tip_sigla) VALUES (:tip_id, :tip_sigla);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
             $insertar -> bindParam(":tip_sigla", $registro['tip_sigla']);
-            $insertar -> bindParam(":tip_nombre_documento", $registro['tip_nombre_documento']);
             $insertar -> bindParam(":tip_id", $registro['tip_id']);
 
             $insercion = $insertar->execute();
@@ -72,11 +71,10 @@ class TipoDocumentoDAO extends ConBdMySql{
         try {
 
             $sigla = $registro[0]['tip_sigla'];
-            $nombreDocumento = $registro[0]['tip_nombre_documento'];
             $tip_id = $registro[0]['tip_id'];
             
             if(isset( $tip_id)){
-                $consulta = "UPDATE tipo_documento SET  tip_sigla = ?, tip_nombre_documento = ?
+                $consulta = "UPDATE tipo_documento SET  tip_sigla = ?
                 WHERE tip_id = ?;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
@@ -88,17 +86,17 @@ class TipoDocumentoDAO extends ConBdMySql{
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Actualizado'];
             }
         } catch (PDOException $pdoExc) {
-            return ['actualizacion' => $actualizacion, 'mensaje' => $pdoExc];
+            return ['actualizacion' =>false, 'mensaje' => $pdoExc];
         }
         
     }
 
     public function eliminar($sId = array()){
 
-        $consulta = "DELETE FROM tipo_documento WHERE tip_id = :tip_id;";
+        $consulta = "DELETE FROM tipo_documento WHERE tip_id  = :tip_id ;";
 
         $eliminar = $this->conexion->prepare($consulta);
-        $eliminar->bindParam(':tip_id', $sId[0],PDO::PARAM_INT);
+        $eliminar->bindParam(':tip_id ', $sId[0],PDO::PARAM_INT);
         $resultado = $eliminar->execute();
 
         $this->cierreBd();
@@ -117,13 +115,13 @@ class TipoDocumentoDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE tipo_documento SET tip_aud_estado = ? WHERE tip_id = ?";
+                $actualizar = "UPDATE tipo_documento SET tip_estado  = ? WHERE tip_id  = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
             }
         } catch (PDOException $pdoExc) {
-            return ['actualizacion' => $actualizar, $pdoExc->errorInfo[2]];
+            return ['actualizacion' => false, $pdoExc->errorInfo[2]];
         }
     }
 
@@ -133,13 +131,13 @@ class TipoDocumentoDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE tipo_documento SET tip_aud_estado = ? WHERE tip_id = ?";
+                $actualizar = "UPDATE tipo_documento SET tip_estado  = ? WHERE tip_id  = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
-                return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];
+                return ['actualizacion' => true, 'mensaje' => 'Resgistro Desactivado'];
             }
         } catch (PDOException $pdoExc) {
-            return ['actualizacion' => $actualizacion, 'mensaje' => $pdoExc];
+            return ['actualizacion' => false, 'mensaje' => $pdoExc];
         }
         
     }

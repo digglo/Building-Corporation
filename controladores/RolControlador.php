@@ -125,7 +125,7 @@ class RolControlador {
 
     public function eliminarRol() {
         $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $eliminarRol = $gestarRoles->eliminar(array($this->datos[idAct])); //Se envía datos del libro para actualizar. 				
+        $eliminarRol = $gestarRoles->eliminar(array($this->datos['idAct'])); //Se envía datos del libro para actualizar. 				
 
         session_start();
         header("location:Controlador.php?ruta=listarRoles");

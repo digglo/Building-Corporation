@@ -128,3 +128,5 @@ class UbicacionControlador {
             header("location:Controlador.php?ruta=mostrarInsertarUbicacion");
         }
     }
+}
+?>  

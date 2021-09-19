@@ -100,6 +100,148 @@ class ControladorPrincipal {
             case "eliminarConstructora":
                 $this->eliminarConstructora();
                 break;
+
+
+
+
+           case "listarSede":
+                $this->listarSede();
+                break;
+            case "mostrarActualizarSede":
+                $this->mostrarActualizarSede();
+                break;
+            case "confirmarActualizarSede":
+                $this->confirmarActualizarSede();
+                break;
+            case "cancelarActualizarSede":
+                $this->cancelarActualizarSede();
+                break;
+            case "mostrarInsertarSede":
+                $this->mostrarInsertarSede();
+                break;
+            case "insertarSede":
+                $this->insertarSede();
+                break;
+            case "cancelarInsertarSede":
+                $this->cancelarInsertarSede();
+                break;
+            case "eliminarSede":
+                $this->eliminarSede();
+                break;
+                
+                
+
+                
+
+            case "listarUbicacion":
+                $this->listarUbicacion();
+                break;
+            case "mostrarActualizarUbicacion":
+                $this->mostrarActualizarUbicacion();
+                break;
+            case "confirmarActualizarUbicacion":
+                $this->confirmarActualizarUbicacion();
+                break;
+            case "cancelarActualizarUbicacion":
+                $this->cancelarActualizarUbicacion();
+                break;
+            case "mostrarInsertarUbicacion":
+                $this->mostrarInsertarUbicacion();
+                break;
+            case "insertarUbicacion":
+                $this->insertarUbicacion();
+                break;
+            case "cancelarInsertarUbicacion":
+                $this->cancelarInsertarUbicacion();
+                break;
+            case "eliminarUbicacion":
+                $this->eliminarUbicacion();
+                break;    
+        
+
+
+            case "listarRecibido":
+                $this->listarRecibido();
+                break;
+            case "mostrarActualizarRecibido":
+                $this->mostrarActualizarRecibido();
+                break;
+            case "confirmarActualizarRecibido":
+                $this->confirmarActualizarRecibido();
+                break;
+            case "cancelarActualizarRecibido":
+                $this->cancelarActualizarRecibido();
+                break;
+            case "mostrarInsertarRecibido":
+                $this->mostrarInsertarRecibido();
+                break;
+            case "insertarRecibido":
+                $this->insertarRecibido();
+                break;
+            case "cancelarInsertarRecibido":
+                $this->cancelarInsertarRecibido();
+                break;
+            case "eliminarRecibido":
+                $this->eliminarRecibido();
+                break;
+
+
+
+
+            case "listarUtilizado":
+                $this->listarUtilizado();
+                break;
+            case "mostrarActualizarUtilizado":
+                $this->mostrarActualizarUtilizado();
+                break;
+            case "confirmarActualizarUtilizado":
+                $this->confirmarActualizarUtilizado();
+                break;
+            case "cancelarActualizarUtilizado":
+                $this->cancelarActualizarUtilizado();
+                break;
+            case "mostrarInsertarUtilizado":
+                $this->mostrarInsertarUtilizado();
+                break;
+            case "insertarUtilizado":
+                $this->insertarUtilizado();
+                break;
+            case "cancelarInsertarUtilizado":
+                $this->cancelarInsertarUtilizado();
+                break;
+            case "eliminarUtilizado":
+                $this->eliminarUtilizado();
+                break;
+
+
+             
+                case "listarTrabajador":
+                    $this->listarTrabajador();
+                    break;
+                case "mostrarActualizarTrabajador":
+                    $this->mostrarActualizarTrabajador();
+                    break;
+                case "confirmarActualizarTrabajador":
+                    $this->confirmarActualizarTrabajador();
+                    break;
+                case "cancelarActualizarTrabajador":
+                    $this->cancelarActualizarTrabajador();
+                    break;
+                case "mostrarInsertarTrabajador":
+                    $this->mostrarInsertarTrabajador();
+                    break;
+                case "insertarTrabajor":
+                    $this->insertarTrabajador();
+                    break;
+                case "cancelarInsertarTrabajador":
+                    $this->cancelarInsertarTrabajador();
+                    break;
+                case "eliminarTrabajador":
+                    $this->eliminarTrabajador();
+                    break;
+            
+
+
         }
     }
 
@@ -182,10 +324,7 @@ class ControladorPrincipal {
         $usuario_sControlador = new TipoDocumentoControlador($this->datos);
     }
 
-
-
-
-
+ 
 
     public function listarConstrutora() {
 
@@ -226,6 +365,222 @@ class ControladorPrincipal {
 
         $ConstuctoraControlador = new ConstuctoraControlador($this->datos);
     }
+
+
+    public function listarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+    public function mostrarActualizarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+    
+    public function confirmarActualizarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+    public function cancelarActualizarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+    public function mostrarInsertarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+    public function insertarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+    public function cancelarInsertarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+    public function eliminarSede() {
+
+        $usuario_sControlador = new sedeControlador($this->datos);
+    }
+
+
+        public function listarUbicacion() {
+
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+    
+        public function mostrarActualizarUbicacion() {
+    
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+
+        public function confirmarActualizarUbicacion() {
+
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+    
+        public function cancelarActualizarUbicacion() {
+    
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+    
+        public function mostrarInsertarUbicacion() {
+    
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+    
+        public function insertarUbicacion() {
+    
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+    
+        public function cancelarInsertarUbicacion() {
+    
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }
+    
+        public function eliminarUbicacion() {
+    
+            $usuario_sControlador = new UbicacionControlador($this->datos);
+        }    
+
+
+
+        
+
+
+    public function listarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function mostrarActualizarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function confirmarActualizarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function cancelarActualizarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function mostrarInsertarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function insertarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function cancelarInsertarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+    public function eliminarRecibido() {
+
+        $ConstuctoraControlador = new RecibidoControlador($this->datos);
+    }
+
+
+
+
+
+    public function listarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function mostrarActualizarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function confirmarActualizarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function cancelarActualizarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function mostrarInsertarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function insertarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function cancelarInsertarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    public function eliminarUtilizado() {
+
+        $ConstuctoraControlador = new UtilizadoControlador($this->datos);
+    }
+
+    
+
+    public function listarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function mostrarActualizarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function confirmarActualizarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function cancelarActualizarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function mostrarInsertarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function insertarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function cancelarInsertarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+    public function eliminarTrabajador() {
+
+        $TrabajadorControlador = new TrabajadorControlador($this->datos);
+    }
+
+
+
 }
 
 ?>
