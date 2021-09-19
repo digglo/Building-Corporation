@@ -29,11 +29,30 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`rol` (
   `rol_id_rol` INT NOT NULL DEFAULT 1,
   `rol_tipo_rol` VARCHAR(10) NOT NULL,
   `rol_estado` TINYINT NOT NULL DEFAULT 1,
-  `rol_created_at` TIMESTAMP(10) NULL,
-  `rol_updated_at` TIMESTAMP(10) NULL,
-  `rol_usuSesion` VARCHAR(45) NULL,
+  `rol_created_at` TIMESTAMP(6) NULL,
+  `rol_updated_at` TIMESTAMP(6) NULL,
+  `rol_usuSesion` VARCHAR(6) NULL,
   PRIMARY KEY (`rol_id_rol`),
   UNIQUE INDEX `tipoRol_UNIQUE` (`rol_tipo_rol` ASC))
+ENGINE = InnoDB;
+
+
+
+-- -----------------------------------------------------
+-- Table `proyecto`.`usuario_s`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `proyecto`.`usuario_s` (
+  `usuId` INT NOT NULL,
+  `usulogin` VARCHAR(45) NULL,
+  `usuPassword` VARCHAR(45) NULL,
+  `usuSesion` VARCHAR(20) NULL,
+  `usuEstado` INT NULL,
+  `usuRemenber_token` VARCHAR(45) NULL,
+  `usu_created_at` TIMESTAMP NULL,
+  `usuario_updated_at` TIMESTAMP NULL,
+  PRIMARY KEY (`usuId`),
+  UNIQUE INDEX `usulogin_UNIQUE` (`usulogin` ASC),
+  UNIQUE INDEX `usuPassword_UNIQUE` (`usuPassword` ASC))
 ENGINE = InnoDB;
 
 
@@ -55,11 +74,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `proyecto`.`constructora`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`constructora` (
+CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
   `con_id` INT NOT NULL,
   `con_estado` TINYINT NOT NULL DEFAULT 1,
   `con_nombre_empresa` VARCHAR(10) NULL,
-  `con_numero documento` INT NULL,
+  `con_numero_documento` INT NULL,
   `con_id_identificacion` INT NULL,
   `con_created_at` TIMESTAMP NULL,
   `con_updated_at` TIMESTAMP NULL,
@@ -173,7 +192,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `proyecto`.`trabajador` (
   `tra_id` INT NOT NULL AUTO_INCREMENT,
   `tra_primer_nombre` VARCHAR(20) NULL,
-  `tra_sedungo_nombre` VARCHAR(20) NULL,
+  `tra_segundo_nombre` VARCHAR(20) NULL,
   `tra_primer_apellido` VARCHAR(20) NULL,
   `tra_segundo_apellido` VARCHAR(20) NULL,
   `tra_estado` TINYINT NOT NULL DEFAULT 1,
@@ -293,22 +312,6 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`stock` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `proyecto`.`usuario_s`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `proyecto`.`usuario_s` (
-  `usuId` INT NOT NULL,
-  `usulogin` VARCHAR(45) NULL,
-  `usuPassword` VARCHAR(45) NULL,
-  `usuSesion` VARCHAR(20) NULL,
-  `usuEstado` INT NULL,
-  `usuRemenber_token` VARCHAR(45) NULL,
-  `usu_created_at` TIMESTAMP NULL,
-  `usuario_updated_at` TIMESTAMP NULL,
-  PRIMARY KEY (`usuId`),
-  UNIQUE INDEX `usulogin_UNIQUE` (`usulogin` ASC),
-  UNIQUE INDEX `usuPassword_UNIQUE` (`usuPassword` ASC))
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
