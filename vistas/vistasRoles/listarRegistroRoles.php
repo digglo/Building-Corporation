@@ -42,8 +42,7 @@ if(isset($_SESSION['listaDeRoles'])){
             <h3>Listado de la Tabla Rol</h3>
             <tr> 
                 <th>Id</th>
-                <th>Nombre</th> 
-                <th>Descripcion</th>
+                <th>Nombre de el Rol</th> 
                 <!--<th>Estado</th>-->
                 <th>Actualizar</th> 
                 <th>Eliminar</th> 
@@ -55,12 +54,11 @@ if(isset($_SESSION['listaDeRoles'])){
             foreach ($listaDeRoles as $key => $value) {
                 ?>
                 <tr> 
-                    <td><?php echo $listaDeRoles[$i]->rolId; ?></td> 
-                    <td><?php echo $listaDeRoles[$i]->rolNombre; ?></td>  
-                    <td><?php echo $listaDeRoles[$i]->rolDescripcion; ?></td>
+                    <td><?php echo $listaDeRoles[$i]->rol_id_rol; ?></td> 
+                    <td><?php echo $listaDeRoles[$i]->rol_tipo_rol; ?></td>  
                     <!--<td>d>--> 
-                    <td><a href="Controlador.php?ruta=actualizarRol&rolId=<?php echo $listaDeRoles[$i]->rolId; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarRol&rolId=<?php echo $listaDeRoles[$i]->rolId; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><a href="Controlador.php?ruta=mostrarActualizarRol&rolId=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarRol&rolId=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;

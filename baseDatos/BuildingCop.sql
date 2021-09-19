@@ -26,7 +26,7 @@ USE `mydb` ;
 -- Table `proyecto`.`rol`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`rol` (
-  `rol_id_rol` INT NOT NULL DEFAULT 1 AUTO_INCREMENT,
+  `rol_id_rol` INT NOT NULL DEFAULT 1,
   `rol_tipo_rol` VARCHAR(10) NOT NULL,
   `rol_estado` TINYINT NOT NULL DEFAULT 1,
   `rol_created_at` TIMESTAMP(6) NULL,
@@ -42,7 +42,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`usuario_s`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`usuario_s` (
-  `usuId` INT NOT NULL AUTO_INCREMENT,
+  `usuId` INT NOT NULL,
   `usulogin` VARCHAR(45) NULL,
   `usuPassword` VARCHAR(45) NULL,
   `usuSesion` VARCHAR(20) NULL,
@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`identificacion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`identificacion` (
-  `ide_id` INT NOT NULL AUTO_INCREMENT,
+  `ide_id` INT NOT NULL,
   `ide_sigla` VARCHAR(45) NULL,
   `ide_descripcion` VARCHAR(45) NULL,
   `ide_estado` TINYINT NOT NULL DEFAULT 1,
@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 -- Table `proyecto`.`constructora`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
-  `con_id` INT NOT NULL AUTO_INCREMENT,
+  `con_id` INT NOT NULL,
   `con_estado` TINYINT NOT NULL DEFAULT 1,
   `con_nombre_empresa` VARCHAR(10) NULL,
   `con_numero_documento` INT NULL,

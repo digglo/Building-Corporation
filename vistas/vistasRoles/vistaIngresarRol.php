@@ -13,25 +13,17 @@
                 <tr>
                     <td>Id:</td>
                     <td>
-                        <input class="form-control" placeholder="Id" autocomplete="off" name="rolId" type="number" patter="" required="requires" value="<?php 
-                        if(isset($_SESSION['rolId'])){echo($_SESSION['rolId']);} 
+                        <input class="form-control" placeholder="Id" autocomplete="off" name="rol_id_rol" type="number" patter="" required="requires"value="<?php 
+                        if(isset($_SESSION['rol_id_rol'])){echo($_SESSION['rol_id_rol']);} 
                         ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Nombre:</td>
                     <td>
-                        <input class="form-control" placeholder="Nombre" name="rolNombre" type="text" patter="" required="requires" autocomplete="off" value="<?php 
-                        if(isset($_SESSION['rolNombre'])){echo($_SESSION['rolNombre']);} 
+                        <input class="form-control" placeholder="Nombre" name="rol_tipo_rol" type="text" patter="" required="requires" autocomplete="off" value="<?php 
+                        if(isset($_SESSION['rol_tipo_rol'])){echo($_SESSION['rol_tipo_rol']);} 
                         ?>">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Descripcion:</td>
-                    <td>
-                        <input class="form-control" placeholder="Descripcion" name="rolDescripcion" type="text" patter="" autocomplete="off" required="requires" value="<?php
-                         if(isset($_SESSION['rolDescripcion'])){echo($_SESSION['rolDescripcion']);} 
-                         ?>">
                     </td>
                 </tr>
                 <tr>

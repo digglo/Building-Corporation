@@ -30,15 +30,39 @@ if (isset($_SESSION['mensaje'])) {
 	
 	<body>
 <?php
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:vistas/vistasUsuarios_S_Roles/listarRegistroUsuarios_S_Roles.php
+if(isset($_SESSION['listaDeUsuarios_Roles'])){
+	
+    $listaDeUsuarios_Roles=$_SESSION['listaDeUsuarios_Roles'];
+	 unset($_SESSION['listaDeUsuarios_Roles']);
+=======
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
 if(isset($_SESSION['listaDeUsuarios'])){
 	
     $listaDeUsuarios=$_SESSION['listaDeUsuarios'];
 	 unset($_SESSION['listaDeUsuarios']);
+<<<<<<< HEAD
+=======
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1:vistas/vistasUsuarios_S/listarUsuariosInactivos.php
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
 	
 }
 ?>
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:vistas/vistasUsuarios_S_Roles/listarRegistroUsuarios_S_Roles.php
+            <h3>Listado de la Tabla Rol y Usuarop</h3>
+            <tr>
+                <th>Usuario</th> 
+                <th>Rol</th>
+                <!--<th>Estado</th>-->
+                <th>Eliminar</th> 
+=======
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
             <h3>Listado de Usuarios inhabilitados </h3>
             <tr> 
                 <th>Id</th>
@@ -46,11 +70,27 @@ if(isset($_SESSION['listaDeUsuarios'])){
                 <th>Contraseña</th>
                 <!--<th>Estado</th>-->
                 <th>Habilitar</th> 
+<<<<<<< HEAD
+=======
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1:vistas/vistasUsuarios_S/listarUsuariosInactivos.php
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
             </tr>
         </thead>
         <tbody>
             <?php
             $i = 0;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:vistas/vistasUsuarios_S_Roles/listarRegistroUsuarios_S_Roles.php
+            foreach ($listaDeUsuarios_Roles as $key => $value) {
+                ?>
+                <tr>
+                    <td><?php echo $listaDeUsuarios_Roles[$i]->usuId; ?></td>  
+                    <td><?php echo $listaDeUsuarios_Roles[$i]->rolId; ?></td>
+                    <!--<td>d>-->
+                    <td><a href="Controlador.php?ruta=eliminarUsuarios&usuId=<?php echo $listaDeUsuarios_Roles[$i]->id_usuario_s; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+=======
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
             foreach ($listaDeUsuarios as $key => $value) {
                 ?>
                 <tr> 
@@ -59,11 +99,23 @@ if(isset($_SESSION['listaDeUsuarios'])){
                     <td><?php echo $listaDeUsuarios[$i]->usuPassword; ?></td>
                     <!--<td>d>-->  
                     <td><a href="Controlador.php?ruta=habilitarUsuario&usuId=<?php echo $listaDeUsuarios[$i]->usuId; ?>" onclick="return confirm('Está seguro de habilitar el registro?')">Habilitar</a></td>  
+<<<<<<< HEAD
+=======
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1:vistas/vistasUsuarios_S/listarUsuariosInactivos.php
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
                 </tr>   
                 <?php
                 $i++;
             }
+<<<<<<< HEAD
             $listaDeRoles=null;
+=======
+<<<<<<< HEAD:vistas/vistasUsuarios_S_Roles/listarRegistroUsuarios_S_Roles.php
+            $listaDeUsuarios=null;
+=======
+            $listaDeRoles=null;
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1:vistas/vistasUsuarios_S/listarUsuariosInactivos.php
+>>>>>>> 7e6d1c786ac87d46f8f568b186701f9e16568cc1
             ?>
         </tbody>
     </table>

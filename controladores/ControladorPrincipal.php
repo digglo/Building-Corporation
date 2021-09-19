@@ -1,14 +1,7 @@
  <?php
 
-include_once PATH . 'controladores/RegistrarControlador.php';
-include_once PATH . 'controladores/LibrosControlador.php';
-include_once PATH . 'controladores/rolesControlador.php';
-include_once PATH . 'controladores/Usuario_sControlador.php';
-include_once PATH . 'controladores/TiposDocumentosControlador.php';
-include_once PATH . 'controladores/usuario_sRolesControlador.php';
-include_once PATH . 'controladores/TicketsControlador.php';
-include_once PATH . 'controladores/VehículosControlador.php';
-include_once PATH . 'controladores/ReportesControlador.php';
+
+include_once PATH . 'controladores/RolControlador.php';
 
 
 
@@ -30,50 +23,20 @@ class ControladorPrincipal{
 
     public function control(){
         switch ($this->datos['ruta']) {
-            case 'registrar':
-                $this -> registrar();
+            case 'listarRol':
+                $this -> listarRol();
                 break;
-            case 'gestionDeRegistro':
-                $this -> gestionDeRegistro();
-                break;
-            case 'gestionDeAcceso':
-                $this -> gestionDeAcceso();
-                break;
-            case 'listarLibros':
-                $this -> listarLibros();
-                break;
-            case 'actualizarLibro':
-                $this -> actualizarLibro();
-                break;
-            case 'confirmarActualizarLibro':
-                $this -> confirmarActualizarLibro();
-                break;
-            case 'agregarLibro':
-                $this -> agregarLibro();
-                break;
-            case 'confirmarInsertarLibro':
-                $this -> confirmarInsertarLibro();
-                break;
-            case 'eliminarLibro':
-                $this -> eliminarLibro();
-                break;
-            case 'listarLibrosInactivos':
-                $this -> listarLibrosInactivos();
-                break;
-            case 'habilitarLibro':
-                $this -> habilitarLibro();
-                break;
-            case 'listarRoles':
-                $this -> listarRoles();
-                break;
-            case 'actualizarRol':
-                $this -> actualizarRol();
+            case 'mostrarActualizarRol':
+                $this -> mostrarActualizarRol();
                 break;
             case 'confirmarActualizarRol':
                 $this -> confirmarActualizarRol();
                 break;
-            case 'mostrarInsertarRoles':
-                $this -> mostrarInsertarRoles();
+            case 'cancelarActualizarRol':
+                $this -> confirmarActualizarRol();
+                break;
+            case 'mostrarInsertarRol':
+                $this -> mostrarInsertarRol();
                 break;
             case 'insertarRol':
                 $this -> insertarRol();
@@ -81,386 +44,66 @@ class ControladorPrincipal{
             case 'eliminarRol':
                 $this -> eliminarRol();
                 break;
-            case 'listarRolesInactivos':
-                $this -> listarRolesInactivos();
+
+
+
+
+
+
+            case 'listarRol':
+                $this -> listarRol();
                 break;
-            case 'habilitarRol':
-                $this -> habilitarRol();
+            case 'mostrarActualizarRol':
+                $this -> mostrarActualizarRol();
                 break;
-            case 'listarUsuarios':
-                $this -> listarUsuarios();
+            case 'confirmarActualizarRol':
+                $this -> confirmarActualizarRol();
                 break;
-            case 'actualizarUsuarios':
-                $this -> actualizarUsuarios();
+            case 'cancelarActualizarRol':
+                $this -> confirmarActualizarRol();
                 break;
-            case 'confirmarActualizarUsuarios':
-                $this -> confirmarActualizarUsuarios();
+            case 'mostrarInsertarRol':
+                $this -> mostrarInsertarRol();
                 break;
-            case 'cancelarActualizarUsuarios':
-                 $this -> cancelarActualizarUsuarios();
-                 break;
-            case 'mostrarInsertarUsuarios':
-                $this -> mostrarInsertarUsuarios();
+            case 'insertarRol':
+                $this -> insertarRol();
                 break;
-            case 'insertarUsuario':
-                $this -> iInsertarUsuario();
+            case 'eliminarRol':
+                $this -> eliminarRol();
                 break;
-            case 'eliminarUsuario':
-                $this -> eliminarUsuario();
-                break;
-            case 'listarUsuariosInactivos':
-                $this -> listarUsuariosInactivos();
-                break;
-            case 'habilitarUsuario':
-                $this -> habilitarUsuario();
-                break;
-            case 'listarTiposDocumentos':
-                $this -> listarTiposDocumentos();
-                break;
-            case 'actualizarTipoDocumento':
-                $this -> actualizarTipoDocumento();
-                break;
-            case 'confirmarActualizarTipoDocumento':
-                $this -> confirmarActualizarTipoDocumento();
-                break;
-            case 'cancelarActualizarLibro':
-                $this -> cancelarActualizarLibro();
-                break;
-            case 'cancelarActualizarTipoDocumento':
-                $this -> cancelarActualizarTipoDocumento();
-                break;
-            case 'listarUsuarios_SRoles':
-                $this -> listarUsuarios_SRoles();
-                 break;
-            case 'actualizarUsuarios_SRoles':
-                $this -> actualizarUsuarios_SRoles();
-                break;
-            case 'confirmarActualizarUsuarios_SRoles':
-                $this -> confirmarActualizarUsuarios_SRoles();
-                break;
-            case 'cancelarActualizarUsuarios_SRoles':
-                $this -> cancelarActualizarUsuarios_SRoles();
-                break;
-            case 'listarTickets':
-                $this -> listarTickets();
-                break;
-            case 'actualizarTickets':
-                $this -> actualizarTickets();
-                break;
-            case 'eliminarTickets':
-                $this -> eliminarTickets();
-                break;
-            case 'confirmarActualizarTickets':
-                $this -> confirmarActualizarTickets();
-                break;
-            case 'cancelarActualizarTickets':
-                $this -> cancelarActualizarTickets();
-                break;
-            case 'listarTicketsInactivos':
-                $this -> listarTicketsInactivos();
-                break;
-            case 'mostrarInsertarticket':
-                $this -> mostrarInsertarticket();
-                break;
-            case 'confirmarInsertarTickets':
-                $this -> confirmarInsertarTickets();
-                break;
-            case 'habilitarTickets':
-                $this -> habilitarTickets();
-                break;
-            case 'listarVehiculos':
-                $this -> listarVehiculos();
-                break;
-            case 'actualizarVehiculos':
-                $this -> actualizarVehiculos();
-                break;
-            case 'cancelarActualizarVehiculo':
-                $this -> cancelarActualizarVehiculo();
-                break;
-            case 'confirmarActualizarVehiculo':
-                $this -> actualizarVehiculos();
-                break;
-            case 'mostrarInsertarVehiculos':
-                $this -> mostrarInsertarVehiculos();
-                break;
-            case 'insertarVehiculo':
-                $this -> insertarVehiculo();
-                break;
-            case 'eliminarVehiculos':
-                $this -> eliminarVehiculos();
-            case 'eliminarReportes':
-                $this -> eliminarReportes();
-                break;
-            case 'confirmarActualizarReportes':
-                $this -> confirmarActualizarReportes();
-                break;
-            case 'listarVehiculosInactivos':
-                $this -> listarVehiculosInactivos();
-                break;
-            case 'habilitarVehiculo':
-                $this -> habilitarVehiculo();
-                break;
-            case 'listarReportesInactivos':
-                $this -> listarReportesInactivos();
-                break;
-            case 'mostrarInsertarReportes':
-                $this -> mostrarInsertarReportes();
-                break;
-            case 'habilitarReportes':
-                $this -> habilitarReportes();
-                break;
-            case 'confirmarInsertarReportes':
-                $this -> confirmarInsertarReportes();
-                break;
+            
         }
     }
 
-    public function registrar(){
-        $registrar = new RegistrarControlador($this -> datos);
+   public function listarRol(){
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
-    public function gestionDeRegistro(){
-        $usuariosControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function gestionDeAcceso(){
-        $usuariosControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function listarLibros(){
-        $librosControlador = new LibrosControlador($this ->datos);
-    }
-
-    public function actualizarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function confirmarActualizarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function agregarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function confirmarInsertarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function eliminarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function listarLibrosInactivos(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function habilitarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function listarRoles(){
-        $rolesControlador = new RolesControlador($this -> datos);
-    }
-
-    public function actualizarRol(){
-        $rolesControlador = new RolesControlador($this -> datos);
+    public function mostrarActualizarRol(){
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
     public function confirmarActualizarRol(){
-        $rolesControlador = new RolesControlador($this -> datos);
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
     public function cancelarActualizarRol(){
-        $rolesControlador = new RolesControlador($this -> datos);
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
-    public function mostrarInsertarRoles(){
-        $rolesControlador = new RolesControlador($this -> datos);
+    public function mostrarInsertarRol(){
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
     public function insertarRol(){
-        $rolesControlador = new RolesControlador($this -> datos);
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
     public function eliminarRol(){
-        $rolesControlador = new RolesControlador($this -> datos);
+        $rolesControlador = new RolControlador($this -> datos);
     }
 
-    public function listarRolesInactivos(){
-        $rolesControlador = new RolesControlador($this -> datos);
-    }
-
-    public function habilitarRol(){
-        $rolesControlador = new RolesControlador($this -> datos);
-    }
-
-
-    public function listarUsuarios(){
-        $usuariosControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function actualizarUsuarios(){
-        $rolesControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function confirmarActualizarUsuarios(){
-        $rolesControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function cancelarActualizarUsuarios(){
-        $rolesControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function mostrarInsertarUsuarios(){
-        $rolesControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function insertarUsuario(){
-        $rolesControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function eliminarUsuario(){
-        $librosControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function listarUsuariosInactivos(){
-        $librosControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function habilitarUsuario(){
-        $librosControlador = new Usuario_sControlador($this -> datos);
-    }
-
-    public function cancelarActualizarLibro(){
-        $librosControlador = new LibrosControlador($this -> datos);
-    }
-
-    public function listarTiposDocumentos(){
-        $tiposDocumentos = new TiposDocumentosControlador($this -> datos);
-    }
-
-    public function actualizarTipoDocumento(){
-        $tiposDocumentos = new TiposDocumentosControlador($this -> datos);
-    }
-
-    public function confirmarActualizarTipoDocumento(){
-        $tiposDocumentos = new TiposDocumentosControlador($this -> datos);
-    }
-
-    public function cancelarActualizarTipoDocumento(){
-        $tiposDocumentos = new TiposDocumentosControlador($this -> datos);
-    }
-
-    public function listarUsuarios_SRoles(){
-        $Usuarios_SRolesControlador = new Usuarios_SRolesControlador($this -> datos);
-    }
-
-    public function actualizarUsuarios_SRoles(){
-        $Usuarios_SRolesControlador = new Usuarios_SRolesControlador($this -> datos);
-    }
-
-    public function confirmarActualizarUsuarios_SRoles(){
-        $Usuarios_SRolesControlador = new Usuarios_SRolesControlador($this -> datos);
-    }
-
-    public function cancelarActualizarUsuarios_SRoles(){
-        $Usuarios_SRolesControlador = new Usuarios_SRolesControlador($this -> datos);
-    }
-    public function listarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function actualizarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function eliminarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function confirmarActualizarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function cancelarActualizarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function listarTicketsInactivos(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function mostrarInsertarticket(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
     
-    public function habilitarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    public function confirmarInsertarTickets(){
-        $ticketsControlador = new TicketsControlador($this -> datos);
-    }
-    
-    public function listarVehiculos(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function actualizarVehiculos(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function confirmarActualizarVehiculo(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function cancelarActualizarVehiculo(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function mostrarInsertarVehiculos(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function insertarVehiculo(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function eliminarVehiculos(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function listarVehiculosInactivos(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-
-    public function habilitarVehiculo(){
-        $vehiculosControlador = new VehiculosControlador($this -> datos);
-    }
-    
-    public function listarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    public function actualizarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    public function confirmarActualizarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-
-    public function cancelarActualizarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    public function listarReportesInactivos(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    public function mostrarInsertarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    
-    public function habilitarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    public function eliminarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
-    public function confirmarInsertarReportes(){
-        $reportesControlador = new ReportesControlador($this -> datos);
-    }
 }
 
 

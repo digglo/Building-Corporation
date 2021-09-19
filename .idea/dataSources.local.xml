@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="PS-212.5284.49">
-    <data-source name="@localhost" uuid="07510c32-6a80-48a8-a4c5-3e2343c54b26">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+  <component name="dataSourceStorageLocal" created-in="PS-212.5080.71">
+    <data-source name="@localhost" uuid="e9c4daf1-4a6e-49ea-9382-5b67a57c16fd">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
+      <secret-storage>forget</secret-storage>
       <schema-mapping />
     </data-source>
   </component>
