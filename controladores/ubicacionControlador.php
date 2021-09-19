@@ -130,4 +130,8 @@ class UbicacionControlador {
         }
     }
 }
+<<<<<<< main
 ?> 
+=======
+?>  
+>>>>>>> Correcciones
