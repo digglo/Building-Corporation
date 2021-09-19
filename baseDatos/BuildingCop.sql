@@ -65,11 +65,9 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
   `con_updated_at` TIMESTAMP NULL,
   `con_usuSesion` VARCHAR(20) NULL,
   `usuario_s_usuld` INT NULL,
-  `constructoracol` VARCHAR(45) NULL,
   PRIMARY KEY (`con_id`),
   INDEX `fk_constructora_identificacion1_idx` (`con_id_identificacion` ASC),
   INDEX `fk_constructora_usuario_s1_idx` (`usuario_s_usuld` ASC),
-  UNIQUE INDEX `con_numero documento_UNIQUE` (`con_numero documento` ASC),
   CONSTRAINT `fk_constructora_identificacion1`
     FOREIGN KEY (`con_id_identificacion`)
     REFERENCES `proyecto`.`identificacion` (`ide_id`)
