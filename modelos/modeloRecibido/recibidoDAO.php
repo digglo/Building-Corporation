@@ -51,21 +51,21 @@ class RecibidoDAO extends ConBdMySql{
             
             $consulta="insert into recibido ";
             $consulta.= " (rec_id, 
-                          rec_num_factura, 
-                          rec_cantidad_recibido,
-                          rec_material_construccion_id) ";
+                           rec_numero_factura, 
+                           rec_cantidad_recibido,
+                           rec_mat_id) ";
             $consulta.= " values (:rec_id, 
-                                 :rec_num_factura, 
-                                 :rec_cantidad_recibido,
-                                 :rec_material_construccion_id);" ;
+                                  :rec_numero_factura, 
+                                  :rec_cantidad_recibido,
+                                  :rec_mat_id);" ;
 
 
             $insertar=$this->conexion->prepare($consulta);
 
             $insertar -> bindParam(":rec_id", $registro['rec_id']);
-            $insertar -> bindParam(":rec_num_factura", $registro['rec_num_factura']);
+            $insertar -> bindParam(":rec_numero_factura", $registro['rec_numero_factura']);
             $insertar -> bindParam(":rec_cantidad_recibido", $registro['rec_cantidad_recibido']);
-            $insertar -> bindParam(":rec_material_construccion_id", $registro['rec_material_construccion_id']);
+            $insertar -> bindParam(":rec_mat_id", $registro['rec_mat_id']);
 
 
             $insercion = $insertar->execute();
@@ -84,18 +84,18 @@ class RecibidoDAO extends ConBdMySql{
 
         try {
 
-            $factura = $registro[0]['rec_num_factura'];
+            $factura = $registro[0]['rec_numero_factura'];
             $cantidadRecibido = $registro[0]['rec_cantidad_recibido'];
-            $materialConstruccion = $registro[0]['rec_material_construccion_id'];
+            $materialConstruccion = $registro[0]['rec_mat_id'];
             $fechaRecibido = $registro[0]['rec_fecha_recibido'];
             $rec_id = $registro[0]['rec_id'];
             
             if(isset($rec_id)){
                 $consulta = "update recibido ";
-                $consulta.= " set  rec_num_factura = ?, 
-                                  rec_cantidad_recibido = ?,
-                                  rec_material_construccion_id = ?,
-                                  rec_fecha_recibido = ?";
+                $consulta.= " set  rec_numero_factura = ?, 
+                                   rec_cantidad_recibido = ?,
+                                   rec_mat_id = ?,
+                                   rec_fecha_recibido = ?";
                 $consulta.= " where rec_id = ?;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
@@ -136,7 +136,8 @@ class RecibidoDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE recibido SET rec_autEstado = ? WHERE rec_id = ?";
+                $actualizar = "UPDATE recibido SET rec_estado
+                = ? WHERE rec_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -152,7 +153,8 @@ class RecibidoDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE recibido SET rec_autEstado = ? WHERE rec_id = ?";
+                $actualizar = "UPDATE recibido SET rec_estado
+                = ? WHERE rec_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

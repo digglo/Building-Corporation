@@ -1,8 +1,8 @@
 <?php
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH . 'modelos/ConBdMysql.php';
-include_once PATH . 'modelos/modeloUtilizado/utilizadoDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloUtilizado/utilizadoDAO.php';
 
 $registro[0]['uti_id'] = 12;
 $registro[0]['uti_cantidad_utilizado'] = 1222;

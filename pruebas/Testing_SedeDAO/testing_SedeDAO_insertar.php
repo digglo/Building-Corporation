@@ -6,10 +6,10 @@ include_once '../../modelos/ConBdMysql.php';
 include_once '../../modelos/modeloSede/sedeDAO.php';
 
 
-$registro['sed_id']=12;
-$registro['sed_nombre_sede']='camilo';
-$registro['sed_ubicacion_id']=1;
-$registro['sed_constructora_id']=1;
+$registro['sede_id']=12;
+$registro['sede_nombre_sede']='camilo';
+$registro['sede_constructora_id']=1;
+$registro['sede_ubicacion_id']=1;
 
 
 $libros=new SedeDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);

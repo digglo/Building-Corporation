@@ -61,10 +61,10 @@ VALUES (1, 'Juan', 'Carlos', 'Olmos', 'Villalobos', 1, 1, '02/09/2021 05:33', '0
        (4, 'Ronalt', 'Howell', 'Hughes', 'Kingdom', 1, 1, '02/03/2021 03:33', '00/00/2021 04:33','',1);
 
 INSERT INTO proyecto (pro_id, material_construccion_mat_id, pro_tipo_proyecto, pro_nombre_proyecto, pro_numero_proyecto, pro_descripcion_proyecto, pro_fecha_inicio, pro_fecha_fin, pro_sede_id, pro_recibido_id, pro_trabajador_id, pro_created_at, pro_updated_at, pro_usuSesion, pro_estado)
-    VALUES (203, 1, 'Residencial', 'Axxis', '6758', "Descripcion del mismo", '02/09/2021 12:34', '03/09/2021 21:34', 1, 1, 1, '28/03/2021 04:34', '13/012/2021 15:34', '', 1),
-    (204, 2, 'Residencial', 'El golf', '5458', "Descripcion del mismo", '02/09/2021 12:34', '03/09/2021 21:34', 2, 2, 2, '28/03/2020 04:34', '13/012/2021 15:34', '', 1),
-    (205, 3, 'Residencial', 'Grattacielo', '6759', "Descripcion del mismo", '02/12/2021 12:34', '03/09/2021 21:34', 3, 3, 3, '28/05/2021 04:34', '13/012/2021 15:34', '', 1),
-    (206, 4, 'Residencial', 'lAngolo', '8758', "Descripcion del mismo", '02/07/2021 12:34', '03/09/2019 21:34', 4, 4, 4, '28/03/2021 04:34', '13/012/2021 15:34', '', 1);
+    VALUES (1, 1, 'Residencial', 'Axxis', '6758', "Descripcion del mismo", '02/09/2021 12:34', '03/09/2021 21:34', 1, 1, 1, '28/03/2021 04:34', '13/012/2021 15:34', '', 1),
+    (2, 2, 'Residencial', 'El golf', '5458', "Descripcion del mismo", '02/09/2021 12:34', '03/09/2021 21:34', 2, 2, 2, '28/03/2020 04:34', '13/012/2021 15:34', '', 1),
+    (3, 3, 'Residencial', 'Grattacielo', '6759', "Descripcion del mismo", '02/12/2021 12:34', '03/09/2021 21:34', 3, 3, 3, '28/05/2021 04:34', '13/012/2021 15:34', '', 1),
+    (4, 4, 'Residencial', 'lAngolo', '8758', "Descripcion del mismo", '02/07/2021 12:34', '03/09/2019 21:34', 4, 4, 4, '28/03/2021 04:34', '13/012/2021 15:34', '', 1);
 
 
 INSERT INTO utilizado (uti_id, uti_cantidad_utilizado, uti_fecha_uso, uti_fecha_modificacion, uti_estado, uti_created_at, uti_updated_at, uti_usuSesion) VALUES

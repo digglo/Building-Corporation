@@ -8,7 +8,7 @@ class ConstructoraDAO extends ConBdMySql{
     }
     
     public function seleccionarTodos(){
-        $planconsulta = "select * from constructora c JOIN tipo_documento t on c.con_id_tipo_documento=t.tip_id JOIN usuario_s u on c.usuario_s_usuId=u.usuId;;";
+        $planconsulta = "select * from constructora c JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuld=u.usuId;;";
 
         $registroConstructora = $this->conexion->prepare($planconsulta);
         $registroConstructora->execute();
@@ -44,11 +44,6 @@ class ConstructoraDAO extends ConBdMySql{
     }
 
     public function insertar($registro){
-       // "<pre>";
-       //print_r($registro);
-       //echo "</pre>";
-
-       //exit();
 
         try {
             
@@ -56,14 +51,14 @@ class ConstructoraDAO extends ConBdMySql{
             $consulta.= "(con_id, 
                           con_nombre_empresa, 
                           con_numero_documento,
-                          con_id_tipo_documento,
-                          usuario_s_usuId,
+                          con_id_identificacion,
+                          usuario_s_usuld,
                           con_estado) ";
             $consulta.= "values (:con_id, 
                                  :con_nombre_empresa, 
                                  :con_numero_documento,
-                                 :con_id_tipo_documento,
-                                 :usuario_s_usuId,
+                                 :con_id_identificacion,
+                                 :usuario_s_usuld,
                                  :con_estado);" ;
 
             $insertar=$this->conexion->prepare($consulta);
@@ -72,8 +67,8 @@ class ConstructoraDAO extends ConBdMySql{
             $insertar -> bindParam(":con_id", $registro['con_id']);
             $insertar -> bindParam(":con_nombre_empresa", $registro['con_nombre_empresa']);
             $insertar -> bindParam(":con_numero_documento", $registro['con_numero_documento']);
-            $insertar -> bindParam(":con_id_tipo_documento", $registro['con_id_tipo_documento']);
-            $insertar -> bindParam(":usuario_s_usuId", $registro['usuario_s_usuId']);
+            $insertar -> bindParam(":con_id_identificacion", $registro['con_id_identificacion']);
+            $insertar -> bindParam(":usuario_s_usuld", $registro['usuario_s_usuld']);
             $insertar -> bindParam(":con_estado", $registro['con_estado']);
 
 
@@ -95,21 +90,21 @@ class ConstructoraDAO extends ConBdMySql{
 
             $nombreEmpresa = $registro[0]['con_nombre_empresa'];
             $numeroDocumento = $registro[0]['con_numero_documento'];
-            $tipoDocumento = $registro[0]['con_id_tipo_documento'];
-            $usuario = $registro[0]['usuario_s_usuId'];
+            $identificacion = $registro[0]['con_id_identificacion'];
+            $usuario = $registro[0]['usuario_s_usuld'];
             $con_id = $registro[0]['con_id'];
             
             if(isset($con_id)){
-                $consulta = "update constructora ";
-                $consulta.= "set  con_nombre_empresa = ?, 
-                                  con_numero_documento = ?,
-                                  con_id_tipo_documento = ?,
-                                  usuario_s_usuId = ?";
-                $consulta.= "where con_id = ?;";
+                $consulta = "UPDATE constructora ";
+                $consulta .= "SET  con_nombre_empresa = ?,
+                                   con_numero_documento = ?,
+                                   con_id_identificacion = ?,
+                                   usuario_s_usuld = ?";
+                $consulta .= "WHERE con_id = ?";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
 
-                $actualizacion = $actualizar->execute(array($nombreEmpresa, $numeroDocumento, $tipoDocumento, $usuario, $con_id));
+                $actualizacion = $actualizar->execute(array($nombreEmpresa, $numeroDocumento, $identificacion,  $usuario, $con_id));
 
                 $this->cierreBd();
 

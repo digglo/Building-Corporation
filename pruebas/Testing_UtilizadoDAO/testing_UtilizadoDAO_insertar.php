@@ -2,8 +2,8 @@
 
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloUtilizado/utilizadoDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloUtilizado/utilizadoDAO.php';
 
 
 $registro['uti_id']=12;

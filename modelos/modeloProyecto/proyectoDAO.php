@@ -172,7 +172,7 @@ class ProyectoDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE proyecto SET pro_autEstado = ? WHERE pro_id = ?";
+                $actualizar = "UPDATE proyecto SET pro_estado = ? WHERE pro_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -188,7 +188,7 @@ class ProyectoDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE proyecto SET pro_autEstado = ? WHERE pro_id = ?";
+                $actualizar = "UPDATE proyecto SET pro_estado = ? WHERE pro_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

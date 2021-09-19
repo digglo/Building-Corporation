@@ -1,8 +1,8 @@
 <?php
 
-include_once PATH . 'modelos/ConBdMysql.php';
+include_once "modelos/ConBdMysql.php";
 
-class TrabajadorDAO extends ConBdMySql{
+class TrabajadorDAO extends ConBdMySql {
     public function __construct($servidor, $base, $loginDB, $passwordDB){
         parent::__construct($servidor, $base, $loginDB, $passwordDB);  
     }
@@ -53,14 +53,14 @@ class TrabajadorDAO extends ConBdMySql{
                           tra_segundo_nombre,
                           tra_primer_apellido,
                           tra_segundo_apellido,
-                          tra_tipo_documento_id,
+                          tra_identificacion_id,
                           tra_sede_id) ";
             $consulta.= "values (:tra_id, 
                                  :tra_primer_nombre, 
                                  :tra_segundo_nombre,
                                  :tra_primer_apellido,
                                  :tra_segundo_apellido,
-                                 :tra_tipo_documento_id,
+                                 :tra_identificacion_id,
                                  :tra_sede_id);" ;
 
             $insertar=$this->conexion->prepare($consulta);
@@ -70,7 +70,7 @@ class TrabajadorDAO extends ConBdMySql{
             $insertar -> bindParam(":tra_segundo_nombre", $registro['tra_segundo_nombre']);
             $insertar -> bindParam(":tra_primer_apellido", $registro['tra_primer_apellido']);
             $insertar -> bindParam(":tra_segundo_apellido", $registro['tra_segundo_apellido']);
-            $insertar -> bindParam(":tra_tipo_documento_id", $registro['tra_tipo_documento_id']);
+            $insertar -> bindParam(":tra_identificacion_id", $registro['tra_identificacion_id']);
             $insertar -> bindParam(":tra_sede_id", $registro['tra_sede_id']);
 
             $insercion = $insertar->execute();
@@ -93,7 +93,7 @@ class TrabajadorDAO extends ConBdMySql{
             $segundoNombre = $registro[0]['tra_segundo_nombre'];
             $primerApellido = $registro[0]['tra_primer_apellido'];
             $segundoApellido = $registro[0]['tra_segundo_apellido'];
-            $tipoDocumento = $registro[0]['tra_tipo_documento_id'];
+            $tipoDocumento = $registro[0]['tra_identificacion_id'];
             $sede = $registro[0]['tra_sede_id'];
             $tra_id = $registro[0]['tra_id'];
             
@@ -103,7 +103,7 @@ class TrabajadorDAO extends ConBdMySql{
                                   tra_segundo_nombre = ?,
                                   tra_primer_apellido = ?,
                                   tra_segundo_apellido = ?,
-                                  tra_tipo_documento_id = ?,
+                                  tra_identificacion_id = ?,
                                   tra_sede_id = ?";
                 $consulta.= "where tra_id = ?;";
                 
@@ -145,7 +145,7 @@ class TrabajadorDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE trabajador SET tra_autEstado = ? WHERE tra_id = ?";
+                $actualizar = "UPDATE trabajador SET tra_estado = ? WHERE tra_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -161,7 +161,7 @@ class TrabajadorDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE trabajador SET tra_autEstado = ? WHERE tra_id = ?";
+                $actualizar = "UPDATE trabajador SET tra_estado = ? WHERE tra_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

@@ -122,7 +122,7 @@ class MaterialConstruccionDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE material_construccion SET rol_autEstado = ? WHERE mat_id = ?";
+                $actualizar = "UPDATE material_construccion SET mat_estado = ? WHERE mat_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -138,7 +138,7 @@ class MaterialConstruccionDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE rol SET rol_autEstado = ? WHERE rol_id_rol = ?";
+                $actualizar = "UPDATE material_construccion SET mat_estado = ? WHERE mat_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];

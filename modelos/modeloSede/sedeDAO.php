@@ -24,7 +24,7 @@ class SedeDAO extends ConBdMySql{
 
     public function seleccionarID($sId){
 
-        $consulta="select * from sede where sed_id=?";
+        $consulta="select * from sede where sede_id=?";
 
         $lista=$this->conexion->prepare($consulta);
         $lista->execute(array($sId[0]));
@@ -48,21 +48,21 @@ class SedeDAO extends ConBdMySql{
         try {
             
             $consulta="insert into sede ";
-            $consulta.= "(sed_id, 
-                          sed_nombre_sede,
-                          sed_ubicacion_id,
-                          sed_constructora_id) ";
-            $consulta.= " values (:sed_id, 
-                                 :sed_nombre_sede,
-                                 :sed_ubicacion_id,
-                                 :sed_constructora_id);" ;
+            $consulta.= "(sede_id, 
+                          sede_nombre_sede,
+                          sede_ubicacion_id,
+                          sede_constructora_id) ";
+            $consulta.= " values (:sede_id, 
+                                 :sede_nombre_sede,
+                                 :sede_ubicacion_id,
+                                 :sede_constructora_id);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
-            $insertar -> bindParam(":sed_id", $registro['sed_id']);
-            $insertar -> bindParam(":sed_nombre_sede", $registro['sed_nombre_sede']);
-            $insertar -> bindParam(":sed_ubicacion_id", $registro['sed_ubicacion_id']);
-            $insertar -> bindParam(":sed_constructora_id", $registro['sed_constructora_id']);
+            $insertar -> bindParam(":sede_id", $registro['sede_id']);
+            $insertar -> bindParam(":sede_nombre_sede", $registro['sede_nombre_sede']);
+            $insertar -> bindParam(":sede_ubicacion_id", $registro['sede_ubicacion_id']);
+            $insertar -> bindParam(":sede_constructora_id", $registro['sede_constructora_id']);
 
             $insercion = $insertar->execute();
 
@@ -80,21 +80,21 @@ class SedeDAO extends ConBdMySql{
 
         try {
 
-            $nombreSede = $registro[0]['sed_nombre_sede'];
-            $ubicacion = $registro[0]['sed_ubicacion_id'];
-            $constructora = $registro[0]['sed_constructora_id'];
-            $sed_id = $registro[0]['sed_id'];
+            $nombreSede = $registro[0]['sede_nombre_sede'];
+            $ubicacion = $registro[0]['sede_ubicacion_id'];
+            $constructora = $registro[0]['sede_constructora_id'];
+            $sede_id = $registro[0]['sede_id'];
             
-            if(isset($sed_id)){
+            if(isset($sede_id)){
                 $consulta = "update sede ";
-                $consulta.= " SET  sed_nombre_sede = ?, 
-                                   sed_ubicacion_id = ?, 
-                                   sed_constructora_id = ?";
-                $consulta.= " WHERE sed_id = ? ;";
+                $consulta.= " SET  sede_nombre_sede = ?, 
+                                   sede_ubicacion_id = ?, 
+                                   sede_constructora_id = ?";
+                $consulta.= " WHERE sede_id = ? ;";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
 
-                $actualizacion = $actualizar->execute(array($nombreSede, $ubicacion, $constructora,  $sed_id));
+                $actualizacion = $actualizar->execute(array($nombreSede, $ubicacion, $constructora,  $sede_id));
 
                 $this->cierreBd();
 
@@ -108,10 +108,10 @@ class SedeDAO extends ConBdMySql{
 
     public function eliminar($sId = array()){
 
-        $consulta = "DELETE FROM sede WHERE sed_id = :sed_id;";
+        $consulta = "DELETE FROM sede WHERE sede_id = :sede_id;";
 
         $eliminar = $this->conexion->prepare($consulta);
-        $eliminar->bindParam(':sed_id', $sId[0],PDO::PARAM_INT);
+        $eliminar->bindParam(':sede_id', $sId[0],PDO::PARAM_INT);
         $resultado = $eliminar->execute();
 
         $this->cierreBd();
@@ -130,7 +130,7 @@ class SedeDAO extends ConBdMySql{
             $Estado = 1;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE sede SET sed_estado = ? WHERE sed_id = ?";
+                $actualizar = "UPDATE sede SET sede_estado = ? WHERE sede_id = ?";
                 $actualizar = $this->conexion->prepare($actualizar);
                 $actualizar = $actualizar->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizar, 'mensaje' => 'Resgistro Activado'];
@@ -146,7 +146,7 @@ class SedeDAO extends ConBdMySql{
             $Estado = 0;
 
             if(isset($sId[0])){
-                $actualizar = "UPDATE sede SET sed_estado = ? WHERE sed_id = ?";
+                $actualizar = "UPDATE sede SET sede_estado = ? WHERE sede_id = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
                 $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];
