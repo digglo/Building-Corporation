@@ -49,18 +49,18 @@ class StockDAO extends ConBdMySql{
             
             $consulta="insert into  stock ";
             $consulta.= "(sto_id, 
-                          sto_cantidad_almacenado, 
+                          sto_cantidad_almacenada, 
                           sto_recibido_id,
                           sto_utilizado_id) ";
             $consulta.= "values (:sto_id, 
-                                 :sto_cantidad_almacenado, 
+                                 :sto_cantidad_almacenada, 
                                  :sto_recibido_id,
                                  :sto_utilizado_id);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
             $insertar -> bindParam(":sto_id", $registro['sto_id']);
-            $insertar -> bindParam(":sto_cantidad_almacenado", $registro['sto_cantidad_almacenado']);
+            $insertar -> bindParam(":sto_cantidad_almacenada", $registro['sto_cantidad_almacenada']);
             $insertar -> bindParam(":sto_recibido_id", $registro['sto_recibido_id']);
             $insertar -> bindParam(":sto_utilizado_id", $registro['sto_utilizado_id']);
 
@@ -80,14 +80,14 @@ class StockDAO extends ConBdMySql{
 
         try {
 
-            $cantidadAlmacenado = $registro[0]['sto_cantidad_almacenado'];
+            $cantidadAlmacenado = $registro[0]['sto_cantidad_almacenada'];
             $recibido = $registro[0]['sto_recibido_id'];
             $utilizado = $registro[0]['sto_utilizado_id'];
             $sto_id = $registro[0]['sto_id'];
             
             if(isset($sto_id)){
                 $consulta = "update stock ";
-                $consulta.= "set  sto_cantidad_almacenado = ?, 
+                $consulta.= "set  sto_cantidad_almacenada = ?, 
                                   sto_recibido_id = ?,
                                   sto_utilizado_id = ?";
                 $consulta.= "where sto_id = ?;";

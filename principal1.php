@@ -39,6 +39,12 @@ if (isset($_SESSION['mensaje'])) {
     </head>
     <body>
 	<div id="provisional"> Interface Provisional
+	<div class="gestion">Menú Operaciones en Tabla Usuario
+	       <br/>
+	         <a href="Controlador.php?ruta=listarUsuario&pag=0">Listar Usuarios</a>
+           <br/>
+              <a href="Controlador.php?ruta=mostrarInsertarUsuario">Agregar Usuarios</a>   	 
+	     </div>
 	     <div class="gestion">Menú Operaciones en Tabla Rol
 	       <br/>
 	         <a href="Controlador.php?ruta=listarRoles&pag=0">Listar Roles</a>

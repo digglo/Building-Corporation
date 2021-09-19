@@ -2,12 +2,12 @@
 
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloStock/stockDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloStock/stockDAO.php';
 
 
 $registro['sto_id']=12;
-$registro['sto_cantidad_almacenado']=12;
+$registro['sto_cantidad_almacenada']=12;
 $registro['sto_recibido_id']=1;
 $registro['sto_utilizado_id']=1;
 

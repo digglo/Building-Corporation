@@ -1,13 +1,10 @@
 <?php
 
-
-
+require_once PATH . 'controladores/ManejoSesiones/ClaseSesion.php';
 require_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
 require_once PATH . 'modelos/modeloPersona/PersonaDAO.php';
 require_once PATH . 'modelos/modeloRol/RolDAO.php';
 require_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
-
-
 
 class Usuario_sControlador {
 
@@ -27,12 +24,19 @@ class Usuario_sControlador {
                 $this->gestionDeRegistro();
 
                 break;
-				
+
             case "gestionDeAcceso":
 
                 $this->gestionDeAcceso();
 
+                break;
+				
+            case "cerrarSesion":
+
+                $this->cerrarSesion();
+
                 break;				
+				
         }
     }
 
@@ -76,44 +80,45 @@ class Usuario_sControlador {
             header("location:registro.php");
         }
     }
-	
-	
-		    public function gestionDeAcceso() {
-				
-                $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);				
 
-                $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para que coincida con la base de datos				
-                $this->datos["documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación				
-                $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["documento"], $this->datos['email'], $this->datos["password"])); //Se revisa si existe la persona en la base  				
+    public function gestionDeAcceso() {
 
-                if ((0 != $existeUsuario_s['exitoSeleccionId']) && ($existeUsuario_s['registroEncontrado'][0]->usuLogin == $this->datos['email'])) {
-					
-                    session_start(); //se abre sesión para almacenar en ella el mensaje
-                    $_SESSION['mensaje'] = "Bienvenido a nuestra Aplicación."; //mensaje
-                    $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->perNombre; // para mensaje de bienvenida
-                    $_SESSION['perApellido'] = $existeUsuario_s['registroEncontrado'][0]->perApellido; // para mensaje de bienvenida
-					
-					
-                    //Consultamos los roles de la persona logueada
-                    $consultaRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-                    $rolesUsuario = $consultaRoles->seleccionarRolPorPersona(array($existeUsuario_s['registroEncontrado'][0]->perDocumento));
-                    $cantidadRoles = count($rolesUsuario['registroEncontrado']);
-                    $rolesEnSesion = array();
-                    for ($i = 0; $i < $cantidadRoles; $i++) {
-                        $rolesEnSesion[] = $rolesUsuario['registroEncontrado'][$i]->rolId;
-                    }					
-					
-					
-                    header("location:principal.php");					
-					
-				}else{
-                    session_start(); //se abre sesión para almacenar en ella el mensaje de inserción
-                    $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; //mensaje de inserción
-                    header("location:login.php");	
-		
-				}
+        $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
+        $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para que coincida con la base de datos				
+        $this->datos["documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación				
+        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["documento"], $this->datos['email'], $this->datos["password"])); //Se revisa si existe la persona en la base  				
+
+        if ((0 != $existeUsuario_s['exitoSeleccionId']) && ($existeUsuario_s['registroEncontrado'][0]->usuLogin == $this->datos['email'])) {
+
+            session_start(); //se abre sesión para almacenar en ella el mensaje
+            $_SESSION['mensaje'] = "Bienvenido a nuestra Aplicación."; //mensaje
+            $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->perNombre; // para mensaje de bienvenida
+            $_SESSION['perApellido'] = $existeUsuario_s['registroEncontrado'][0]->perApellido; // para mensaje de bienvenida
+            //Consultamos los roles de la persona logueada
+            $consultaRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+            $rolesUsuario = $consultaRoles->seleccionarRolPorPersona(array($existeUsuario_s['registroEncontrado'][0]->perDocumento));
+            $cantidadRoles = count($rolesUsuario['registroEncontrado']);
+            $rolesEnSesion = array();
+            for ($i = 0; $i < $cantidadRoles; $i++) {
+                $rolesEnSesion[] = $rolesUsuario['registroEncontrado'][$i]->rolId;
+            }
+                    //ABRIR  SESION**************************
+                    $sesionPermitida = new ClaseSesion(); // se abre la sesión					
+                    $sesionPermitida->crearSesion(array($existeUsuario_s['registroEncontrado'][0], "", $rolesEnSesion)); //Se envìa a la sesiòn los datos del usuario logeado					
+
+            header("location:principal.php");
+        } else {
+            session_start(); //se abre sesión para almacenar en ella el mensaje de inserción
+            $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; //mensaje de inserción
+            header("location:login.php");
+        }
     }
+	    public function cerrarSesion() {
+                $cerrarSesion = new ClaseSesion();
+                $cerrarSesion->cerrarSesion(); // Se cierra la sesión			
+			
+		}
 
 }
 

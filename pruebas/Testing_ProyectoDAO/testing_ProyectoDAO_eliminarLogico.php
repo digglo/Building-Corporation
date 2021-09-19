@@ -3,15 +3,14 @@
 
 include_once '../../modelos/ConstantesConexion.php';
 include_once '../../modelos/ConBdMysql.php';
-include_once '../../modelos/modeloProyecto/proyectoDAO.php';
+include_once '../../modelos/modeloStock/stockDAO.php';
 
-$sId=array(2);
+$sId=array(1);
 
-$libros=new ProyectoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+$libros=new StockDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
-
-$libroElimandoLogico=$libros->eliminarLogico($sId);
+$libroEliminadoFisico=$libros->habilitar($sId);
 
 echo "<pre>";
-print_r($libroElimandoLogico);
+print_r($libroEliminadoFisico);
 echo "</pre>";

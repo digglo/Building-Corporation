@@ -2,8 +2,8 @@
 
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloRegistro/registroDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloRegistro/registroDAO.php';
 
 $sId=array(1);
 

@@ -2,8 +2,8 @@
 
 
 include_once '../../modelos/ConstantesConexion.php';
-include_once PATH.'modelos/ConBdMysql.php';
-include_once PATH.'modelos/modeloStock/stockDAO.php';
+include_once '../../modelos/ConBdMysql.php';
+include_once '../../modelos/modeloStock/stockDAO.php';
 
 $sId=array(12);
 
