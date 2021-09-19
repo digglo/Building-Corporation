@@ -24,7 +24,10 @@ class SedeControlador {
             case "confirmarActualizarSede":
                 $this->confirmarActualizarSede();
                 break;
+<<<<<<< main
             case "cancelarActualizarSede":
+=======
+            case "cancelarActualizarSede": //provisionalmente para trabajar con datatables
                 $this->cancelarActualizarSede();
                 break;
             case "mostrarInsertarSede":
@@ -89,7 +92,7 @@ class SedeControlador {
         header("Location: principal1.php?contenido=vistas/vistaSede/vistaInsertarSede.php");
     }
 
-    public function insertarSede() {
+    public function InsertarSede() {
 
         //Se instancia LibroDAO para insertar
         $buscarSede = new SedeDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
@@ -103,7 +106,7 @@ class SedeControlador {
             $resultadoInsercionSede = $insertoSede['resultado'];  //Traer el id con que quedó el libro de lo contrario la excepción o fallo  
 
             session_start();
-            $_SESSION['mensaje'] = "Registrado " ;
+            $_SESSION['mensaje'] = "Registrado " . $this->datos['sed_id'] . " con éxito.  Agregado Nuevo Constructora con " . $resultadoInsercionSede;
 
             header("location:Controlador.php?ruta=listarSede");
         } else {// Si existe se retornan los datos y se envía el mensaje correspondiente ****

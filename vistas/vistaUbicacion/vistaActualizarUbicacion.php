@@ -1,8 +1,18 @@
 <?php
 
 if (isset($_SESSION['actualizarDatosUbicacion'])) {
-    $actualizarDatosUbicacion = $_SESSION['actualizarDatosUbicacion'];
+    $actualizarDatosTrabajador = $_SESSION['actualizarDatosUbicacion'];
     unset($_SESSION['actualizarDatosUbicacion']);
+}
+
+if (isset($_SESSION['actualizarDatosUbicacion'])) {
+    $listarTipoDocumento = $_SESSION['actualizarDatosUbicacion'];
+    $TipoDocumentoCantidad = count($listarTipoDocumento);
+}
+
+if (isset($_SESSION['actualizarDatosUsuario'])) {
+    $listarUsuario = $_SESSION['actualizarDatosUsuario'];
+    $usuarioCantidad = count($listarUsuario);
 }
 
 /* echo "<pre>";
@@ -28,22 +38,21 @@ echo "<pre>"; */
                     </td>
                 </tr>                  
                 <tr>
-                    <td>Tipo de Ubicacion:</td>
+                    <td>Direccion:</td>
                     <td>                  
-                        <input class="form-control" placeholder="Tipo de Ubicacion" name="ubi_id" type="text"  required="required" 
+                        <input class="form-control" placeholder="Direccion" name="ubi_direccion" type="text"  required="required" 
                                value="<?php 
 									if(isset($actualizarDatosUbicacion->ubi_direccion)){ echo $actualizarDatosUbicacion->ubi_direccion; }
 							   ?>">
                     </td>
-                </tr>               
+                </tr>              
                 <tr>            
                     <td>            
                         <button type="submit" name="ruta" value="cancelarActualizarUbicacion">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="confirmarActualizarUbicacion">Actualizar Ubi</button>
-                        
+                        <button type="submit" name="ruta" value="confirmarActualizarUbicacion">Actualizar Libro</button>
                     </td>
                 </tr>             
             </table>
         </form>
     </fieldset>
-</div>		
+</div>	

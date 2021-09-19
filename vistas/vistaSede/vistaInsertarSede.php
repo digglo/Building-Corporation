@@ -17,23 +17,34 @@ echo "</pre>"; */
                 <tr>
                     <td>ID</td>
                     <td>
-                        <input class="form-control" placeholder="Id" name="rol_id_rol" type="number" pattern="" required="required" autofocus 
-						value=<?php if(isset($_SESSION['rol_id_rol'])) echo $_SESSION['rol_id_rol']; unset($_SESSION['isbn']);  ?>>
+                        <input class="form-control" placeholder="Id" name="sed_id" type="number" pattern="" required="required" autofocus 
+						value=<?php if(isset($_SESSION['sed_id'])) echo $_SESSION['sed_id']; unset($_SESSION['isbn']);  ?>>
                         <div></div>  
                     </td>
                 </tr>
                 <tr>
-                    <td>Tipo de Rol</td>
+                    <td>constructora</td>
                     <td>                
-                        <input class="form-control" placeholder="Tipo de Rol" name="rol_tipo_rol" type="text"   required="required" 
-						value=<?php if(isset($_SESSION['rol_tipo_rol'])) echo $_SESSION['rol_tipo_rol']; unset($_SESSION['titulo']);  ?>>
+                        <input class="form-control" placeholder="constructora" name="sed_constructora_id" type="text"   required="required" 
+						value=<?php if(isset($_SESSION['sed_constructora_id'])) echo $_SESSION['sed_construtora_id']; unset($_SESSION['titulo']);  ?>>
                         <div></div>                              
                     </td>
                 </tr>
                 
+
+                <tr>
+                    <td>ubicacion</td>
+                    <td>                
+                        <input class="form-control" placeholder="ubicacion" name="sed_ubicacion_id" type="text"   required="required" 
+						value=<?php if(isset($_SESSION['sed_ubicacion_id'])) echo $_SESSION['sed_ubicacion_id']; unset($_SESSION['titulo']);  ?>>
+                        <div></div>                              
+                    </td>
+                </tr>
+
+
                     <td>            
-                        <button type="submit" name="ruta" value="cancelarInsertarRol">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="insertarRol">Agregar Libro</button>
+                        <button type="submit" name="ruta" value="cancelarInsertarUbicacion">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
+                        <button type="submit" name="ruta" value="insertarUbicacion">Agregar Libro</button>
                     </td>
                 </tr>  
             </table>
