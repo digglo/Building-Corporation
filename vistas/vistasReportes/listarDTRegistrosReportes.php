@@ -1,17 +1,13 @@
 <?php
-//echo "<pre>";
-//print_r($_SESSION['listaDeLibros']);
-//echo "</pre>";
-
+/*echo "<pre>";
+print_r($_SESSION['listaDeReportes']);
+echo "</pre>";*/
 if (isset($_SESSION['mensaje'])) {
     $mensaje = $_SESSION['mensaje'];
     echo "<script languaje='javascript'>alert('$mensaje')</script>";
     unset($_SESSION['mensaje']);
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,48 +25,46 @@ if (isset($_SESSION['mensaje'])) {
     </head>
 	
 	<body>
-        <h1>Listado de la tabla Libros</h1>
-        <br>
 <?php
-if(isset($_SESSION['listaDeLibros'])){
+if(isset($_SESSION['listaDeReportes'])){
 	
-	 $listaDeLibros=$_SESSION['listaDeLibros'];
-
+	 $listaDeReportes=$_SESSION['listaDeReportes'];
+	 unset($_SESSION['listaDeReportes']);
 	
 }
 ?>
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>Isbn</th> 
-                <th>Titulo</th> 
-                <th>Autor</th> 
-                <th>Precio</th> 
+                <th>Id</th> 
+                <th>Numero</th> 
+                <th>Fecha</th>
                 <!--<th>Estado</th>--> 
-                <th>Categoria</th> 
-                <th>Editar</th> 
-                <th>Eliminar</th> 
+                <th>Empleados</th>
+                <th>vehiculos</th> 
+                <th>Edit</th> 
+                <th>Delete</th> 
             </tr>
         </thead>
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeLibros as $key => $value) {
+            foreach ($listaDeReportes as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeLibros[$i]->isbn; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->titulo; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->autor; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->precio; ?></td>  
-                    <!--<td>d>-->  
-                    <td><?php echo $listaDeLibros[$i]->catLibNombre; ?></td>  
-                    <td><a href="Controlador.php?ruta=actualizarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>" onclick="return confirm('¿Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeReportes[$i]->repId; ?></td>  
+                    <td><?php echo $listaDeReportes[$i]->repNumero ; ?></td>  
+                    <td><?php echo $listaDeReportes[$i]->repFecha; ?></td>
+                    <td><?php echo $listaDeReportes[$i]->empId; ?></td>
+                    <td><?php echo $listaDeReportes[$i]->vehId; ?></td>   
+                    <!--<td>d>-->   
+                    <td><a href="Controlador.php?ruta=actualizarReportes&idAct=<?php echo $listaDeReportes[$i]->repId; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarReportes&idAct=<?php echo $listaDeReportes[$i]->repId; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeLibros=null;
+            $listaDeReportes=null;
             ?>
         </tbody>
     </table>
@@ -96,5 +90,3 @@ if(isset($_SESSION['listaDeLibros'])){
 
 </body>
 </html>
-	
-	

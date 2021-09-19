@@ -1,89 +1,140 @@
 <?php
 
-if (isset($_SESSION['actualizarDatosLibro'])) {
-    $actualizarDatosLibro = $_SESSION['actualizarDatosLibro'];
-    unset($_SESSION['actualizarLibro']);
-}
-if (isset($_SESSION['registroCategoriasLibros'])) { /* * ************************ */
-    $registroCategoriasLibros = $_SESSION['registroCategoriasLibros'];
-    $cantCategorias = count($registroCategoriasLibros);
-}
 
-/* echo "<pre>";
-print_r($_SESSION);
-echo "<pre>"; */
+if (isset($_SESSION['actualizarLibro'])) {
+    $actualizarLibro = $_SESSION['actualizarLibro'];
+}
+if (isset($_SESSION['listarCategorias'])) {
+    $listarCategorias = $_SESSION['listarCategorias'];
+    $categoriasCantidad = count($listarCategorias);
+}
 
 ?>
-<div class="panel-heading">
-    <h2 class="panel-title">Gestión de libros</h2>
-    <h3 class="panel-title">Actualización de Libro.</h3>
+<style type="text/css">
+
+form{
+	width:350px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:white;
+    border: black 3px solid;
+}
+
+form button[type="submit"]{
+	cursor:pointer;
+}
+
+form input[type="text"]{
+    margin: 5px;
+    width: 200px;
+}
+
+form input[type="number"]{
+    margin: 5px;
+    width: 200px;
+}
+
+form select{
+    margin: 5px;
+    width: 200px;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+
+.botonCancelar{
+    margin-left: center;
+}
+
+.botonActualizar{
+    margin-left: 60px;
+}
+
+.letras{
+    justify-content: center;
+    text-align: left;
+}
+
+</style>
+<div>
+    <h2 class="titulo">Gestión de Libros</h2>
+    <h3 class ="titulo">Actualización de Libro</h3>
 </div>
 <div>
     <fieldset>
-        <form role="form" method="POST" action="Controlador.php" id="formRegistro">
+        <center>
+        <form role="form" action="Controlador.php" method="POST" id="formRegistro" autocomplete="off">
             <table>
                 <tr>
+                    <td class="letras">Id:</td>
                     <td>
-                        <input class="form-control" placeholder="ISBN" name="isbn" type="number" pattern="" required="required" autofocus readonly="readonly" 
-                               value="<?php 
-									if(isset($actualizarDatosLibro->isbn)){ echo $actualizarDatosLibro->isbn; }
-							   ?>">
+                        <input placeholder="Id" name = "isbn" type="number" pattern="" require="required" autofocus readonly="readonly"
+                        value="<?php if (isset($actualizarLibro->isbn)) {
+                            echo $actualizarLibro->isbn;}?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>                
-                        <input class="form-control" placeholder="TITULO" name="titulo" type="text"   required="required" 
-                               value="<?php 
-									if(isset($actualizarDatosLibro->titulo)){ echo $actualizarDatosLibro->titulo; }
-							   ?>">
+                    <td class="letras">Titulo:</td>
+                    <td>
+                            <input type="text" name="titulo" placeholder="Titulo"
+                            value="<?php if (isset($actualizarLibro->titulo)) {
+                                echo $actualizarLibro->titulo;
+                            } ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>                  
-                        <input class="form-control" placeholder="AUTOR" name="autor" type="text"  required="required" 
-                               value="<?php 
-									if(isset($actualizarDatosLibro->autor)){ echo $actualizarDatosLibro->autor; }
-							   ?>">
-                    </td>
-                </tr>                  
-                <tr>
-                    <td>                  
-                        <input class="form-control" placeholder="PRECIO" name="precio" type="number"  required="required" 
-                               value="<?php 
-									if(isset($actualizarDatosLibro->precio)){ echo $actualizarDatosLibro->precio; }
-							   ?>">
-                    </td>
-                </tr>  
-                <tr>
+                    <td class="letras">Autor:</td>
                     <td>
-                        <select id="categoriaLibro_catLibId" name="categoriaLibro_catLibId"> 
-							<?php
-							for ($j=0; $j< $cantCategorias; $j++) {
-							?>
-								<option value ="<?php echo $registroCategoriasLibros[$j]->catLibId; ?>" 
-								
-                                           <?php
-                                if (isset($registroCategoriasLibros[$j]->catLibId) && isset($actualizarDatosLibro->categoriaLibro_catLibId) && ($registroCategoriasLibros[$j]->catLibId == $actualizarDatosLibro->categoriaLibro_catLibId)) {
-                                    echo "selected";
-                                }
-                                ?>                                       
+                            <input type="text" name="autor" placeholder="Autor"
+                            value="<?php if (isset($actualizarLibro->autor)) {
+                                echo $actualizarLibro->autor;
+                            } ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="letras">Precio:</td>
+                    <td>
+                            <input type="number" name="precio" placeholder="Precio"
+                            value="<?php if (isset($actualizarLibro->precio)) {
+                                echo $actualizarLibro->precio;
+                            } ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="letras">Categoria:</td>
+                    <td>
+                            <select name="categoriaLibro_catLibId" id="categoriaLibro_catLibId">
+                                <?php for ($i=0; $i < $categoriasCantidad; $i++) { 
+                                ?>
+                                    <option value="<?php echo $listarCategorias[$i]->catLibId; ?>" 
+                                    <?php if (isset($listarCategorias[$i]->catLibId) && isset($actualizarLibro->categoriaLibro_catLibId) && $listarCategorias[$i]->catLibId == $actualizarLibro->categoriaLibro_catLibId) {
+                                        echo "selected";
+                                    } ?>
+                                    >
 
-                                        > 
-								
-								<?php echo $registroCategoriasLibros[$j]->catLibNombre; ?></option> 
-							<?php
-							}
-							?>
-						</select> 
-                    </td>                       
-                </tr>             
-                <tr>            
-                    <td>            
-                        <button type="submit" name="ruta" value="cancelarActualizarLibro">Cancelar</button>&nbsp;&nbsp;||&nbsp;&nbsp;
-                        <button type="submit" name="ruta" value="confirmaActualizarLibro">Actualizar Libro</button>
+                                    <?php echo $listarCategorias[$i]->catLibNombre; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
                     </td>
-                </tr>             
+                </tr>
+                <tr>
+                   
+                    <td>
+                        <br>
+                        <button class="botonCancelar" type="submit" name="ruta" value="cancelarActualizarLibro" >Cancelar</button>
+                    </td>
+                    <td>
+                        <br>
+                        <button class="botonActualizar" type="submit" name="ruta" value="confirmarActualizarLibro">Actualizar Libro</button>
+                    </td>
+                </tr>
             </table>
-        </form>
+        </form><br>
+        </center>   
     </fieldset>
-</div>						
+</div>

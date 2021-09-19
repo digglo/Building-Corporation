@@ -1,125 +1,241 @@
 <?php
 
-require_once PATH . 'controladores/ManejoSesiones/ClaseSesion.php';
-require_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
-require_once PATH . 'modelos/modeloPersona/PersonaDAO.php';
-require_once PATH . 'modelos/modeloRol/RolDAO.php';
-require_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
+include_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
+include_once PATH . 'modelos/modeloEmpleados/EmpleadosDAO.php';
+include_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
+include_once PATH . 'modelos/modeloRol/RolDAO.php';
 
-class Usuario_sControlador {
+class Usuario_sControlador{
 
     private $datos = array();
-
-    public function __construct($datos) {
+    
+    public function __construct($datos){
         $this->datos = $datos;
         $this->usuario_sControlador();
     }
-
-    public function usuario_sControlador() {
-
-        switch ($this->datos["ruta"]) {
-
-            case "gestionDeRegistro":
-
-                $this->gestionDeRegistro();
-
+    
+    public function usuario_sControlador(){
+        switch ($this->datos['ruta']) {
+            case 'gestionDeRegistro':
+                $this -> gestionDeRegistro();
                 break;
-
-            case "gestionDeAcceso":
-
-                $this->gestionDeAcceso();
-
+            case 'gestionDeAcceso':
+                $this -> gestionDeAcceso();
                 break;
-				
-            case "cerrarSesion":
-
-                $this->cerrarSesion();
-
-                break;				
-				
+            case 'listarUsuarios':
+                $this->listarUsuarios();
+                break;
+            case 'actualizarUsuarios':
+                $this->actualizarUsuarios();
+                break;
+            case 'confirmarActualizarUsuarios':
+                 $this -> confirmarActualizarUsuarios();
+                break;
+            case 'cancelarActualizarUsuarios':
+                 $this -> cancelarActualizarUsuarios();
+                 break;
+            case 'mostrarInsertarUsuarios':
+                $this -> mostrarInsertarUsuarios();
+                break;
+            case 'insertarUsuario':
+                $this -> insertarUsuario();
+                break;
+            case 'eliminarUsuario':
+                $this -> eliminarUsuario();
+                break;
+            case 'listarUsuariosInactivos':
+                $this -> listarUsuariosInactivos();
+                break;
+            case 'habilitarUsuario':
+                $this -> habilitarUsuario();
+                break;
         }
     }
 
-    function gestionDeRegistro() {
+    public function gestionDeRegistro(){
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $existeUsuario = $gestarUsuarios -> seleccionarID(array($this -> datos['empNumeroDocumento'], $this -> datos['usuLogin']));
+        
+        if (0 == $existeUsuario['exitoSeleccionId']) {
+            $this -> datos['usuPassword'] = md5($this -> datos ['usuPassword']);
+            $insertarUsuario = $gestarUsuarios -> insertar($this -> datos);
+            $exitoInsercionUsuario = $insertarUsuario['Inserto'];
+            $resultadoInsercionUsuario = $insertarUsuario['resultado'];
 
-        $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-//Se revisa si existe la persona en la base 
-        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["documento"], $this->datos['email']));
-//Si no existe la persona en la base se procede a insertar
-        if (0 == $existeUsuario_s['exitoSeleccionId']) {
-//se encripta la contraseña que viene
-//inserción de los campos en la tabla usuario_s
-            $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para guardar en la base de datos  					
-            $insertoUsuario_s = $gestarUsuario_s->insertar($this->datos);
-//indica si se logró inserción de los campos en la tabla usuario_s	
-            $exitoInsercionUsuario_s = $insertoUsuario_s['inserto'];
-//Traer el id con que quedó el usuario de lo contrario la excepción o fallo					
-            $resultadoInsercionUsuario_s = $insertoUsuario_s['resultado'];
-            $gestarPersona = new PersonaDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-//Id 'usuID' con quedó insertado el usuario, con el fin que quede el mismo en la tabla 'persona'
-            $this->datos['perId'] = $resultadoInsercionUsuario_s;
-//inserción de los campos en la tabla persona
-            $insertoPersona = $gestarPersona->insertar($this->datos);
-            $exitoInsercionPersona = $insertoPersona['inserto']; //indica si se logró inserción de los campos en la tabla persona
-            $resultadoInsercionPersona = $insertoPersona['resultado']; //***Si logró insertar trae el id con que quedó la persona de lo contrario la excepción o fallo					
-// SE ASIGNA UN ROL GENÉRICO (en este ejemplo x) AL USUARIO REGISTRADO//
-            $asignarRol = new Usuario_s_rolesDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-            $asignarRol->insertar(array($resultadoInsercionUsuario_s, 1)); //Se envía el id con que quedó el usuario_s y el id del rol 
+            $gestarEmpleado = new EmpleadosDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+            $this -> datos['empId'] = $resultadoInsercionUsuario;
+            $insertarEmpleado = $gestarEmpleado -> insertar($this -> datos);
+            $exitoInsercionEmpleado = $insertarEmpleado['Inserto'];
+            $resultadoInsercionEmpleado = $insertarEmpleado['resultado'];
 
-            session_start(); //se abre sesión para almacenar en ella el mensaje de inserción   
-            $_SESSION['mensaje'] = "Registrado con èxito para ingreso al sistema"; //mensaje de inserción					
+            $gestarRol = new UsuarioRolesDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+            $gestarRol -> insertar(array($resultadoInsercionUsuario, 6));
+
+            session_start();
+
+            $_SESSION['mensaje'] = "Registrado con èxito para ingreso al sistema";				
 
             header("location:login.php");
-        } else {//Si la persona ya existe se abre sesión para almacenar en ella el mensaje de NO inserción y devolver datos al formulario por medio de la sesión
+        }else{
             session_start();
-            $_SESSION['documento'] = $this->datos['documento'];
-            $_SESSION['nombre'] = $this->datos['nombre'];
-            $_SESSION['apellidos'] = $this->datos['apellidos'];
-            $_SESSION['email'] = $this->datos['email'];
+
+            $_SESSION['empNumeroDocumento'] = $this -> datos['empNumeroDocumento'];
+            $_SESSION['empPrimerNombre'] = $this -> datos['empPrimerNombre'];
+            $_SESSION['empSegundoNombre'] = $this -> datos['empSegundoNombre'];
+            $_SESSION['empPrimerApellido'] = $this -> datos['empPrimerApellido'];
+            $_SESSION['empSegundoApellido'] = $this -> datos['empSegundoApellido'];
+            $_SESSION['empTelefono'] = $this -> datos['empTelefono'];
+            $_SESSION['usuLogin'] = $this -> datos['usuLogin'];
             $_SESSION['mensaje'] = "El usuario ya existe en el sistema.";
-            header("location:registro.php");
+
+            header("location:Controlador.php?ruta=registrar");
         }
     }
 
-    public function gestionDeAcceso() {
+    public function gestionDeAcceso(){
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
 
-        $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $this -> datos['usuPassword'] = md5($this -> datos['usuPassword']);
+        $this -> datos['documento'] = "";
+        $existeUsuario = $gestarUsuarios -> seleccionarID(array($this->datos['documento'], $this->datos['usuLogin'], $this -> datos['usuPassword']));
 
-        $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para que coincida con la base de datos				
-        $this->datos["documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación				
-        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["documento"], $this->datos['email'], $this->datos["password"])); //Se revisa si existe la persona en la base  				
+        if (($existeUsuario['exitoSeleccionId'] == 1) && ($existeUsuario['registroEncontrado'][0]->usuLogin == $this -> datos ['usuLogin'])) {
+            session_start();
 
-        if ((0 != $existeUsuario_s['exitoSeleccionId']) && ($existeUsuario_s['registroEncontrado'][0]->usuLogin == $this->datos['email'])) {
+            $_SESSION['mensaje'] = "Bienvenido a EasyParking";
+            $_SESSION['nombre'] = $existeUsuario['registroEncontrado'][0]->empPrimerNombre;
+            $_SESSION['apellido'] = $existeUsuario['registroEncontrado'][0]->empPrimerApellido;
 
-            session_start(); //se abre sesión para almacenar en ella el mensaje
-            $_SESSION['mensaje'] = "Bienvenido a nuestra Aplicación."; //mensaje
-            $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->perNombre; // para mensaje de bienvenida
-            $_SESSION['perApellido'] = $existeUsuario_s['registroEncontrado'][0]->perApellido; // para mensaje de bienvenida
-            //Consultamos los roles de la persona logueada
-            $consultaRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-            $rolesUsuario = $consultaRoles->seleccionarRolPorPersona(array($existeUsuario_s['registroEncontrado'][0]->perDocumento));
+            $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+            $rolesUsuario = $gestarRoles->seleccionarRolPorPersona(array($existeUsuario['registroEncontrado'][0]->empNumeroDocumento ));
             $cantidadRoles = count($rolesUsuario['registroEncontrado']);
             $rolesEnSesion = array();
             for ($i = 0; $i < $cantidadRoles; $i++) {
                 $rolesEnSesion[] = $rolesUsuario['registroEncontrado'][$i]->rolId;
             }
-                    //ABRIR  SESION**************************
-                    $sesionPermitida = new ClaseSesion(); // se abre la sesión					
-                    $sesionPermitida->crearSesion(array($existeUsuario_s['registroEncontrado'][0], "", $rolesEnSesion)); //Se envìa a la sesiòn los datos del usuario logeado					
 
             header("location:principal.php");
-        } else {
-            session_start(); //se abre sesión para almacenar en ella el mensaje de inserción
-            $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; //mensaje de inserción
-            header("location:login.php");
+
+        }else{
+            session_start();
+
+            $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; 
+            header("location:login.php");	
+
         }
     }
-	    public function cerrarSesion() {
-                $cerrarSesion = new ClaseSesion();
-                $cerrarSesion->cerrarSesion(); // Se cierra la sesión			
-			
-		}
 
+    public function listarUsuarios(){
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $registroUsuarios = $gestarUsuarios -> seleccionarTodos(1);
+    
+        session_start();
+    
+        $_SESSION['listaDeUsuarios'] = $registroUsuarios;
+    
+        header("location:principal.php?contenido=vistas/vistasUsuarios_S/listarRegistroUsuarios_S.php");
+    }
+
+    public  function actualizarUsuarios(){
+
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $actualizarUsuarios = $gestarUsuarios -> seleccionarID(array($this->datos['usuId']));
+
+        $actualizarDatosUsuarios = $actualizarUsuarios['registroEncontrado'][0];
+
+        session_start();
+        $_SESSION['actualizarDatosUsuarios']=$actualizarDatosUsuarios;
+
+        header("location:principal.php?contenido=vistas/vistasUsuarios_S/vistaActualizarUsuarios_S.php");
+        
+    }
+
+    public function confirmarActualizarUsuarios(){
+
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $actualizarUsuarios = $gestarUsuarios -> actualizar(array($this->datos));
+
+        session_start();
+            header("location:Controlador.php?ruta=listarUsuarios");	
+
+    }
+
+    public function cancelarActualizarUsuarios(){
+
+        session_start();
+		        header("location:Controlador.php?ruta=listarUsuarios");	
+
+    }
+    
+    public function mostrarInsertarUsuarios(){
+		
+        header("Location: principal.php?contenido=vistas/vistasUsuarios_S/vistaIngresarUsuario_S.php");
+
+}
+    
+    public function insertarUsuario(){
+		
+        
+        $buscarUsuario = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+
+        $usuarioHallado = $buscarUsuario->seleccionarId(array($this->datos['usuId']));
+
+        if (!$usuarioHallado['exitoSeleccionId']) {
+            $insertarUsuario = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);	
+            $insertoUsuario = $insertarUsuario->insertar($this->datos);  
+
+            $resultadoInsercionUsuario = $insertoUsuario['resultado'];  
+
+            session_start();
+           $_SESSION['mensaje'] = "Se ha insertado " . $this->datos['usuId'];
+            
+            header("location:Controlador.php?ruta=listarUsuarios");
+            
+        }else{
+        
+            session_start();
+            $_SESSION['usuId'] = $this->datos['usuId'];
+            $_SESSION['usuLogin'] = $this->datos['usuLogin'];
+            $_SESSION['usuPassword'] = $this->datos['usuPassword'];			
+            
+            $_SESSION['mensaje'] = " El id que trata de insertar ya existe en el sistema ";
+
+            header("location:Controlador.php?ruta=InsertarUsuarios");					
+
+        }					
+    }	
+    public function eliminarUsuario(){
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $inhabilitarUsuarios = $gestarUsuarios -> eliminarLogico(array($this -> datos['usuId']));
+
+        session_start();
+
+        $_SESSION['mensaje'] = "Registro Eliminado";
+        header("location:Controlador.php?ruta=listarUsuarios");
+
+
+    }
+        
+    public function listarUsuariosInactivos(){
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $listarInactivos = $gestarUsuarios -> seleccionarTodos(0);
+
+        session_start();
+
+        $_SESSION['listaDeUsuarios'] = $listarInactivos;
+
+        header("location:principal.php?contenido=vistas/vistasUsuarios_S/listarUsuariosInactivos.php");
+    }
+
+    public function habilitarUsuario(){
+        $gestarUsuarios = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_DB, CONTRASENIA_DB);
+        $inhabilitarUsuarios = $gestarUsuarios -> habilitar(array($this -> datos['usuId']));
+
+        session_start();
+
+        $_SESSION['mensaje'] = "Registro Habilitado";
+        header("location:Controlador.php?ruta=listarUsuariosInactivos");
+    }
 }
 
 ?>

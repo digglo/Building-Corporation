@@ -1,7 +1,8 @@
 <?php
-//echo "<pre>";
-//print_r($_SESSION['listaDeLibros']);
-//echo "</pre>";
+
+/*echo "<pre>";
+print_r($_SESSION['listarTiposDocumentos']);
+echo "</pre>";*/
 
 if (isset($_SESSION['mensaje'])) {
     $mensaje = $_SESSION['mensaje'];
@@ -10,8 +11,6 @@ if (isset($_SESSION['mensaje'])) {
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,22 +18,19 @@ if (isset($_SESSION['mensaje'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--LAS siguientes lìneas se agregan con el propòsito de dar funcionalidad a un DataTable-->
-        <!--**************************************** -->
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
-        <!--**************************************** -->
     </head>
-	
-	<body>
-        <h1>Listado de la tabla Libros</h1>
-        <br>
+	<h1>Listado de la tabla Tipos de Documentos</h1>
+    <br>
+<body>
 <?php
-if(isset($_SESSION['listaDeLibros'])){
+if(isset($_SESSION['listarTiposDocumentos'])){
 	
-	 $listaDeLibros=$_SESSION['listaDeLibros'];
+	 $listaDeDocumentos = $_SESSION['listarTiposDocumentos'];
 
 	
 }
@@ -42,12 +38,9 @@ if(isset($_SESSION['listaDeLibros'])){
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>Isbn</th> 
-                <th>Titulo</th> 
-                <th>Autor</th> 
-                <th>Precio</th> 
-                <!--<th>Estado</th>--> 
-                <th>Categoria</th> 
+                <th>Id</th> 
+                <th>Sigla</th> 
+                <th>Nombre Documentos</th>  
                 <th>Editar</th> 
                 <th>Eliminar</th> 
             </tr>
@@ -55,30 +48,25 @@ if(isset($_SESSION['listaDeLibros'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeLibros as $key => $value) {
+            foreach ($listaDeDocumentos as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeLibros[$i]->isbn; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->titulo; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->autor; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->precio; ?></td>  
-                    <!--<td>d>-->  
-                    <td><?php echo $listaDeLibros[$i]->catLibNombre; ?></td>  
-                    <td><a href="Controlador.php?ruta=actualizarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>" onclick="return confirm('¿Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeDocumentos[$i]->tipDocId; ?></td>  
+                    <td><?php echo $listaDeDocumentos[$i]->tipDocSigla; ?></td>  
+                    <td><?php echo $listaDeDocumentos[$i]->tipDocNombre_documento; ?></td>   
+                    <td><a href="Controlador.php?ruta=actualizarTipoDocumento&idAct=<?php echo $listaDeDocumentos[$i]->tipDocId; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarTipoDocumento&idAct=<?php echo $listaDeDocumentos[$i]->tipDocId; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeLibros=null;
+            $listaDeDocumentos=null;
             ?>
         </tbody>
     </table>
 
 
-    <!--**************************************** -->  
-    <!--LAS siguientes lìneas se agregan con el propòsito de dar funcionalidad a un DataTable-->
-    <!--**************************************** -->
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
@@ -89,12 +77,9 @@ if(isset($_SESSION['listaDeLibros'])){
                             });
                         });
     </script>     
-    <!--**************************************** -->
-    <!--**************************************** -->   
+
 
 
 
 </body>
 </html>
-	
-	

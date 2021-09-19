@@ -1,6 +1,6 @@
 <?php
 //echo "<pre>";
-//print_r($_SESSION['listaDeLibros']);
+//print_r($_SESSION['listaDeVehiculos']);
 //echo "</pre>";
 
 if (isset($_SESSION['mensaje'])) {
@@ -29,12 +29,12 @@ if (isset($_SESSION['mensaje'])) {
     </head>
 	
 	<body>
-        <h1>Listado de la tabla Libros</h1>
+        <h1>Listado de la tabla Vehiculos Inactivos</h1>
         <br>
 <?php
-if(isset($_SESSION['listaDeLibros'])){
+if(isset($_SESSION['listaDeVehiculos'])){
 	
-	 $listaDeLibros=$_SESSION['listaDeLibros'];
+	 $listaDeVehiculos=$_SESSION['listaDeVehiculos'];
 
 	
 }
@@ -42,35 +42,35 @@ if(isset($_SESSION['listaDeLibros'])){
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>Isbn</th> 
-                <th>Titulo</th> 
-                <th>Autor</th> 
-                <th>Precio</th> 
+                <th>Id</th> 
+                <th>Numero de Placa</th> 
+                <th>Color</th> 
+                <th>Marca</th> 
                 <!--<th>Estado</th>--> 
-                <th>Categoria</th> 
-                <th>Editar</th> 
-                <th>Eliminar</th> 
+                <th>Empleado</th>
+                <th>Numero de Ticket</th> 
+                <th>Habilitar</th>  
             </tr>
         </thead>
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeLibros as $key => $value) {
+            foreach ($listaDeVehiculos as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeLibros[$i]->isbn; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->titulo; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->autor; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->precio; ?></td>  
+                    <td><?php echo $listaDeVehiculos[$i]->vehId; ?></td>  
+                    <td><?php echo $listaDeVehiculos[$i]->vehNumero_Placa; ?></td>  
+                    <td><?php echo $listaDeVehiculos[$i]->vehColor; ?></td>  
+                    <td><?php echo $listaDeVehiculos[$i]->vehMarca; ?></td>
+                    <td><?php echo $listaDeVehiculos[$i]->empId ; ?></td>  
                     <!--<td>d>-->  
-                    <td><?php echo $listaDeLibros[$i]->catLibNombre; ?></td>  
-                    <td><a href="Controlador.php?ruta=actualizarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>" onclick="return confirm('¿Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeVehiculos[$i]->ticNumero; ?></td>  
+                    <td><a href="Controlador.php?ruta=habilitarVehiculos&idAct=<?php echo $listaDeVehiculos[$i]->isbn; ?>" onclick="return confirm('¿Está seguro de habilitar el registro?')">Habilitar</a></td>   
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeLibros=null;
+            $listaDeVehiculos=null;
             ?>
         </tbody>
     </table>
@@ -96,5 +96,3 @@ if(isset($_SESSION['listaDeLibros'])){
 
 </body>
 </html>
-	
-	

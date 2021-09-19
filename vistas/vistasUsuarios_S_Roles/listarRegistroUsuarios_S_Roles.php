@@ -29,48 +29,39 @@ if (isset($_SESSION['mensaje'])) {
     </head>
 	
 	<body>
-        <h1>Listado de la tabla Libros</h1>
-        <br>
 <?php
-if(isset($_SESSION['listaDeLibros'])){
+if(isset($_SESSION['listaDeUsuarios_Roles'])){
 	
-	 $listaDeLibros=$_SESSION['listaDeLibros'];
-
+    $listaDeUsuarios_Roles=$_SESSION['listaDeUsuarios_Roles'];
+	 unset($_SESSION['listaDeUsuarios_Roles']);
 	
 }
 ?>
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
+            <h3>Listado de la Tabla Rol y Usuarop</h3>
             <tr>
-                <th>Isbn</th> 
-                <th>Titulo</th> 
-                <th>Autor</th> 
-                <th>Precio</th> 
-                <!--<th>Estado</th>--> 
-                <th>Categoria</th> 
-                <th>Editar</th> 
+                <th>Usuario</th> 
+                <th>Rol</th>
+                <!--<th>Estado</th>-->
                 <th>Eliminar</th> 
             </tr>
         </thead>
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeLibros as $key => $value) {
+            foreach ($listaDeUsuarios_Roles as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeLibros[$i]->isbn; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->titulo; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->autor; ?></td>  
-                    <td><?php echo $listaDeLibros[$i]->precio; ?></td>  
-                    <!--<td>d>-->  
-                    <td><?php echo $listaDeLibros[$i]->catLibNombre; ?></td>  
-                    <td><a href="Controlador.php?ruta=actualizarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarLibro&idAct=<?php echo $listaDeLibros[$i]->isbn; ?>" onclick="return confirm('¿Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeUsuarios_Roles[$i]->usuId; ?></td>  
+                    <td><?php echo $listaDeUsuarios_Roles[$i]->rolId; ?></td>
+                    <!--<td>d>-->
+                    <td><a href="Controlador.php?ruta=eliminarUsuarios&usuId=<?php echo $listaDeUsuarios_Roles[$i]->id_usuario_s; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeLibros=null;
+            $listaDeUsuarios=null;
             ?>
         </tbody>
     </table>
@@ -96,5 +87,3 @@ if(isset($_SESSION['listaDeLibros'])){
 
 </body>
 </html>
-	
-	
