@@ -24,23 +24,22 @@ if (isset($_SESSION['mensaje'])) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
     </head>
-	<h1>Listado de la tabla Tipos de Documentos</h1>
+	<h1>Listado de la tabla Identificacion</h1>
     <br>
 <body>
 <?php
-if(isset($_SESSION['listarTiposDocumentos'])){
+if(isset($_SESSION['listaDeIdentificacion'])){
 	
-	 $listaDeDocumentos = $_SESSION['listarTiposDocumentos'];
-
-	
+	 $listaDeIdentificacion = $_SESSION['listaDeIdentificacion'];	
 }
+
 ?>
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>Id</th> 
                 <th>Sigla</th> 
-                <th>Nombre Documentos</th>  
+                <th>Nombre Documento</th>  
                 <th>Editar</th> 
                 <th>Eliminar</th> 
             </tr>
@@ -48,19 +47,19 @@ if(isset($_SESSION['listarTiposDocumentos'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeDocumentos as $key => $value) {
+            foreach ($listaDeIdentificacion as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeDocumentos[$i]->tipDocId; ?></td>  
-                    <td><?php echo $listaDeDocumentos[$i]->tipDocSigla; ?></td>  
-                    <td><?php echo $listaDeDocumentos[$i]->tipDocNombre_documento; ?></td>   
-                    <td><a href="Controlador.php?ruta=actualizarTipoDocumento&idAct=<?php echo $listaDeDocumentos[$i]->tipDocId; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarTipoDocumento&idAct=<?php echo $listaDeDocumentos[$i]->tipDocId; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeIdentificacion[$i]->ide_id; ?></td>  
+                    <td><?php echo $listaDeIdentificacion[$i]->ide_sigla; ?></td>  
+                    <td><?php echo $listaDeIdentificacion[$i]->ide_descripcion; ?></td>   
+                    <td><a href="Controlador.php?ruta=mostrarActualizarIdentificacion&idAct=<?php echo $listaDeIdentificacion[$i]->ide_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarIdentificacion&idAct=<?php echo $listaDeIdentificacion[$i]->ide_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeDocumentos=null;
+            $listaDeIdentificacion=null;
             ?>
         </tbody>
     </table>

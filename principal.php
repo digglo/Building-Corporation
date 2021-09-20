@@ -61,6 +61,12 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarIdentificacion">Agregar Identificacion</a>
         </div>
+        <div class="gestion">Menú Operaciones de Tabla Constructora
+            <br/>
+            <a href="./Controlador.php?ruta=listarConstructora">Listar Constructoras</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>
+        </div>
         
         <div id="contenido">
             <?php

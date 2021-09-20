@@ -3,8 +3,8 @@
 print_r($_SESSION['actualizarTipoDocumento']);
 echo "<pre>";*/
 
-if(isset($_SESSION['actualizarTipoDocumento'])){
-    $actualizarTipoDocumento = $_SESSION['actualizarTipoDocumento'];
+if(isset($_SESSION['actualizarDatosIdentificacion'])){
+    $actualizarDatosIdentificacion = $_SESSION['actualizarDatosIdentificacion'];
 }
 ?>
 <style type="text/css">
@@ -57,26 +57,26 @@ form input[type="number"]{
                 <tr>
                     <td>Id Documento:</td>
                     <td>
-                        <input placeholder="Id Documento" name = "tipDocId" type="number" pattern="" size="25" require="required" autofocus readonly="readonly"
-                        value="<?php if (isset($actualizarTipoDocumento->tipDocId)) {
-                            echo $actualizarTipoDocumento->tipDocId;}?>" >
+                        <input placeholder="Id" name = "ide_id" type="number" pattern="" size="25" require="required" autofocus readonly="readonly"
+                        value="<?php if (isset( $actualizarDatosIdentificacion->ide_id)) {
+                            echo  $actualizarDatosIdentificacion->ide_id;}?>" >
                     </td>
                 </tr>
                 <tr>
                     <td>Sigla:</td>
                     <td>
-                            <input type="text" name="tipDocSigla" placeholder="Sigla"  size="25"
-                            value="<?php if (isset($actualizarTipoDocumento->tipDocSigla)) {
-                                echo $actualizarTipoDocumento->tipDocSigla;
+                            <input type="text" name="ide_sigla" placeholder="Sigla"  size="25"
+                            value="<?php if (isset( $actualizarDatosIdentificacion->ide_sigla)) {
+                                echo  $actualizarDatosIdentificacion->ide_sigla;
                             } ?>" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>Nombre Documento:</td>
                     <td>
-                            <input type="text" name="tipDocNombre_documento" placeholder="Nombre Documento" size="25" 
-                            value="<?php if (isset($actualizarTipoDocumento->tipDocNombre_documento)) {
-                                echo $actualizarTipoDocumento->tipDocNombre_documento;
+                            <input type="text" name="ide_descripcion" placeholder="Nombre Documento" size="25" 
+                            value="<?php if (isset( $actualizarDatosIdentificacion->ide_descripcion)) {
+                                echo  $actualizarDatosIdentificacion->ide_descripcion;
                             } ?>" autocomplete="off">
                     </td>
                 </tr>
@@ -84,11 +84,11 @@ form input[type="number"]{
                    
                     <td>
                         <br>
-                        <button class="botonCancelar" type="submit" name="ruta" value="cancelarActualizarTipoDocumento" >Cancelar</button>
+                        <button class="botonCancelar" type="submit" name="ruta" value="cancelarActualizarIdentificacion" >Cancelar</button>
                     </td>
                     <td>
                         <br>
-                        <button class="botonActualizar" type="submit" name="ruta" value="confirmarActualizarTipoDocumento">Actualizar Libro</button>
+                        <button class="botonActualizar" type="submit" name="ruta" value="confirmarActualizarIdentificacion">Actualizar Identificacion</button>
                     </td>
                 </tr>
             </table>

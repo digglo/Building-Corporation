@@ -1,8 +1,8 @@
  <?php
 
 
+include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
-
 
 
 class ControladorPrincipal{
@@ -50,28 +50,56 @@ class ControladorPrincipal{
 
 
 
-            case 'listarRol':
-                $this -> listarRol();
+            case 'listarIdentificacion':
+                $this -> listarIdentificacion();
                 break;
-            case 'mostrarActualizarRol':
-                $this -> mostrarActualizarRol();
+            case 'mostrarActualizarIdentificacion':
+                $this -> mostrarActualizarIdentificacion();
                 break;
-            case 'confirmarActualizarRol':
-                $this -> confirmarActualizarRol();
+            case 'confirmarActualizarIdentificacion':
+                $this -> confirmarActualizarIdentificacion();
                 break;
-            case 'cancelarActualizarRol':
-                $this -> confirmarActualizarRol();
+            case 'cancelarActualizarIdentificacion':
+                $this -> confirmarActualizarIdentificacion();
                 break;
-            case 'mostrarInsertarRol':
-                $this -> mostrarInsertarRol();
+            case 'mostrarInsertarIdentificacion':
+                $this -> mostrarInsertarIdentificacion();
                 break;
-            case 'insertarRol':
-                $this -> insertarRol();
+            case 'insertarIdentificacion':
+                $this -> insertarIdentificacion();
                 break;
-            case 'eliminarRol':
-                $this -> eliminarRol();
+            case 'eliminarIdentificacion':
+                $this -> eliminarIdentificacion();
                 break;
             
+
+
+
+
+
+
+                
+            case 'listarConstructora':
+                $this -> listarConstructora();
+                break;
+            case 'mostrarActualizarConstructora':
+                $this -> mostrarActualizarConstructora();
+                break;
+            case 'confirmarActualizarConstructora':
+                $this -> confirmarActualizarConstructora();
+                break;
+            case 'cancelarActualizarConstructora':
+                $this -> confirmarActualizarConstructora();
+                break;
+            case 'mostrarInsertarConstructora':
+                $this -> mostrarInsertarConstructora();
+                break;
+            case 'insertarConstructora':
+                $this -> insertarConstructora();
+                break;
+            case 'eliminarConstructora':
+                $this -> eliminarConstructora();
+                break;
         }
     }
 
@@ -101,6 +129,75 @@ class ControladorPrincipal{
 
     public function eliminarRol(){
         $rolesControlador = new RolControlador($this -> datos);
+    }
+
+
+
+
+
+
+
+
+    public function listarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+    public function mostrarActualizarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+    public function confirmarActualizarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+    public function cancelarActualizarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+    public function mostrarInsertarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+    public function insertarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+    public function eliminarIdentificacion(){
+        $identificacionControlador = new IdentificacionControlador($this -> datos);
+    }
+
+
+
+
+
+
+
+    public function listarConstructora(){
+        $constructoraControlador = new ConstructoraControlador($this -> datos);
+    }
+
+    public function mostrarActualizarConstructora(){
+        $constructoraControlador = new ConstructoraControlador($this -> datos);
+    }
+
+    public function confirmarActualizarConstructora(){
+        $cosntructoraControlador = new ConstructoraControlador($this -> datos);
+    }
+
+    public function cancelarActualizarConstructora(){
+        $constructoraControlador = new ConstructoraControlador($this -> datos);
+    }
+
+    public function mostrarInsertarConstructora(){
+        $constructoraControlador = new ConstructoraControlador($this -> datos);
+    }
+
+    public function insertarConstructora(){
+        $constructoraControlador = new ConstructoraControlador($this -> datos);
+    }
+
+    public function eliminarConstructora(){
+        $constructoraControlador = new ConstructoraControlador($this -> datos);
     }
 
     
