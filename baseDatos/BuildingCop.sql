@@ -7,16 +7,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-
-
 -- Schema proyecto
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `proyecto` DEFAULT CHARACTER SET utf8 ;
@@ -78,22 +68,22 @@ CREATE TABLE IF NOT EXISTS `proyecto`.`constructora` (
   `con_id` INT NOT NULL,
   `con_estado` TINYINT NOT NULL DEFAULT 1,
   `con_nombre_empresa` VARCHAR(10) NULL,
-  `con_numero_documento` INT NULL,
+  `con_numero documento` INT NULL,
   `con_id_identificacion` INT NULL,
   `con_created_at` TIMESTAMP NULL,
   `con_updated_at` TIMESTAMP NULL,
   `con_usuSesion` VARCHAR(20) NULL,
-  `usuario_s_usuld` INT NULL,
+  `usuario_s_usuId` INT NULL,
   PRIMARY KEY (`con_id`),
   INDEX `fk_constructora_identificacion1_idx` (`con_id_identificacion` ASC),
-  INDEX `fk_constructora_usuario_s1_idx` (`usuario_s_usuld` ASC),
+  INDEX `fk_constructora_usuario_s1_idx` (`usuario_s_usuId` ASC),
   CONSTRAINT `fk_constructora_identificacion1`
     FOREIGN KEY (`con_id_identificacion`)
     REFERENCES `proyecto`.`identificacion` (`ide_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_constructora_usuario_s1`
-    FOREIGN KEY (`usuario_s_usuld`)
+    FOREIGN KEY (`usuario_s_usuId`)
     REFERENCES `proyecto`.`usuario_s` (`usuId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
