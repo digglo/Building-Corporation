@@ -52,14 +52,12 @@ class ConstructoraDAO extends ConBdMySql{
                           con_nombre_empresa, 
                           con_numero_documento,
                           con_id_identificacion,
-                          usuario_s_usuld,
-                          con_estado) ";
+                          usuario_s_usuld) ";
             $consulta.= "values (:con_id, 
                                  :con_nombre_empresa, 
                                  :con_numero_documento,
                                  :con_id_identificacion,
-                                 :usuario_s_usuld,
-                                 :con_estado);" ;
+                                 :usuario_s_usuld);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
@@ -69,7 +67,6 @@ class ConstructoraDAO extends ConBdMySql{
             $insertar -> bindParam(":con_numero_documento", $registro['con_numero_documento']);
             $insertar -> bindParam(":con_id_identificacion", $registro['con_id_identificacion']);
             $insertar -> bindParam(":usuario_s_usuld", $registro['usuario_s_usuld']);
-            $insertar -> bindParam(":con_estado", $registro['con_estado']);
 
 
             $insercion = $insertar->execute();

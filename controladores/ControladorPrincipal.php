@@ -1,16 +1,14 @@
 <?php
 
-
+include_once PATH . 'controladores/ConstructoraControlador.php';
 include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
+include_once PATH . 'controladores/SedeControlador.php';
 
 
-<<<<<<< HEAD
-class ControladorPrincipal{
-=======
 class ControladorPrincipal
 {
->>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
+
 
     private $datos = array();
 
@@ -53,7 +51,7 @@ class ControladorPrincipal
                 break;
 
 
-<<<<<<< HEAD
+
 
 
 
@@ -108,33 +106,64 @@ class ControladorPrincipal
             case 'eliminarConstructora':
                 $this -> eliminarConstructora();
                 break;
-=======
-            case 'listarRol':
-                $this->listarRol();
+
+
+
+
+
+
+
+
+
+            case 'listarSede':
+                $this -> listarSede();
                 break;
-            case 'mostrarActualizarRol':
-                $this->mostrarActualizarRol();
+            case 'mostrarActualizarSede':
+                $this -> mostrarActualizarSede();
                 break;
-            case 'confirmarActualizarRol':
-                $this->confirmarActualizarRol();
+            case 'confirmarActualizarSede':
+                $this -> confirmarActualizarSede();
                 break;
-            case 'cancelarActualizarRol':
-                $this->confirmarActualizarRol();
+            case 'cancelarActualizarSede':
+                $this -> confirmarActualizarSede();
                 break;
-            case 'mostrarInsertarRol':
-                $this->mostrarInsertarRol();
+            case 'mostrarInsertarSede':
+                $this -> mostrarInsertarSede();
                 break;
-            case 'insertarRol':
-                $this->insertarRol();
+            case 'insertarSede':
+                $this -> insertarSede();
                 break;
-            case 'eliminarRol':
-                $this->eliminarRol();
-                break;
-            case 'gestionDeAcceso':
-                $this->gestionDeAcceso();
+            case 'eliminarSede':
+                $this -> eliminarSede();
                 break;
 
->>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
+
+
+
+
+
+
+            case 'listarUbicacion':
+                $this -> listarUbicacion();
+                break;
+            case 'mostrarActualizarSede':
+                $this -> mostrarActualizarSede();
+                break;
+            case 'confirmarActualizarSede':
+                $this -> confirmarActualizarSede();
+                break;
+            case 'cancelarActualizarSede':
+                $this -> confirmarActualizarSede();
+                break;
+            case 'mostrarInsertarSede':
+                $this -> mostrarInsertarSede();
+                break;
+            case 'insertarSede':
+                $this -> insertarSede();
+                break;
+            case 'eliminarSede':
+                $this -> eliminarSede();
+                break;
         }
     }
 
@@ -178,7 +207,7 @@ class ControladorPrincipal
         $rolesControlador = new gestionDeAcceso($this->datos);
     }
 
-<<<<<<< HEAD
+
 
 
 
@@ -248,9 +277,42 @@ class ControladorPrincipal
         $constructoraControlador = new ConstructoraControlador($this -> datos);
     }
 
-    
-=======
->>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
+
+
+
+
+
+
+
+
+    public function listarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function mostrarActualizarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function confirmarActualizarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function cancelarActualizarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function mostrarInsertarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function insertarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function eliminarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
 }
 
 

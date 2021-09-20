@@ -28,9 +28,9 @@ if (isset($_SESSION['mensaje'])) {
     <br>
 <body>
 <?php
-if(isset($_SESSION['listaDeIdentificacion'])){
+if(isset($_SESSION['listaDeConstructora'])){
 	
-	 $listaDeIdentificacion = $_SESSION['listaDeIdentificacion'];	
+	 $listaDeConstructora = $_SESSION['listaDeConstructora'];	
 }
 
 ?>
@@ -38,8 +38,10 @@ if(isset($_SESSION['listaDeIdentificacion'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>Sigla</th> 
-                <th>Nombre Documento</th>  
+                <th>Nombre Empresa</th> 
+                <th>Numero Documento</th>  
+                <th>Identificacion</th>
+                <th>Usuario</th>
                 <th>Editar</th> 
                 <th>Eliminar</th> 
             </tr>
@@ -47,19 +49,21 @@ if(isset($_SESSION['listaDeIdentificacion'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeIdentificacion as $key => $value) {
+            foreach ($listaDeConstructora as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeIdentificacion[$i]->ide_id; ?></td>  
-                    <td><?php echo $listaDeIdentificacion[$i]->ide_sigla; ?></td>  
-                    <td><?php echo $listaDeIdentificacion[$i]->ide_descripcion; ?></td>   
-                    <td><a href="Controlador.php?ruta=mostrarActualizarIdentificacion&idAct=<?php echo $listaDeIdentificacion[$i]->ide_id; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarIdentificacion&idAct=<?php echo $listaDeIdentificacion[$i]->ide_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeConstructora[$i]->con_id; ?></td>  
+                    <td><?php echo $listaDeConstructora[$i]->con_nombre_empresa; ?></td>  
+                    <td><?php echo $listaDeConstructora[$i]->con_numero_documento; ?></td>   
+                    <td><?php echo $listaDeConstructora[$i]->con_id_identificacion; ?></td>  
+                    <td><?php echo $listaDeConstructora[$i]->usuario_s_usuld; ?></td> 
+                    <td><a href="Controlador.php?ruta=mostrarActualizarConstructora&idAct=<?php echo $listaDeConstructora[$i]->con_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarConstructora&idAct=<?php echo $listaDeConstructora[$i]->con_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeIdentificacion=null;
+            $listaDeConstructora=null;
             ?>
         </tbody>
     </table>
