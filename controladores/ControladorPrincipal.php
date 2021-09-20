@@ -3,6 +3,8 @@
     include_once PATH . 'controladores/ConstructoraControlador.php';
     include_once PATH . 'controladores/IdentificacionControlador.php';
     include_once PATH . 'controladores/RolControlador.php';
+    include_once PATH . 'controladores/Material_construccionControlador.php';
+    include_once PATH . 'controladores/recibidoControlador.php';
 
     class ControladorPrincipal
     {
