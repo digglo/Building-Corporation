@@ -85,7 +85,18 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarTrabajador">Agregar Trabajadores</a>
         </div>
-        
+        <div class="gestion">Menú Operaciones de Tabla material_construccion
+            <br/>
+            <a href="./Controlador.php?ruta=listarMaterial_construccion">Listar Material_construccion</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material_construccion</a>
+        </div>
+        <div class="gestion">Menú Operaciones de Tabla Recibido
+            <br/>
+            <a href="./Controlador.php?ruta=listarRecibido">Listar Recibido</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Recibido</a>
+        </div>
         <div id="contenido">
             <?php
             if(isset($_GET['contenido'])){

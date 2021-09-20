@@ -6,7 +6,8 @@ include_once PATH . 'controladores/RolControlador.php';
 include_once PATH . 'controladores/SedeControlador.php';
 include_once PATH . 'controladores/UbicacionControlado.php';
 include_once PATH . 'controladores/TrabajadorControlador.php';
-
+include_once PATH . 'controladores/Material_construccionControlador.php';
+include_once PATH . 'controladores/RecibidoControlador.php';
 
 class ControladorPrincipal
 {
@@ -168,12 +169,6 @@ class ControladorPrincipal
                 break;
 
 
-
-
-
-
-
-
             case 'listarTrabajador':
                 $this -> listarTrabajador();
                 break;
@@ -195,6 +190,55 @@ class ControladorPrincipal
             case 'eliminarTrabajador':
                 $this -> eliminarTrabajador();
                 break;
+
+
+            case 'listarMaterial_construccion':
+                $this->listarMaterial_construccion();
+                break;
+            case 'mostrarActualizarMaterial_construccion':
+                $this->mostrarActualizarMaterial_construccion();
+                break;
+            case 'confirmarActualizarMaterial_construccion':
+                $this->confirmarActualizarMaterial_construccion();
+                break;
+            case 'cancelarActualizarMaterial_construccion':
+                $this->cancelarActualizarMaterial_construccion();
+                break;
+            case 'mostrarInsertarMaterial_construccion':
+                $this->mostrarInsertarMaterial_construccion();
+                break;
+            case 'insertarMaterial_construccion':
+                $this->insertarMaterial_construccion();
+                break;
+            case 'eliminarMaterial_construccion':
+                $this->eliminarMaterial_construccion();
+                break;
+           
+
+
+
+
+            case 'listarRecibido':
+                $this -> listarRecibido();
+                break;
+            case 'mostrarActualizarRecibido':
+                $this -> mostrarActualizarRecibido();
+                break;
+            case 'confirmarActualizarRecibido':
+                $this -> confirmarActualizarRecibido();
+                break;
+            case 'cancelarActualizarRecibido':
+                $this -> confirmarActualizarRecibido();
+                break;
+            case 'mostrarInsertarRecibido':
+                $this -> mostrarInsertarRecibido();
+                break;
+            case 'insertarRecibido':
+                $this -> insertarRecibido();
+                break;
+            case 'eliminarRecibido':
+                $this -> eliminarRecibido();
+                break;    
         }
     }
 
@@ -415,9 +459,79 @@ class ControladorPrincipal
 
     public function eliminarTrabajador(){
         $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }    
+    
+    
+        public function listarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+
+        public function mostrarActualizarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+
+        public function confirmarActualizarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+
+        public function cancelarActualizarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+
+        public function mostrarInsertarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+
+        public function insertarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+
+        public function eliminarRecibido(){
+            $RecibidoControlador = new RecibidoControlador($this -> datos);
+        }
+  
+        
+
+
+        
+        public function listarMaterial_construccion()
+            {
+                $material_construccionControlador = new Material_contruccionControlador($this->datos);
+            }
+    
+            public function mostrarActualizarMaterial_construccion()
+            {
+                $rolesControlador = new Material_contruccionControlador($this->datos);
+            }
+    
+            public function confirmarActualizarMaterial_construccion()
+            {
+                $material_construccionControlador = new Material_contruccionControlador($this->datos);
+            }
+    
+            public function cancelarActualizarMaterial_construccion()
+            {
+                $material_construccionControlador = new Material_contruccionControlador($this->datos);
+            }
+    
+            public function mostrarInsertarMaterial_construccion()
+            {
+                $material_construccionControlador = new Material_contruccionControlador($this->datos);
+            }
+    
+            public function insertarMaterial_construccion()
+            {
+                $material_construccionControlador = new Material_contruccionControlador($this->datos);
+            }
+    
+            public function eliminarMaterial_construccion()
+            {
+                $material_construccionControlador = new Material_contruccionControlador($this->datos);
+            }
+    
     }
 
-}
+
 
 
 ?>
