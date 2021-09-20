@@ -114,6 +114,7 @@ form select{
                             } ?>">
                     </td>
                 </tr>
+                <tr>
                 <td>Identificacion:</td>
                     <td>
                             <select name="con_id_identificacion" id="con_id_identificacion" style="width: 338px">

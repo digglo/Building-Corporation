@@ -89,7 +89,7 @@ class TrabajadorControlador{
 
     }
 
-    public function mostrarInsertarConstructora(){
+    public function mostrarInsertarTrabajador(){
 
         $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
         $registroIdentificacion = $gestarIdentificacion -> seleccionarTodos();
@@ -99,7 +99,7 @@ class TrabajadorControlador{
 
         session_start();
         $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
-        $_SESSION['listaDeUsuario'] = $registroSede;
+        $_SESSION['listaDeSede'] = $registroSede;
 		
         header("Location: principal.php?contenido=vistas/vistasTrabajador/vistaIngresarTrabajador.php");
 

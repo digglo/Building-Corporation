@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4570467-ad57-4c29-a8a7-bf2d189c20dc" name="Changes" comment="Create Usuario_sControlador">
+    <list default="true" id="e4570467-ad57-4c29-a8a7-bf2d189c20dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.git.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controladores/ControladorPrincipal.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ControladorPrincipal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelos/ConstantesConexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/ConstantesConexion.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,6 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -123,7 +123,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Create Usuario_sControlador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Usuario_sControlador" />
   </component>
 </project>

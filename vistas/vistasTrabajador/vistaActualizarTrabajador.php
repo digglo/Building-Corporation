@@ -99,46 +99,47 @@ form select{
                 <tr>
                     <td>Primer Nombre:</td>
                     <td>
-                            <input type="form-control" type="text" name="con_nombre_empresa" placeholder="Nombre Empresa"  size="50"
-                            value="<?php if (isset($actualizarDatosConstructora->con_nombre_empresa)) {
-                                echo $actualizarDatosConstructora->con_nombre_empresa;
+                            <input type="form-control" type="text" name="tra_primer_nombre" placeholder="Primer Nombre"  size="50"
+                            value="<?php if (isset($actualizarDatosTrabajador->tra_primer_nombre)) {
+                                echo $actualizarDatosTrabajador->tra_primer_nombre;
                             } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Segundo Nombre:</td>
                     <td>
-                            <input type="form-control" type="text" name="con_numero_documento" placeholder="Numero Documento" size="50" 
-                            value="<?php if (isset($actualizarDatosConstructora->con_numero_documento)) {
-                                echo $actualizarDatosConstructora->con_numero_documento;
+                            <input type="form-control" type="text" name="tra_segundo_nombre" placeholder="Segundo Nombre" size="50" 
+                            value="<?php if (isset($actualizarDatosTrabajador->tra_segundo_nombre)) {
+                                echo $actualizarDatosTrabajador->tra_segundo_nombre;
                             } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Primer Apellido:</td>
                     <td>
-                            <input type="form-control" type="text" name="con_nombre_empresa" placeholder="Nombre Empresa"  size="50"
-                            value="<?php if (isset($actualizarDatosConstructora->con_nombre_empresa)) {
-                                echo $actualizarDatosConstructora->con_nombre_empresa;
+                            <input type="form-control" type="text" name="tra_primer_apellido" placeholder="Primer Apellido"  size="50"
+                            value="<?php if (isset($actualizarDatosTrabajador->tra_primer_apellido)) {
+                                echo $actualizarDatosTrabajador->tra_primer_apellido;
                             } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Segundo Apellido:</td>
                     <td>
-                            <input type="form-control" type="text" name="con_numero_documento" placeholder="Numero Documento" size="50" 
-                            value="<?php if (isset($actualizarDatosConstructora->con_numero_documento)) {
-                                echo $actualizarDatosConstructora->con_numero_documento;
+                            <input type="form-control" type="text" name="tra_segundo_apellido" placeholder="Segundo Apellido" size="50" 
+                            value="<?php if (isset($actualizarDatosTrabajador->tra_segundo_apellido)) {
+                                echo $actualizarDatosTrabajador->tra_segundo_apellido;
                             } ?>">
                     </td>
                 </tr>
+                <tr>
                 <td>Identificacion:</td>
                     <td>
-                            <select name="con_id_identificacion" id="con_id_identificacion" style="width: 338px">
-                                <?php for ($i=0; $i < $identificacionCantidad; $i++) { 
+                            <select name="tra_identificacion_id" id="tra_identificacion_id" style="width: 338px">
+                                <?php for ($i=0; $i < $sedeCantidad; $i++) { 
                                 ?>
                                     <option value="<?php echo $listaDeIdentificacion[$i]->ide_id; ?>" 
-                                    <?php if (isset($listaDeIdentificacion[$i]->ide_id) && isset($actualizarDatosConstructora->con_id_identificacion) && $listaDeIdentificacion[$i]->ide_id == $actualizarDatosConstructora->con_id_identificacion) {
+                                    <?php if (isset($listaDeIdentificacion[$i]->ide_id) && isset($actualizarDatosTrabajador->tra_identificacion_id) && $listaDeIdentificacion[$i]->ide_id == $actualizarDatosTrabajador->tra_identificacion_id) {
                                         echo " selected";
                                     } ?>
                                     >
@@ -153,16 +154,16 @@ form select{
                 <tr>
                 <td>Sede:</td>
                     <td>
-                            <select name="usuario_s_usuld" id="usuario_s_usuld" style="width: 338px">
-                                <?php for ($i=0; $i < $usuarioCantidad; $i++) { 
+                            <select name="tra_sede_id" id="tra_sede_id" style="width: 338px">
+                                <?php for ($i=0; $i < $sedeCantidad; $i++) { 
                                 ?>
-                                    <option value="<?php echo $listaDeUsuario[$i]->usuId; ?>" 
-                                    <?php if (isset($listaDeUsuario[$i]->usuId) && isset($actualizarDatosConstructora->usuario_s_usuld) && $listaDeUsuario[$i]->usuId == $actualizarDatosConstructora->usuario_s_usuld) {
+                                    <option value="<?php echo $listaDelistaDeSede[$i]->sede_id; ?>" 
+                                    <?php if (isset($listaDelistaDeSede[$i]->sede_id) && isset($actualizarDatosTrabajador->tra_sede_id) && $listaDelistaDeSede[$i]->sede_id == $actualizarDatosTrabajador->tra_sede_id) {
                                         echo "selected";
                                     } ?>
                                     >
 
-                                    <?php echo $listaDeUsuario[$i]->usuId.' - '.$listaDeUsuario[$i] ->usulogin.' pesos minuto'; ?></option>
+                                    <?php echo $listaDelistaDeSede[$i]->sede_id.' - '.$listaDelistaDeSede[$i] ->sede_nombre_sede; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -173,11 +174,11 @@ form select{
                 <tr>
                     <td>
                         <br>
-                        <button type="submit" name="ruta" value="cancelarActualizarConstructora" >Cancelar</button>
+                        <button type="submit" name="ruta" value="cancelarActualizarTrabajador" >Cancelar</button>
                     </td>
                     <td>
                         <br>
-                        <button type="submit" name="ruta" value="confirmarActualizarConstructora">Confirmar</button>
+                        <button type="submit" name="ruta" value="confirmarActualizarTrabajador">Confirmar</button>
                     </td>
                 </tr>
             </table>
