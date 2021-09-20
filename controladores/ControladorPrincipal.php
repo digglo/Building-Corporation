@@ -8,6 +8,7 @@ include_once PATH . 'controladores/UbicacionControlado.php';
 include_once PATH . 'controladores/TrabajadorControlador.php';
 include_once PATH . 'controladores/Material_construccionControlador.php';
 include_once PATH . 'controladores/RecibidoControlador.php';
+include_once PATH . 'controladores/ProyectoControlador.php';
 
 class ControladorPrincipal
 {
@@ -238,7 +239,35 @@ class ControladorPrincipal
                 break;
             case 'eliminarRecibido':
                 $this -> eliminarRecibido();
-                break;    
+                break; 
+
+
+
+
+
+
+
+            case 'listarProyecto':
+                $this->listarProyecto();
+                break;
+            case 'mostrarActualizarProyecto':
+                $this->mostrarActualizarProyecto();
+                break;
+            case 'confirmarActualizarProyecto':
+                $this->confirmarActualizarProyecto();
+                break;
+            case 'cancelarActualizarProyecto':
+                $this->confirmarActualizarProyecto();
+                break;
+            case 'mostrarInsertarProyecto':
+                $this->mostrarInsertarProyecto();
+                break;
+            case 'insertarProyecto':
+                $this->insertarProyecto();
+                break;
+            case 'eliminarRol':
+                $this->eliminarProyecto();
+                break;   
         }
     }
 
@@ -461,73 +490,107 @@ class ControladorPrincipal
         $ubicacionControlador = new TrabajadorControlador($this -> datos);
     }    
     
+
+
+
+
+
     
-        public function listarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function listarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
 
-        public function mostrarActualizarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function mostrarActualizarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
 
-        public function confirmarActualizarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function confirmarActualizarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
 
-        public function cancelarActualizarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function cancelarActualizarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
 
-        public function mostrarInsertarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function mostrarInsertarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
 
-        public function insertarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function insertarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
 
-        public function eliminarRecibido(){
-            $RecibidoControlador = new RecibidoControlador($this -> datos);
-        }
+    public function eliminarRecibido(){
+        $RecibidoControlador = new RecibidoControlador($this -> datos);
+    }
   
         
 
 
         
-        public function listarMaterial_construccion()
-            {
-                $material_construccionControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function listarMaterial_construccion(){
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
     
-            public function mostrarActualizarMaterial_construccion()
-            {
-                $rolesControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function mostrarActualizarMaterial_construccion(){
+        $rolesControlador = new Material_contruccionControlador($this->datos);
+    }
     
-            public function confirmarActualizarMaterial_construccion()
-            {
-                $material_construccionControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function confirmarActualizarMaterial_construccion(){
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
     
-            public function cancelarActualizarMaterial_construccion()
-            {
-                $material_construccionControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function cancelarActualizarMaterial_construccion(){
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
     
-            public function mostrarInsertarMaterial_construccion()
-            {
-                $material_construccionControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function mostrarInsertarMaterial_construccion(){
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
     
-            public function insertarMaterial_construccion()
-            {
-                $material_construccionControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function insertarMaterial_construccion(){
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
     
-            public function eliminarMaterial_construccion()
-            {
-                $material_construccionControlador = new Material_contruccionControlador($this->datos);
-            }
+    public function eliminarMaterial_construccion(){
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+
+
+
+
+
+
+
+
+    public function listarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
+
+    public function mostrarActualizarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
+
+    public function confirmarActualizarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
+
+    public function cancelarActualizarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
+
+    public function mostrarInsertarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
+
+    public function insertarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
+
+    public function eliminarProyecto(){
+        $proyectoControlador = new ProyectoControlador($this -> datos);
+    }
     
     }
 

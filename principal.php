@@ -97,6 +97,12 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Recibido</a>
         </div>
+        <div class="gestion">Menú Operaciones de Tabla Proyecto
+            <br/>
+            <a href="./Controlador.php?ruta=listarProyecto">Listar Protectos</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
+        </div>
         <div id="contenido">
             <?php
             if(isset($_GET['contenido'])){
