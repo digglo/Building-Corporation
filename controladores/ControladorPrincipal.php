@@ -1,51 +1,59 @@
- <?php
+<?php
 
 
 include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
 
 
+<<<<<<< HEAD
 class ControladorPrincipal{
+=======
+class ControladorPrincipal
+{
+>>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
 
     private $datos = array();
-    
-    public function __construct(){
+
+    public function __construct()
+    {
 
         if (!empty($_POST) && isset($_POST['ruta'])) {
-            $this -> datos = $_POST;
+            $this->datos = $_POST;
         }
         if (!empty($_GET) && isset($_GET['ruta'])) {
-            $this -> datos = $_GET;
+            $this->datos = $_GET;
         }
 
-        $this -> control();
+        $this->control();
     }
 
-    public function control(){
+    public function control()
+    {
         switch ($this->datos['ruta']) {
             case 'listarRol':
-                $this -> listarRol();
+                $this->listarRol();
                 break;
             case 'mostrarActualizarRol':
-                $this -> mostrarActualizarRol();
+                $this->mostrarActualizarRol();
                 break;
             case 'confirmarActualizarRol':
-                $this -> confirmarActualizarRol();
+                $this->confirmarActualizarRol();
                 break;
             case 'cancelarActualizarRol':
-                $this -> confirmarActualizarRol();
+                $this->confirmarActualizarRol();
                 break;
             case 'mostrarInsertarRol':
-                $this -> mostrarInsertarRol();
+                $this->mostrarInsertarRol();
                 break;
             case 'insertarRol':
-                $this -> insertarRol();
+                $this->insertarRol();
                 break;
             case 'eliminarRol':
-                $this -> eliminarRol();
+                $this->eliminarRol();
                 break;
 
 
+<<<<<<< HEAD
 
 
 
@@ -100,37 +108,77 @@ class ControladorPrincipal{
             case 'eliminarConstructora':
                 $this -> eliminarConstructora();
                 break;
+=======
+            case 'listarRol':
+                $this->listarRol();
+                break;
+            case 'mostrarActualizarRol':
+                $this->mostrarActualizarRol();
+                break;
+            case 'confirmarActualizarRol':
+                $this->confirmarActualizarRol();
+                break;
+            case 'cancelarActualizarRol':
+                $this->confirmarActualizarRol();
+                break;
+            case 'mostrarInsertarRol':
+                $this->mostrarInsertarRol();
+                break;
+            case 'insertarRol':
+                $this->insertarRol();
+                break;
+            case 'eliminarRol':
+                $this->eliminarRol();
+                break;
+            case 'gestionDeAcceso':
+                $this->gestionDeAcceso();
+                break;
+
+>>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
         }
     }
 
-   public function listarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function listarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
-    public function mostrarActualizarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function mostrarActualizarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
-    public function confirmarActualizarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function confirmarActualizarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
-    public function cancelarActualizarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function cancelarActualizarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
-    public function mostrarInsertarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function mostrarInsertarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
-    public function insertarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function insertarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
-    public function eliminarRol(){
-        $rolesControlador = new RolControlador($this -> datos);
+    public function eliminarRol()
+    {
+        $rolesControlador = new RolControlador($this->datos);
     }
 
+    public function gestionDeAcceso()
+    {
+        $rolesControlador = new gestionDeAcceso($this->datos);
+    }
+
+<<<<<<< HEAD
 
 
 
@@ -201,6 +249,8 @@ class ControladorPrincipal{
     }
 
     
+=======
+>>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
 }
 
 
