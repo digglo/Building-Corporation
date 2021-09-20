@@ -1,6 +1,8 @@
 <?php
 
 include_once PATH . 'modelos/modeloConstructora/constructoraDAO.php';
+include_once PATH . 'modelos/modeloIdentificacion/IdentificacionDAO.php';
+include_once PATH . 'modelos/modeloUsuario_s/Usuario_SDAO.php';
 
 class ConstructoraControlador{
 
@@ -37,78 +39,98 @@ class ConstructoraControlador{
         }
     }
     public function listarConstructora(){
-        $gestarIdentificacion = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroIdentificacion = $gestarIdentificacion -> seleccionarTodos();
+        $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroConstructora = $gestarConstructora -> seleccionarTodos();
     
         session_start();
     
-        $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
+        $_SESSION['listaDeConstructora'] = $registroConstructora;
     
         header("location:principal.php?contenido=vistas/vistasConstructora/listarConstructora.php");
     }
 
     public  function mostrarActualizarConstructora(){
 
-        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarIdentificacion = $gestarIdentificacion -> seleccionarID(array($this->datos['idAct']));
+        $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $actualizarConstructora = $gestarConstructora -> seleccionarID(array($this->datos['idAct']));
 
-        $actualizarDatosIdentificacion = $actualizarIdentificacion['registroEncontrado'][0];
+        $actualizarDatosConstructora = $actualizarConstructora['registroEncontrado'][0];
+
+        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroIdentificacion = $gestarIdentificacion -> seleccionarTodos();
+
+        $gestarUsuario = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroUsuario = $gestarUsuario -> seleccionarTodos();
 
         session_start();
-        $_SESSION['actualizarDatosIdentificacion']=$actualizarDatosIdentificacion;
+        $_SESSION['actualizarDatosConstructora']=$actualizarDatosConstructora;
+        $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
+        $_SESSION['listaDeUsuario'] = $registroUsuario;
 
-        header("location:principal.php?contenido=vistas/vistasIdentificacion/vistaActualizarIdentificacion.php");
+        header("location:principal.php?contenido=vistas/vistasConstructora/vistaActualizarConstructora.php");
         
     }
 
     public function confirmarActualizarConstructora(){
 
-        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarIdentificacion = $gestarIdentificacion -> actualizar(array($this->datos));
+        $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $actualizarConstructora = $gestarConstructora -> actualizar(array($this->datos));
 
         session_start();
             $_SESSION['mensaje'] = "Actualización realizada.";
-            header("location:Controlador.php?ruta=listarIdentificacion");	
+            header("location:Controlador.php?ruta=listarConstructora");	
 
     }
 
     public function cancelarActualizarConstructora(){
 
         session_start();
-		        header("location:Controlador.php?ruta=listarIdentificacion");	
+		        header("location:Controlador.php?ruta=listarConstructora");	
 
     }
 
     public function mostrarInsertarConstructora(){
+
+        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroIdentificacion = $gestarIdentificacion -> seleccionarTodos();
+
+        $gestarUsuario = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroUsuario = $gestarUsuario -> seleccionarTodos();
+
+        session_start();
+        $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
+        $_SESSION['listaDeUsuario'] = $registroUsuario;
 		
-        header("Location: principal.php?contenido=vistas/vistasIdentificacion/vistaIngresarIndentificacion.php");
+        header("Location: principal.php?contenido=vistas/vistasConstructora/vistaIngresarConstructora.php");
 
 }
     
     public function insertarConstructora(){
-		
-        
-        $buscarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
-        $identificacionHallado = $buscarIdentificacion->seleccionarId(array($this->datos['ide_id']));
 
-        if (!$identificacionHallado['exitoSeleccionId']) {
-            $insertarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);	
-            $insertoIdentificacion = $insertarIdentificacion->insertar($this->datos);  
+        $buscarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
-            $resultadoInsercionIdentificacion = $insertoIdentificacion['resultado'];  
+        $cosntructoraHallado = $buscarConstructora->seleccionarId(array($this->datos['con_id']));
+
+        if (!$cosntructoraHallado['exitoSeleccionId']) {
+            $insertarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);	
+            $insertoConstructora = $insertarConstructora->insertar($this->datos);  
+
+            $resultadoInsercionConstructora = $insertoConstructora['resultado'];  
 
             session_start();
-           $_SESSION['mensaje'] = "Se ha insertado " . $this->datos['ide_id'];
+           $_SESSION['mensaje'] = "Se ha insertado " . $this->datos['con_id'];
             
-            header("location:Controlador.php?ruta=listarIdentificacion");
+            header("location:Controlador.php?ruta=listarConstructora");
             
         }else{
         
             session_start();
-            $_SESSION['ide_id'] = $this->datos['ide_id'];
-            $_SESSION['ide_sigla'] = $this->datos['ide_sigla'];		
-            $_SESSION['ide_descripcion'] = $this->datos['ide_descripcion'];	
+            $_SESSION['con_id'] = $this->datos['con_id'];
+            $_SESSION['con_nombre_empresa'] = $this->datos['con_nombre_empresa'];		
+            $_SESSION['con_numero_documento'] = $this->datos['con_numero_documento'];	
+            $_SESSION['con_id_identificacion'] = $this->datos['con_id_identificacion'];		
+            $_SESSION['usuario_s_usuld'] = $this->datos['usuario_s_usuld'];
             
             $_SESSION['mensaje'] = " El id que trata de insertar ya existe en el sistema ";
 
@@ -118,8 +140,8 @@ class ConstructoraControlador{
     }	
 
     public function eliminarConstructora(){
-        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarIdentificacion = $gestarIdentificacion -> eliminar(array($this->datos['idAct']));
+        $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $inhabilitarConstructora = $gestarConstructora -> eliminar(array($this->datos['idAct']));
 
         session_start();
 

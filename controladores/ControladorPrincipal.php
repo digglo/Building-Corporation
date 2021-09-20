@@ -1,10 +1,17 @@
 <?php
 
-
+include_once PATH . 'controladores/ConstructoraControlador.php';
 include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
+<<<<<<< HEAD
 include_once PATH . 'controladores/Material_construccionControlador.php';
 
+=======
+include_once PATH . 'controladores/SedeControlador.php';
+include_once PATH . 'controladores/UbicacionControlador.php';
+
+
+>>>>>>> 189ed0ac4c10b73f3359ecb64b0a776039e6bd1d
 class ControladorPrincipal
 {
 
@@ -50,6 +57,13 @@ class ControladorPrincipal
                 break;
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 189ed0ac4c10b73f3359ecb64b0a776039e6bd1d
 
             case 'listarIdentificacion':
                 $this -> listarIdentificacion();
@@ -96,6 +110,7 @@ class ControladorPrincipal
             case 'eliminarConstructora':
                 $this -> eliminarConstructora();
                 break;
+<<<<<<< HEAD
                 
            
             case 'listarMaterial_construccion':
@@ -124,6 +139,66 @@ class ControladorPrincipal
                 break;
 
 
+=======
+
+
+
+
+
+
+
+
+
+            case 'listarSede':
+                $this -> listarSede();
+                break;
+            case 'mostrarActualizarSede':
+                $this -> mostrarActualizarSede();
+                break;
+            case 'confirmarActualizarSede':
+                $this -> confirmarActualizarSede();
+                break;
+            case 'cancelarActualizarSede':
+                $this -> confirmarActualizarSede();
+                break;
+            case 'mostrarInsertarSede':
+                $this -> mostrarInsertarSede();
+                break;
+            case 'insertarSede':
+                $this -> insertarSede();
+                break;
+            case 'eliminarSede':
+                $this -> eliminarSede();
+                break;
+
+
+
+
+
+
+
+            case 'listarUbicacion':
+                $this -> listarUbicacion();
+                break;
+            case 'mostrarActualizarUbicacion':
+                $this -> mostrarActualizarUbicacion();
+                break;
+            case 'confirmarActualizarUbicacion':
+                $this -> confirmarActualizarUbicacion();
+                break;
+            case 'cancelarActualizarUbicacion':
+                $this -> confirmarActualizarUbicacion();
+                break;
+            case 'mostrarInsertarUbicacion':
+                $this -> mostrarInsertarUbicacion();
+                break;
+            case 'insertarUbicacion':
+                $this -> insertarUbicacion();
+                break;
+            case 'eliminarUbicacion':
+                $this -> eliminarUbicacion();
+                break;
+>>>>>>> 189ed0ac4c10b73f3359ecb64b0a776039e6bd1d
         }
     }
 
@@ -167,6 +242,14 @@ class ControladorPrincipal
         $rolesControlador = new gestionDeAcceso($this->datos);
     }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 189ed0ac4c10b73f3359ecb64b0a776039e6bd1d
 
 
 
@@ -234,6 +317,7 @@ class ControladorPrincipal
 
 
 
+<<<<<<< HEAD
     public function listarMaterial_construccion()
     {
         $material_construccionControlador = new Material_contruccionControlador($this->datos);
@@ -275,6 +359,75 @@ class ControladorPrincipal
     }
 
 
+=======
+
+
+
+
+    public function listarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function mostrarActualizarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function confirmarActualizarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function cancelarActualizarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function mostrarInsertarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function insertarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+    public function eliminarSede(){
+        $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+
+
+
+
+
+
+
+
+    public function listarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function mostrarActualizarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function confirmarActualizarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function cancelarActualizarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function mostrarInsertarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function insertarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function eliminarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+>>>>>>> 189ed0ac4c10b73f3359ecb64b0a776039e6bd1d
 
 }
 
