@@ -79,6 +79,12 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarUbicacion">Agregar Ubicacion</a>
         </div>
+        <div class="gestion">Menú Operaciones de Tabla Trabajador
+            <br/>
+            <a href="./Controlador.php?ruta=listarTrabajador">Listar Trabajadores</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarTrabajador">Agregar Trabajadores</a>
+        </div>
         
         <div id="contenido">
             <?php

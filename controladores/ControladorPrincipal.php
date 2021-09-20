@@ -4,7 +4,8 @@ include_once PATH . 'controladores/ConstructoraControlador.php';
 include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
 include_once PATH . 'controladores/SedeControlador.php';
-include_once PATH . 'controladores/UbicacionControlador.php';
+include_once PATH . 'controladores/UbicacionControlado.php';
+include_once PATH . 'controladores/TrabajadorControlador.php';
 
 
 class ControladorPrincipal
@@ -164,6 +165,35 @@ class ControladorPrincipal
                 break;
             case 'eliminarUbicacion':
                 $this -> eliminarUbicacion();
+                break;
+
+
+
+
+
+
+
+
+            case 'listarTrabajador':
+                $this -> listarTrabajador();
+                break;
+            case 'mostrarActualizarTrabajador':
+                $this -> mostrarActualizarTrabajador();
+                break;
+            case 'confirmarActualizarTrabajador':
+                $this -> confirmarActualizarTrabajador();
+                break;
+            case 'cancelarActualizarTrabajador':
+                $this -> confirmarActualizarTrabajador();
+                break;
+            case 'mostrarInsertarTrabajador':
+                $this -> mostrarInsertarTrabajador();
+                    break;
+            case 'insertarTrabajador':
+                $this -> insertarTrabajador();
+                break;
+            case 'eliminarTrabajador':
+                $this -> eliminarTrabajador();
                 break;
         }
     }
@@ -348,6 +378,43 @@ class ControladorPrincipal
 
     public function eliminarUbicacion(){
         $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+
+
+
+
+
+
+
+
+
+    public function listarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }
+
+    public function mostrarActualizarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }
+
+    public function confirmarActualizarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }
+
+    public function cancelarActualizarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }
+
+    public function mostrarInsertarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }
+
+    public function insertarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
+    }
+
+    public function eliminarTrabajador(){
+        $ubicacionControlador = new TrabajadorControlador($this -> datos);
     }
 
 }

@@ -37,38 +37,38 @@ class UbicacionControlador{
         }
     }
     public function listarUbicacion(){
-        $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroRoles = $gestarRoles -> seleccionarTodos();
+        $gestarUbicacion = new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroUbicacion = $gestarUbicacion -> seleccionarTodos();
     
         session_start();
     
-        $_SESSION['listaDeRoles'] = $registroRoles;
+        $_SESSION['listaDeUbicacion'] = $registroUbicacion;
     
-        header("location:principal.php?contenido=vistas/vistasRoles/listarRegistroRoles.php");
+        header("location:principal.php?contenido=vistas/vistasUbicacion/listarUbicacion.php");
     }
 
     public  function mostrarActualizarUbicacion(){
 
-        $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarRoles = $gestarRoles -> seleccionarID(array($this->datos['rolId']));
+        $gestarUbicacion = new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $actualizarUbicacion = $gestarUbicacion -> seleccionarID(array($this->datos['ubi_id']));
 
-        $actualizarDatosRoles = $actualizarRoles['registroEncontrado'][0];
+        $actualizarDatosUbicacion = $actualizarUbicacion['registroEncontrado'][0];
 
         session_start();
-        $_SESSION['actualizarDatosRoles']=$actualizarDatosRoles;
+        $_SESSION['actualizarDatosUbicacion']=$actualizarDatosUbicacion;
 
-        header("location:principal.php?contenido=vistas/vistasRoles/vistaActualizarRol.php");
+        header("location:principal.php?contenido=vistas/vistasUbicacion/vistaActualizarUbicacion.php");
         
     }
 
     public function confirmarActualizarUbicacion(){
 
-        $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarRoles = $gestarRoles -> actualizar(array($this->datos));
+        $gestarUbicacion = new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $actualizarUbicacion = $gestarUbicacion -> actualizar(array($this->datos));
 
         session_start();
             $_SESSION['mensaje'] = "Actualización realizada.";
-            header("location:Controlador.php?ruta=listarRol");	
+            header("location:Controlador.php?ruta=listarUbicacion");	
 
     }
 
@@ -76,39 +76,39 @@ class UbicacionControlador{
 
         session_start();
                 $_SESSION['mensaje'] = "Desistió de la actualización";
-		        header("location:Controlador.php?ruta=listarRol");	
+		        header("location:Controlador.php?ruta=listarUbicacion");	
 
     }
 
-    public function mostrarInsertarRol(){
+    public function mostrarInsertarUbicacion(){
 		
-        header("Location: principal.php?contenido=vistas/vistasRoles/vistaIngresarRol.php");
+        header("Location: principal.php?contenido=vistas/vistasUbicacion/vistaIngresarUbicacion.php");
 
 }
     
-    public function insertarRol(){
+    public function insertarUbicacion(){
 		
         
-        $buscarRol = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $buscarUbicacion = new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
-        $rolHallado = $buscarRol->seleccionarId(array($this->datos['rol_id_rol']));
+        $ubicacionHallado = $buscarUbicacion->seleccionarId(array($this->datos['ubi_id']));
 
-        if (!$rolHallado['exitoSeleccionId']) {
-            $insertarRol = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);	
-            $insertoRol = $insertarRol->insertar($this->datos);  
+        if (!$ubicacionHallado['exitoSeleccionId']) {
+            $insertarUbicacion = new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);	
+            $insertoUbicacion = $insertarUbicacion->insertar($this->datos);  
 
-            $resultadoInsercionRol = $insertoRol['resultado'];  
+            $resultadoInsercionUbicacion = $insertoUbicacion['resultado'];  
 
             session_start();
-           $_SESSION['mensaje'] = "Se ha insertado " . $this->datos['rol_id_rol'];
+           $_SESSION['mensaje'] = "Se ha insertado " . $this->datos['ubi_id'];
             
             header("location:Controlador.php?ruta=listarRol");
             
         }else{
         
             session_start();
-            $_SESSION['rol_id_rol'] = $this->datos['rol_id_rol'];
-            $_SESSION['rol_tipo_rol'] = $this->datos['rol_tipo_rol'];			
+            $_SESSION['ubi_id'] = $this->datos['ubi_id'];
+            $_SESSION['ubi_direccion'] = $this->datos['ubi_direccion'];			
             
             $_SESSION['mensaje'] = " El id que trata de insertar ya existe en el sistema ";
 
@@ -117,9 +117,9 @@ class UbicacionControlador{
         }					
     }	
 
-    public function eliminarRol(){
-        $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarRoles = $gestarRoles -> eliminar(array($this->datos['rolId']));
+    public function eliminarUbicacion(){
+        $gestarUbicacion = new UbicacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $inhabilitarUbicacion = $gestarUbicacion -> eliminar(array($this->datos['rolId']));
 
         session_start();
 
