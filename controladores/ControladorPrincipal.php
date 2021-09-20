@@ -3,14 +3,11 @@
 
 include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
+include_once PATH . 'controladores/Material_construccionControlador.php';
 
-
-<<<<<<< HEAD
-class ControladorPrincipal{
-=======
 class ControladorPrincipal
 {
->>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
+
 
     private $datos = array();
 
@@ -53,10 +50,6 @@ class ControladorPrincipal
                 break;
 
 
-<<<<<<< HEAD
-
-
-
 
             case 'listarIdentificacion':
                 $this -> listarIdentificacion();
@@ -82,11 +75,6 @@ class ControladorPrincipal
             
 
 
-
-
-
-
-                
             case 'listarConstructora':
                 $this -> listarConstructora();
                 break;
@@ -108,33 +96,34 @@ class ControladorPrincipal
             case 'eliminarConstructora':
                 $this -> eliminarConstructora();
                 break;
-=======
-            case 'listarRol':
-                $this->listarRol();
+                
+           
+            case 'listarMaterial_construccion':
+                $this->listarMaterial_construccion();
                 break;
-            case 'mostrarActualizarRol':
-                $this->mostrarActualizarRol();
+            case 'mostrarActualizarMaterial_construccion':
+                $this->mostrarActualizarMaterial_construccion();
                 break;
-            case 'confirmarActualizarRol':
-                $this->confirmarActualizarRol();
+            case 'confirmarActualizarMaterial_construccion':
+                $this->confirmarActualizarMaterial_construccion();
                 break;
-            case 'cancelarActualizarRol':
-                $this->confirmarActualizarRol();
+            case 'cancelarActualizarMaterial_construccion':
+                $this->cancelarActualizarMaterial_construccion();
                 break;
-            case 'mostrarInsertarRol':
-                $this->mostrarInsertarRol();
+            case 'mostrarInsertarMaterial_construccion':
+                $this->mostrarInsertarMaterial_construccion();
                 break;
-            case 'insertarRol':
-                $this->insertarRol();
+            case 'insertarMaterial_construccion':
+                $this->insertarMaterial_construccion();
                 break;
-            case 'eliminarRol':
-                $this->eliminarRol();
+            case 'eliminarMaterial_construccion':
+                $this->eliminarMaterial_construccion();
                 break;
             case 'gestionDeAcceso':
-                $this->gestionDeAcceso();
+                $this->gestionDeAccesoMaterial_construccion();
                 break;
 
->>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
+
         }
     }
 
@@ -178,11 +167,6 @@ class ControladorPrincipal
         $rolesControlador = new gestionDeAcceso($this->datos);
     }
 
-<<<<<<< HEAD
-
-
-
-
 
 
 
@@ -218,8 +202,6 @@ class ControladorPrincipal
 
 
 
-
-
     public function listarConstructora(){
         $constructoraControlador = new ConstructoraControlador($this -> datos);
     }
@@ -248,9 +230,52 @@ class ControladorPrincipal
         $constructoraControlador = new ConstructoraControlador($this -> datos);
     }
 
-    
-=======
->>>>>>> 647a5a9267bd86af465b1243fb281250bfbc8052
+
+
+
+
+    public function listarMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function mostrarActualizarMaterial_construccion()
+    {
+        $rolesControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function confirmarActualizarMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function cancelarActualizarMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function mostrarInsertarMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function insertarMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function eliminarMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+    public function gestionDeAccesoMaterial_construccion()
+    {
+        $material_construccionControlador = new Material_contruccionControlador($this->datos);
+    }
+
+
+
 }
 
 
