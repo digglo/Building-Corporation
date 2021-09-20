@@ -4,6 +4,7 @@ include_once PATH . 'controladores/ConstructoraControlador.php';
 include_once PATH . 'controladores/IdentificacionControlador.php';
 include_once PATH . 'controladores/RolControlador.php';
 include_once PATH . 'controladores/SedeControlador.php';
+include_once PATH . 'controladores/UbicacionControlador.php';
 
 
 class ControladorPrincipal
@@ -146,23 +147,23 @@ class ControladorPrincipal
             case 'listarUbicacion':
                 $this -> listarUbicacion();
                 break;
-            case 'mostrarActualizarSede':
-                $this -> mostrarActualizarSede();
+            case 'mostrarActualizarUbicacion':
+                $this -> mostrarActualizarUbicacion();
                 break;
-            case 'confirmarActualizarSede':
-                $this -> confirmarActualizarSede();
+            case 'confirmarActualizarUbicacion':
+                $this -> confirmarActualizarUbicacion();
                 break;
-            case 'cancelarActualizarSede':
-                $this -> confirmarActualizarSede();
+            case 'cancelarActualizarUbicacion':
+                $this -> confirmarActualizarUbicacion();
                 break;
-            case 'mostrarInsertarSede':
-                $this -> mostrarInsertarSede();
+            case 'mostrarInsertarUbicacion':
+                $this -> mostrarInsertarUbicacion();
                 break;
-            case 'insertarSede':
-                $this -> insertarSede();
+            case 'insertarUbicacion':
+                $this -> insertarUbicacion();
                 break;
-            case 'eliminarSede':
-                $this -> eliminarSede();
+            case 'eliminarUbicacion':
+                $this -> eliminarUbicacion();
                 break;
         }
     }
@@ -311,6 +312,42 @@ class ControladorPrincipal
 
     public function eliminarSede(){
         $sedeControlador = new SedeControlador($this -> datos);
+    }
+
+
+
+
+
+
+
+
+
+    public function listarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function mostrarActualizarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function confirmarActualizarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function cancelarActualizarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function mostrarInsertarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function insertarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
+    }
+
+    public function eliminarUbicacion(){
+        $ubicacionControlador = new UbicacionControlador($this -> datos);
     }
 
 }
