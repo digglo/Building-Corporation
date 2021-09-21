@@ -265,7 +265,7 @@ class ControladorPrincipal
             case 'insertarProyecto':
                 $this->insertarProyecto();
                 break;
-            case 'eliminarRol':
+            case 'eliminarProyecto':
                 $this->eliminarProyecto();
                 break;   
         }
