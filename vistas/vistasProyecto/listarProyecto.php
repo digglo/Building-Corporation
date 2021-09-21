@@ -24,7 +24,7 @@ if (isset($_SESSION['mensaje'])) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
     </head>
-	<h1>Listado de la tabla Constructora</h1>
+	<h1>Listado de la tabla Proyecto</h1>
     <br>
 <body>
 <?php

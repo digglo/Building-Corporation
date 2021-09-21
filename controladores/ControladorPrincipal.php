@@ -9,6 +9,7 @@ include_once PATH . 'controladores/TrabajadorControlador.php';
 include_once PATH . 'controladores/Material_construccionControlador.php';
 include_once PATH . 'controladores/RecibidoControlador.php';
 include_once PATH . 'controladores/ProyectoControlador.php';
+include_once PATH . 'controladores/RegistroControlador.php';
 
 class ControladorPrincipal
 {
@@ -267,7 +268,36 @@ class ControladorPrincipal
                 break;
             case 'eliminarProyecto':
                 $this->eliminarProyecto();
-                break;   
+                break;  
+                
+                
+
+
+
+
+
+
+            case 'listarRegistro':
+                $this->listarRegistro();
+                break;
+            case 'mostrarActualizarRegistro':
+                $this->mostrarActualizarRegistro();
+                break;
+            case 'confirmarActualizarRegistro':
+                $this->confirmarActualizarRegistro();
+                break;
+            case 'cancelarActualizarRegistro':
+                $this->confirmarActualizarRegistro();
+                break;
+            case 'mostrarInsertarRegistro':
+                $this->mostrarInsertarRegistro();
+                break;
+            case 'insertarRegistro':
+                $this->insertarRegistro();
+                break;
+            case 'eliminarRegistro':
+                $this->eliminarRegistro();
+                break; 
         }
     }
 
@@ -591,10 +621,43 @@ class ControladorPrincipal
     public function eliminarProyecto(){
         $proyectoControlador = new ProyectoControlador($this -> datos);
     }
-    
+
+
+
+
+
+
+
+
+    public function listarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
     }
 
+    public function mostrarActualizarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
+    }
 
+    public function confirmarActualizarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
+    }
 
+    public function cancelarActualizarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
+    }
 
+    public function mostrarInsertarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
+    }
+
+    public function insertarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
+    }
+
+    public function eliminarRegistro(){
+        $registroControlador = new RegistroControlador($this -> datos);
+    }
+
+    
+
+}
 ?>

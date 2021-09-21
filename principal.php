@@ -105,9 +105,9 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
         </div>
         <div class="gestion">Menú Operaciones de Tabla Registro
             <br/>
-            <a href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
+            <a href="./Controlador.php?ruta=listarRegistro">Listar Registros</a>
             <br/>
-            <a href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
+            <a href="./Controlador.php?ruta=mostrarInsertarRegistro">Agregar Registro</a>
         </div>
         <div id="contenido">
             <?php
