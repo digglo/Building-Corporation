@@ -110,11 +110,12 @@ class ProyectoDAO extends ConBdMySql{
             $trabajadorId = $registro[0]['pro_trabajador_id'];
             $fechaInicio = $registro[0]['pro_fecha_inicio'];
             $fechaFin = $registro[0]['pro_fecha_fin'];
+            $recibido = $registro[0]['pro_recibido_id'];
             $pro_id = $registro[0]['pro_id'];
             
             if(isset( $pro_id)){
                 $consulta = " update proyecto";
-                $consulta.= " SET  pro_nombre_proyecto = ?, 
+                $consulta.= " set  pro_nombre_proyecto = ?, 
                                    pro_numero_proyecto = ?,
                                    pro_tipo_proyecto = ?,
                                    pro_descripcion_proyecto = ?,
@@ -122,7 +123,8 @@ class ProyectoDAO extends ConBdMySql{
                                    pro_sede_id = ?,
                                    pro_trabajador_id = ?,
                                    pro_fecha_inicio = ?,
-                                   pro_fecha_fin = ?";
+                                   pro_fecha_fin = ?,
+                                   pro_recibido_id = ?";
                 $consulta.= " WHERE pro_id = ?";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
@@ -136,6 +138,7 @@ class ProyectoDAO extends ConBdMySql{
                                                             $trabajadorId,
                                                             $fechaInicio,
                                                             $fechaFin,
+                                                            $recibido,
                                                             $pro_id));
 
                 $this->cierreBd();

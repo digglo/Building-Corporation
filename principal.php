@@ -99,7 +99,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
         </div>
         <div class="gestion">Menú Operaciones de Tabla Proyecto
             <br/>
-            <a href="./Controlador.php?ruta=listarProyecto">Listar Protectos</a>
+            <a href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
         </div>
