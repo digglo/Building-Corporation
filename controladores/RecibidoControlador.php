@@ -49,10 +49,15 @@ class RecibidoControlador{
 
     public  function mostrarActualizarRecibido(){
 
-        $gestarRecibido = new MaterialConstruccionDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $gestarRecibido = new RecibidoDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
         $actualizarRecibido = $gestarRecibido -> seleccionarID(array($this->datos['rec_id']));
 
         $actualizarDatosRecibido = $actualizarRecibido['registroEncontrado'][0];
+        
+
+        $gestarRecibido = new   RecibidoDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $registroRecibido = $gestarRecibido -> seleccionarTodos();
+    
 
         session_start();
         $_SESSION['actualizarDatosRecibido']=$actualizarDatosRecibido;

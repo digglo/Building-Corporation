@@ -57,7 +57,7 @@ if(isset($_SESSION['listaDeRecibido'])){
                     <td><?php echo $listaDeRecibido[$i]->rec_cantidad_recibido; ?></td>   
                     <td><?php echo $listaDeRecibido[$i]->rec_mat_id; ?></td>  
                     <td><?php echo $listaDeRecibido[$i]->rec_numero_factura; ?></td> 
-                    <td><a href="Controlador.php?ruta=mostrarActualizarRecibido&idAct=<?php echo $listaDeConstructora[$i]->con_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=mostrarActualizarRecibido&idAct=<?php echo $listaDeRecibido[$i]->rec_id; ?>">Actualizar</a></td>  
                     <td><a href="Controlador.php?ruta=eliminarRecibido&idAct=<?php echo $listaDeRecibido[$i]->rec_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
