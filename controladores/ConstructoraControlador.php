@@ -134,7 +134,7 @@ class ConstructoraControlador{
             
             $_SESSION['mensaje'] = " El id que trata de insertar ya existe en el sistema ";
 
-            header("location:Controlador.php?ruta=InsertarIdentificacion");					
+            header("location:Controlador.php?ruta=InsertarConstructora");					
 
         }					
     }	
@@ -146,7 +146,7 @@ class ConstructoraControlador{
         session_start();
 
         $_SESSION['mensaje'] = "Registro Eliminado";
-        header("location:Controlador.php?ruta=listarIdentificacion");
+        header("location:Controlador.php?ruta=listarConstructora");
 
 
     }

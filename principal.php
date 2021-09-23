@@ -97,6 +97,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Recibido</a>
         </div>
+<<<<<<< HEAD
         <div class="gestion">Menú Operaciones de Tabla Utilizado
             <br/>
             <a href="./Controlador.php?ruta=listarUtilizado">Listar Utilizado</a>
@@ -104,6 +105,20 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <a href="./Controlador.php?ruta=mostrarInsertarUtilizado">Agregar Utilizado</a>
         </div>
 
+=======
+        <div class="gestion">Menú Operaciones de Tabla Proyecto
+            <br/>
+            <a href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
+        </div>
+        <div class="gestion">Menú Operaciones de Tabla Registro
+            <br/>
+            <a href="./Controlador.php?ruta=listarRegistro">Listar Registros</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarRegistro">Agregar Registro</a>
+        </div>
+>>>>>>> bfe38c2ee7eaf605644ed7d22b90440a03ca26fa
         <div id="contenido">
             <?php
             if(isset($_GET['contenido'])){

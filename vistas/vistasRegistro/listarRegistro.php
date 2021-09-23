@@ -24,13 +24,13 @@ if (isset($_SESSION['mensaje'])) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
     </head>
-	<h1>Listado de la tabla Trabajador</h1>
+	<h1>Listado de la tabla Registro</h1>
     <br>
 <body>
 <?php
-if(isset($_SESSION['listaDeTrabajador'])){
+if(isset($_SESSION['listaDeRegistro'])){
 	
-	 $listaDeTrabajador = $_SESSION['listaDeTrabajador'];	
+	 $listaDeRegistro = $_SESSION['listaDeRegistro'];	
 }
 
 ?>
@@ -38,10 +38,9 @@ if(isset($_SESSION['listaDeTrabajador'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>Nombre</th> 
-                <th>Apellido</th>  
-                <th>Identificacion</th>  
-                <th>Sede</th>  
+                <th>Numero de Registro</th>  
+                <th>Comentarios</th>
+                <th>Is Stock</th>
                 <th>Editar</th> 
                 <th>Eliminar</th> 
             </tr>
@@ -49,21 +48,20 @@ if(isset($_SESSION['listaDeTrabajador'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeTrabajador as $key => $value) {
+            foreach ($listaDeRegistro as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeTrabajador[$i]->tra_id; ?></td>  
-                    <td><?php echo $listaDeTrabajador[$i]->tra_primer_nombre." ".$listaDeTrabajador[$i]->tra_segundo_nombre; ?></td>  
-                    <td><?php echo $listaDeTrabajador[$i]->tra_primer_apellido." ".$listaDeTrabajador[$i]->tra_segundo_apellido; ?></td>   
-                    <td><?php echo $listaDeTrabajador[$i]->tra_identificacion_id; ?></td>  
-                    <td><?php echo $listaDeTrabajador[$i]->tra_sede_id; ?></td>
-                    <td><a href="Controlador.php?ruta=mostrarActualizarTrabajador&idAct=<?php echo $listaDeTrabajador[$i]->tra_id; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarTrabajador&idAct=<?php echo $listaDeTrabajador[$i]->tra_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeRegistro[$i]->reg_id; ?></td>  
+                    <td><?php echo $listaDeRegistro[$i]->reg_numero_registro; ?></td>  
+                    <td><?php echo $listaDeRegistro[$i]->reg_comentarios; ?></td>   
+                    <td><?php echo $listaDeRegistro[$i]->reg_stock_id; ?></td>
+                    <td><a href="Controlador.php?ruta=mostrarActualizarRegistro&idAct=<?php echo $listaDeRegistro[$i]->reg_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarRegistro&idAct=<?php echo $listaDeRegistro[$i]->reg_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeTrabajador=null;
+            $listaDeRegistro=null;
             ?>
         </tbody>
     </table>
