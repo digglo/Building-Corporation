@@ -96,18 +96,32 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                    aria-expanded="true" aria-controls="collapseUtilitie">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Materiales</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Divisiones</h6>
+                        <h6 class="collapse-header">Despliegue</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar Material Construcción</a>
-                        <a class="collapse-item" href="plantilla/utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="plantilla/utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="plantilla/utilities-other.html">Other</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material Construcción</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
+                   aria-expanded="true" aria-controls="collapseUtilitie">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Proyectos</span>
+                </a>
+                <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilitie"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Operaciones</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Modificar lista</a>
                     </div>
                 </div>
             </li>

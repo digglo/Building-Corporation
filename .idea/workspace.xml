@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4570467-ad57-4c29-a8a7-bf2d189c20dc" name="Changes" comment="Usuario_sDAO.php Fix">
-      <change afterPath="$PROJECT_DIR$/principal1.php" afterDir="false" />
+    <list default="true" id="e4570467-ad57-4c29-a8a7-bf2d189c20dc" name="Changes" comment="Plantilla Fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/ConstructoraControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ConstructoraControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/ControladorPrincipal.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ControladorPrincipal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/ControladorStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ControladorStock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/IdentificacionControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/IdentificacionControlador.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controladores/ProyectoControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ProyectoControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/RecibidoControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/RecibidoControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/RegistroControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/RegistroControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/SedeControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/SedeControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/TrabajadorControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/TrabajadorControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/UbicacionControlado.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/UbicacionControlado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/UtilizadoControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/UtilizadoControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/principal.php" beforeDir="false" afterPath="$PROJECT_DIR$/principal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasRoles/listarRegistroRoles.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasRoles/listarRegistroRoles.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632404821135</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Plantilla Fix">
+      <created>1632417418713</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632417418713</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +186,7 @@
     <MESSAGE value="Plantilla" />
     <MESSAGE value="Plantilla Registro" />
     <MESSAGE value="Usuario_sDAO.php Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Usuario_sDAO.php Fix" />
+    <MESSAGE value="Plantilla Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Plantilla Fix" />
   </component>
 </project>
