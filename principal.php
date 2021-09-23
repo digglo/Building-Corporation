@@ -1,54 +1,56 @@
 <?php
 
-session_start();
+    session_start();
 
-if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
-    $mensaje = $_SESSION['mensaje'];
-    $nombre = $_SESSION['nombre'];
-    $apellido = $_SESSION['apellido'];
-    echo "<script languaje='javascript'>alert('$mensaje '+'$nombre '+'$apellido')</script>";
-    unset($_SESSION['mensaje']);
-    unset($_SESSION['nombre']);
-    unset($_SESSION['apellido']);
-}else if (isset($_SESSION['mensaje'])){
-    $mensaje = $_SESSION['mensaje'];
-    echo "<script languaje='javascript'>alert('$mensaje')</script>";
-    unset($_SESSION['mensaje']);
-}
+    if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION['apellido']))
+    {
+        $mensaje = $_SESSION['mensaje'];
+        $nombre = $_SESSION['nombre'];
+        $apellido = $_SESSION['apellido'];
+        echo "<script languaje='javascript'>alert('$mensaje '+'$nombre '+'$apellido')</script>";
+        unset($_SESSION['mensaje']);
+        unset($_SESSION['nombre']);
+        unset($_SESSION['apellido']);
+    }else if (isset($_SESSION['mensaje']))
+    {
+        $mensaje = $_SESSION['mensaje'];
+        echo "<script languaje='javascript'>alert('$mensaje')</script>";
+        unset($_SESSION['mensaje']);
+    }
 ?>
 
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building Corporation</title>
-    <style type="text/css"> 
-        #principal{
-            width: 80%;
-            border: black 3px solid;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .gestion{
-            width: 90%;
-            border: black 3px solid;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #contenido{
-            width: 90%;
-            border: black 3px solid;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Building Corporation</title>
+        <style type="text/css">
+            #principal{
+                width: 80%;
+                border: black 3px solid;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .gestion{
+                width: 90%;
+                border: black 3px solid;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #contenido{
+                width: 90%;
+                border: black 3px solid;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
     <div id="principal">
-                <center><font face="Helvetica Neue" size="48" color="#000000">Interfaz</font></center>
+        <center><font face="Helvetica Neue" size="48" color="#000000">Interfaz</font></center>
         <div class="gestion">Menú Operaciones de Tabla Libros
             <br/>
             <a href="./Controlador.php?ruta=listarRol">Listar Roles</a>
@@ -97,15 +99,6 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Recibido</a>
         </div>
-<<<<<<< HEAD
-        <div class="gestion">Menú Operaciones de Tabla Utilizado
-            <br/>
-            <a href="./Controlador.php?ruta=listarUtilizado">Listar Utilizado</a>
-            <br/>
-            <a href="./Controlador.php?ruta=mostrarInsertarUtilizado">Agregar Utilizado</a>
-        </div>
-
-=======
         <div class="gestion">Menú Operaciones de Tabla Proyecto
             <br/>
             <a href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
@@ -118,7 +111,6 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarRegistro">Agregar Registro</a>
         </div>
->>>>>>> bfe38c2ee7eaf605644ed7d22b90440a03ca26fa
         <div id="contenido">
             <?php
             if(isset($_GET['contenido'])){
@@ -128,5 +120,5 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             ?>
         </div>
     </div>
-</body>
+    </body>
 </html>
