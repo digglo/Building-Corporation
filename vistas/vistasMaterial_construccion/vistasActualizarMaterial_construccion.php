@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_SESSION['actualizarDatosMaterial_construccion'])){
-    $actualizarDatosRoles = $_SESSION['actualizarDatosMaterial_construccion'];
+    $actualizarDatosMaterial_construccion = $_SESSION['actualizarDatosMaterial_construccion'];
     unset($_SESSION['actualizarMaterial_construccion']);
 }
 
@@ -18,21 +18,21 @@ if (isset($_SESSION['actualizarDatosMaterial_construccion'])){
                 <tr>
                     <td>Id:</td>
                     <td>
-                        <input class="form-control" placeholder="Id" name="mat_id" type="text" patter="" required="requires" readonly="readonly" value="<?php 
+                        <input class="form-control" placeholder="Id" name="mat_id" type="number" patter="" required="requires" readonly="readonly" value="<?php 
                         if(isset($actualizarDatosMaterial_construccion->mat_id)){echo($actualizarDatosMaterial_construccion->mat_id);} 
                         ?>">
                     </td>
                 </tr> 
                 <tr>
-                    <td>mat_nombre_material:</td>
+                    <td>Nombre Material:</td>
                     <td>
-                        <input class="form-control" placeholder="Nombre material" name="mat_id" type="text" patter="" required="requires" value="<?php
-                         if(isset($actualizarDatosMaterial_construccion->mat_id)){echo($actualizarDatosMaterial_construccion->mat_id);} 
+                        <input class="form-control" placeholder="Nombre material" name="mat_nombre_material" type="text" patter="" required="requires" value="<?php
+                         if(isset($actualizarDatosMaterial_construccion->mat_nombre_material)){echo($actualizarDatosMaterial_construccion->mat_nombre_material);} 
                          ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>mat_precio:</td>
+                    <td>Precio:</td>
                     <td>
                         <input class="form-control" placeholder="precio material" name="mat_precio" type="text" patter="" required="requires" value="<?php
                          if(isset($actualizarDatosMaterial_construccion->mat_precio)){echo($actualizarDatosMaterial_construccion->mat_precio);} 

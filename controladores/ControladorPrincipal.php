@@ -239,6 +239,34 @@ class ControladorPrincipal
             case 'eliminarRecibido':
                 $this -> eliminarRecibido();
                 break;    
+
+
+            
+            case 'listarUtilizado':
+                $this -> listarUtilizado();
+                break;
+            case 'mostrarActualizarRecibido':
+                $this -> mostrarActualizarUtilizado();
+                break;
+            case 'confirmarActualizarUtilizado':
+                $this -> confirmarActualizarUtilizado();
+                break;
+            case 'cancelarActualizarUtilizado':
+                $this -> confirmarActualizarUtilizado();
+                break;
+            case 'mostrarInsertarUtilizado':
+                $this -> mostrarInsertarUtilizado();
+                break;
+            case 'insertarUtilizado':
+                $this -> insertarUtilizadp();
+                break;
+            case 'eliminarUtilizado':
+                $this -> eliminarUtilizado();
+                break;   
+
+
+
+
         }
     }
 
@@ -528,7 +556,43 @@ class ControladorPrincipal
             {
                 $material_construccionControlador = new Material_contruccionControlador($this->datos);
             }
-    
+  
+            
+            
+        public function listarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
+
+        public function mostrarActualizarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
+
+        public function confirmarActualizarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
+
+        public function cancelarActualizarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
+
+        public function mostrarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
+
+        public function insertarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
+
+        public function eliminarUtilizado()
+        {
+            $UtilizadoControlador = new UtilizadoControlador($this->datos);
+        }
     }
 
 

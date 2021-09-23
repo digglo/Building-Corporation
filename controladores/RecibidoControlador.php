@@ -50,17 +50,18 @@ class RecibidoControlador{
     public  function mostrarActualizarRecibido(){
 
         $gestarRecibido = new RecibidoDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarRecibido = $gestarRecibido -> seleccionarID(array($this->datos['rec_id']));
+        $actualizarRecibido = $gestarRecibido -> seleccionarID(array($this->datos['idAct']));
 
         $actualizarDatosRecibido = $actualizarRecibido['registroEncontrado'][0];
         
 
-        $gestarRecibido = new   RecibidoDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroRecibido = $gestarRecibido -> seleccionarTodos();
+        $gestarMaterialConstruccion = new   MaterialConstruccionDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $materialConstruccion= $gestarMaterialConstruccion -> seleccionarTodos();
     
 
         session_start();
         $_SESSION['actualizarDatosRecibido']=$actualizarDatosRecibido;
+        $_SESSION['listarMaterialConstruccion']=$materialConstruccion;
 
         header("location:principal.php?contenido=vistas/vistasRecibido/vistaActualizarRecibido.php");
         

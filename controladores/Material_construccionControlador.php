@@ -57,7 +57,7 @@ class Material_contruccionControlador{
         session_start();
         $_SESSION['actualizarDatosMaterial_construccion']=$actualizarDatosMaterial_construccion;
 
-        header("location:principal.php?contenido=vistas/vistasMaterial_construccion/vistaActualizarMaterial_construccion.php");
+        header("location:principal.php?contenido=vistas/vistasMaterial_construccion/vistasActualizarMaterial_construccion.php");
         
     }
 
@@ -82,7 +82,7 @@ class Material_contruccionControlador{
 
     public function mostrarInsertarMaterial_construccion(){
 		
-        header("Location: principal.php?contenido=vistas/vistasMaterial_construccion/vistaIngresarMaterial_construccion.php");
+        header("Location: principal.php?contenido=vistas/vistasMaterial_construccion/vistasInsertarMaterial_construccion.php");
 
 }
     
@@ -118,12 +118,10 @@ class Material_contruccionControlador{
     }	
 
     public function eliminarMaterial_construccion(){
-        $gestarMaterial_construccion = new MaterialConstruccionDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarMaterial_construccion = $gestarMaterial_construccion -> eliminar(array($this->datos['mat_id']));
+        $gestarMaterial_construccion = new MaterialConstruccionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $inhabilitarMaterial_construccion = $gestarMaterial_construccion -> eliminar(array($this->datos['matId']));
 
         session_start();
-
-        $_SESSION['mensaje'] = "Registro Eliminado";
         header("location:Controlador.php?ruta=listarMaterial_construccion");
 
 

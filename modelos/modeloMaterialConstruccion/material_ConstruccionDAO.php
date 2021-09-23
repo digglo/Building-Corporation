@@ -97,7 +97,6 @@ class MaterialConstruccionDAO extends ConBdMySql{
     }
 
     public function eliminar($sId = array()){
-
         $consulta = "DELETE FROM material_construccion WHERE mat_id = :mat_id;";
 
         $eliminar = $this->conexion->prepare($consulta);

@@ -1,7 +1,4 @@
 <?php
-echo "<pre>";
-print_r($_SESSION['listaDeMaterial_construccion']);
-echo "</pre>";
 
 if (isset($_SESSION['mensaje'])) {
     $mensaje = $_SESSION['mensaje'];
@@ -60,8 +57,8 @@ if(isset($_SESSION['listaDeMaterial_construccion'])){
                     <td><?php echo $listaDeMaterial_construccion[$i]->mat_precio; ?></td>  
                    
                     <!--<td>d>--> 
-                    <td><a href="Controlador.php?ruta=mostrarActualizarMaterial_construccion&material_construccionId=<?php echo $listaDeMaterial_construccion[$i]->mat_id; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarMaterial_construccion&material_construccionId=<?php echo $listaDeMaterial_construccion[$i]->mat_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><a href="Controlador.php?ruta=mostrarActualizarMaterial_construccion&matId=<?php echo $listaDeMaterial_construccion[$i]->mat_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarMaterial_construccion&matId=<?php echo $listaDeMaterial_construccion[$i]->mat_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;

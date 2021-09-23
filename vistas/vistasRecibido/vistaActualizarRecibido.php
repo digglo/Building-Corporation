@@ -6,9 +6,9 @@ if (isset($_SESSION['actualizarDatosRecibido'])) {
     $actualizarDatosRecibido = $_SESSION['actualizarDatosRecibido'];
 }
 
-if (isset($_SESSION['listaDeRecibido'])) {
-    $listaDeRecibido = $_SESSION['listaDeRecibido'];
-    $RecibidoCantidad = count($listaDeRecibido);
+if (isset($_SESSION['listarMaterialConstruccion'])) {
+    $listarMaterialConstruccion = $_SESSION['listarMaterialConstruccion'];
+    $MaterialConstruccionCantidad = count($listarMaterialConstruccion);
 }
 
 
@@ -87,7 +87,7 @@ form select{
                 <tr>
                     <td>Id:</td>
                     <td>
-                        <input type="form-control" placeholder="Id" name = "con_id" type="number" pattern="" size="50" require="required" autofocus readonly="readonly"
+                        <input type="form-control" placeholder="Id" name = "rec_id" type="number" pattern="" size="50" require="required" autofocus readonly="readonly"
                         value="<?php if (isset($actualizarDatosRecibido->rec_id)) {
                             echo $actualizarDatosRecibido->rec_id;}?>">
                     </td>
@@ -110,7 +110,8 @@ form select{
                             } ?>">
                     </td>
 
-
+                </tr>
+                <tr>
                     <td>Material Construccion Recibido:</td>
                     <td>
                             <input type="form-control" type="text" name="rec_mat_id" placeholder="Material Construccion Recibido" size="50" 
@@ -118,9 +119,8 @@ form select{
                                 echo $actualizarDatosRecibido->rec_mat_id;
                             } ?>">
                     </td>
-
-
-
+                </tr>
+                <tr>
                     <td>Numero Factura:</td>
                     <td>
                             <input type="form-control" type="text" name="rec_numero_factura" placeholder="Numero Factura" size="50" 
@@ -128,42 +128,20 @@ form select{
                                 echo $actualizarDatosRecibido->rec_numero_factura;
                             } ?>">
                     </td>
-
-
-
                 </tr>
                 <tr>
-                <td>Identificacion:</td>
+                <td>Material Construccion:</td>
                     <td>
-                            <select name="con_id_identificacion" id="con_id_identificacion" style="width: 338px">
-                                <?php for ($i=0; $i < $identificacionCantidad; $i++) { 
+                            <select name="rec_mat_id" id="rec_mat_id" style="width: 338px">
+                                <?php for ($i=0; $i < $MaterialConstruccionCantidadCantidad; $i++) { 
                                 ?>
-                                    <option value="<?php echo $listaDeIdentificacion[$i]->ide_id; ?>" 
-                                    <?php if (isset($listaDeIdentificacion[$i]->ide_id) && isset($actualizarDatosConstructora->con_id_identificacion) && $listaDeIdentificacion[$i]->ide_id == $actualizarDatosConstructora->con_id_identificacion) {
+                                    <option value="<?php echo $listarMaterialConstruccion[$i]->mat_id; ?>" 
+                                    <?php if (isset($listarMaterialConstruccion[$i]->mat_id) && isset($actualizarDatosRecibido->rec_mat_id) && $listarMaterialConstruccion[$i]->mat_id == $actualizarDatosRecibido->rec_mat_id) {
                                         echo " selected";
                                     } ?>
                                     >
 
-                                    <?php echo $listaDeIdentificacion[$i]->ide_id.' - '.$listaDeIdentificacion[$i]->ide_descripcion; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                    </td>
-                </tr>
-                <tr>
-                <td>Usuario:</td>
-                    <td>
-                            <select name="usuario_s_usuld" id="usuario_s_usuld" style="width: 338px">
-                                <?php for ($i=0; $i < $usuarioCantidad; $i++) { 
-                                ?>
-                                    <option value="<?php echo $listaDeUsuario[$i]->usuId; ?>" 
-                                    <?php if (isset($listaDeUsuario[$i]->usuId) && isset($actualizarDatosConstructora->usuario_s_usuld) && $listaDeUsuario[$i]->usuId == $actualizarDatosConstructora->usuario_s_usuld) {
-                                        echo "selected";
-                                    } ?>
-                                    >
-
-                                    <?php echo $listaDeUsuario[$i]->usuId.' - '.$listaDeUsuario[$i] ->usulogin.' pesos minuto'; ?></option>
+                                    <?php echo $listarMaterialConstruccion[$i]->mat_id.' - '.$listarMaterialConstruccion[$i]->mat_nombre_material; ?></option>
                                 <?php
                                 }
                                 ?>
