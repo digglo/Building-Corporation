@@ -51,17 +51,19 @@ if(isset($_SESSION['listaDeRoles'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeRoles as $key => $value) {
-                ?>
-                <tr> 
-                    <td><?php echo $listaDeRoles[$i]->rol_id_rol; ?></td> 
-                    <td><?php echo $listaDeRoles[$i]->rol_tipo_rol; ?></td>  
-                    <!--<td>d>--> 
-                    <td><a href="Controlador.php?ruta=mostrarActualizarRol&rolId=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarRol&rolId=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
-                </tr>   
-                <?php
-                $i++;
+            if (!empty($listaDeRoles)) {
+                foreach ($listaDeRoles as $key => $value) {
+                    ?>
+                    <tr>
+                        <td><?php echo $listaDeRoles[$i]->rol_id_rol; ?></td>
+                        <td><?php echo $listaDeRoles[$i]->rol_tipo_rol; ?></td>
+                        <!--<td>d>-->
+                        <td><a href="Controlador.php?ruta=mostrarActualizarRol&rolId=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>">Actualizar</a></td>
+                        <td><a href="Controlador.php?ruta=eliminarRol&rolId=<?php echo $listaDeRoles[$i]->rol_id_rol; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>
+                    </tr>
+                    <?php
+                    $i++;
+                }
             }
             $listaDeRoles=null;
             ?>

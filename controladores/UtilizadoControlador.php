@@ -44,7 +44,7 @@ class UtilizadoControlador{
     
         $_SESSION['listaDeUtilizado'] = $registroUtilizado;
     
-        header("location:principal.php?contenido=vistas/vistasUtilizado/vistaListarUtilizado.php");
+        header("location:principal1.php?contenido=vistas/vistasUtilizado/vistaListarUtilizado.php");
     }
 
     public  function mostrarActualizarUtilizado(){
@@ -62,7 +62,7 @@ class UtilizadoControlador{
         session_start();
         $_SESSION['actualizarDatosUtilizado']=$actualizarDatosUtilizado;
 
-        header("location:principal.php?contenido=vistas/vistasUtilizado/vistaActualizarUtilizado.php");
+        header("location:principal1.php?contenido=vistas/vistasUtilizado/vistaActualizarUtilizado.php");
         
     }
 
@@ -87,7 +87,7 @@ class UtilizadoControlador{
 
     public function mostrarInsertarUtilizado(){
 		
-        header("Location: principal.php?contenido=vistas/vistasUtilizado/vistaIngresarUtilizado.php");
+        header("Location: principal1.php?contenido=vistas/vistasUtilizado/vistaIngresarUtilizado.php");
 
 }
     

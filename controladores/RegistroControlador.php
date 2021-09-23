@@ -45,7 +45,7 @@ class RegistroControlador{
     
         $_SESSION['listaDeRegistro'] = $registroRegistro;
     
-        header("location:principal.php?contenido=vistas/vistasRegistro/listarRegistro.php");
+        header("location:principal1.php?contenido=vistas/vistasRegistro/listarRegistro.php");
     }
 
     public  function mostrarActualizarRegistro(){
@@ -62,7 +62,7 @@ class RegistroControlador{
         $_SESSION['actualizarDatosRegistro']=$actualizarDatosRegistro;
         $_SESSION['listaDeStock'] = $registroStock;
 
-        header("location:principal.php?contenido=vistas/vistasRegistro/vistaActualizarRegistro.php");
+        header("location:principal1.php?contenido=vistas/vistasRegistro/vistaActualizarRegistro.php");
         
     }
 
@@ -92,7 +92,7 @@ class RegistroControlador{
         session_start();
         $_SESSION['listaDeStock'] = $registroStock;
 		
-        header("Location: principal.php?contenido=vistas/vistasRegistro/vistaIngresarRegistro.php");
+        header("Location: principal1.php?contenido=vistas/vistasRegistro/vistaIngresarRegistro.php");
 
 }
     

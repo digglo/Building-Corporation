@@ -10,6 +10,7 @@
     include_once PATH . 'controladores/RecibidoControlador.php';
     include_once PATH . 'controladores/ProyectoControlador.php';
     include_once PATH . 'controladores/RegistroControlador.php';
+    include_once PATH . 'controladores/Usuario_sControlador.php';
 
     class ControladorPrincipal
     {
@@ -252,7 +253,12 @@
 
         public function gestionDeAcceso()
         {
-            $rolesControlador = new gestionDeAcceso($this->datos);
+            $Usuario_sControlador = new gestionDeAcceso($this->datos);
+        }
+
+        public function gestionDeRegistro()
+        {
+            $Usuario_sControlador = new gestionDeRegistro($this->datos);
         }
 
         public function listarIdentificacion(){

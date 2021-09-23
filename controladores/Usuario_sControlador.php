@@ -99,11 +99,10 @@ class Usuario_sControlador
 
             session_start(); //se abre sesión para almacenar en ella el mensaje
             $_SESSION['mensaje'] = "Bienvenido a nuestra Aplicación."; //mensaje
-            $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->perNombre; // para mensaje de bienvenida
-            $_SESSION['perApellido'] = $existeUsuario_s['registroEncontrado'][0]->perApellido; // para mensaje de bienvenida
+            $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->con_nombre_empresa; // para mensaje de bienvenida
             //Consultamos los roles de la persona logueada
             $consultaRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-            $rolesUsuario = $consultaRoles->seleccionarRolPorPersona(array($existeUsuario_s['registroEncontrado'][0]->perDocumento));
+            $rolesUsuario = $consultaRoles->seleccionarID(array($existeUsuario_s['registroEncontrado'][0]->con_numero_documento));
             $cantidadRoles = count($rolesUsuario['registroEncontrado']);
             $rolesEnSesion = array();
             for ($i = 0; $i < $cantidadRoles; $i++)
@@ -115,7 +114,7 @@ class Usuario_sControlador
             $sesionPermitida = new ClaseSesion(); // se abre la sesión					
             $sesionPermitida->crearSesion(array($existeUsuario_s['registroEncontrado'][0], "", $rolesEnSesion)); //Se envìa a la sesiòn los datos del usuario logeado					
 
-            header("location:principal.php");
+            header("location:principal1.php");
         } else {
             session_start(); //se abre sesión para almacenar en ella el mensaje de inserción
             $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; //mensaje de inserción

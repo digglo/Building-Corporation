@@ -47,7 +47,7 @@ class ProyectoControlador{
     
         $_SESSION['listaDeProyecto'] = $registroProyecto;
     
-        header("location:principal.php?contenido=vistas/vistasProyecto/listarProyecto.php");
+        header("location:principal1.php?contenido=vistas/vistasProyecto/listarProyecto.php");
     }
 
     public  function mostrarActualizarProyecto(){
@@ -76,7 +76,7 @@ class ProyectoControlador{
         $_SESSION['listaDeTrabajador'] = $registroTrabajador;
         $_SESSION['listaDeRecibido'] = $registroRecibido;
 
-        header("location:principal.php?contenido=vistas/vistasProyecto/vistaActualizarProyecto.php");
+        header("location:principal1.php?contenido=vistas/vistasProyecto/vistaActualizarProyecto.php");
         
     }
 
@@ -118,7 +118,7 @@ class ProyectoControlador{
         $_SESSION['listaDeTrabajador'] = $registroTrabajador;
         $_SESSION['listaDeRecibido'] = $registroRecibido;
 		
-        header("Location: principal.php?contenido=vistas/vistasProyecto/vistaIngresarProyecto.php");
+        header("Location: principal1.php?contenido=vistas/vistasProyecto/vistaIngresarProyecto.php");
 
 }
     

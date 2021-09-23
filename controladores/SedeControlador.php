@@ -46,7 +46,7 @@ class SedeControlador{
     
         $_SESSION['listaDeSede'] = $registroSede;
     
-        header("location:principal.php?contenido=vistas/vistasSede/listarSede.php");
+        header("location:principal1.php?contenido=vistas/vistasSede/listarSede.php");
     }
 
     public  function mostrarActualizarSede(){
@@ -68,7 +68,7 @@ class SedeControlador{
         $_SESSION['listaDeConstructora'] = $registroConstructora;
         $_SESSION['listaDeUbicacion'] = $registroUbicacion;
 
-        header("location:principal.php?contenido=vistas/vistasConstructora/vistaActualizarConstructora.php");
+        header("location:principal1.php?contenido=vistas/vistasConstructora/vistaActualizarConstructora.php");
         
     }
 
@@ -102,7 +102,7 @@ class SedeControlador{
         $_SESSION['listaDeConstructora'] = $registroConstructora;
         $_SESSION['listaDeUbicacion'] = $registroUbicacion;
 		
-        header("Location: principal.php?contenido=vistas/vistasSede/vistaIngresarSede.php");
+        header("Location: principal1.php?contenido=vistas/vistasSede/vistaIngresarSede.php");
 
 }
     

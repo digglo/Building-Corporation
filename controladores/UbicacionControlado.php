@@ -44,7 +44,7 @@ class UbicacionControlador{
     
         $_SESSION['listaDeUbicacion'] = $registroUbicacion;
     
-        header("location:principal.php?contenido=vistas/vistasUbicacion/listarUbicacion.php");
+        header("location:principal1.php?contenido=vistas/vistasUbicacion/listarUbicacion.php");
     }
 
     public  function mostrarActualizarUbicacion(){
@@ -57,7 +57,7 @@ class UbicacionControlador{
         session_start();
         $_SESSION['actualizarDatosUbicacion']=$actualizarDatosUbicacion;
 
-        header("location:principal.php?contenido=vistas/vistasUbicacion/vistaActualizarUbicacion.php");
+        header("location:principal1.php?contenido=vistas/vistasUbicacion/vistaActualizarUbicacion.php");
         
     }
 
@@ -82,7 +82,7 @@ class UbicacionControlador{
 
     public function mostrarInsertarUbicacion(){
 		
-        header("Location: principal.php?contenido=vistas/vistasUbicacion/vistaIngresarUbicacion.php");
+        header("Location: principal1.php?contenido=vistas/vistasUbicacion/vistaIngresarUbicacion.php");
 
 }
     
