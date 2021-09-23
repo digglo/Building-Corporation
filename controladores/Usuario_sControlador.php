@@ -1,5 +1,10 @@
 <?php
 
+require_once PATH . 'modelos/modeloConstructora/constructoraDAO.php';
+require_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
+require_once PATH . 'modelos/modeloRol/RolDAO.php';
+require_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
+
 class Usuario_sControlador
 {
     private $datos = array();
@@ -54,9 +59,9 @@ class Usuario_sControlador
             $exitoInsercionUsuario_s = $insertoUsuario_s['inserto'];
 //Traer el id con que quedó el usuario de lo contrario la excepción o fallo					
             $resultadoInsercionUsuario_s = $insertoUsuario_s['resultado'];
-            $gestarPersona = new PersonaDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+            $gestarPersona = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 //Id 'usuID' con quedó insertado el usuario, con el fin que quede el mismo en la tabla 'persona'
-            $this->datos['perId'] = $resultadoInsercionUsuario_s;
+            $this->datos['con_id'] = $resultadoInsercionUsuario_s;
 //inserción de los campos en la tabla persona
             $insertoPersona = $gestarPersona->insertar($this->datos);
             $exitoInsercionPersona = $insertoPersona['inserto']; //indica si se logró inserción de los campos en la tabla persona

@@ -38,7 +38,7 @@ class RolControlador{
     }
     public function listarRol(){
         $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroRoles = $gestarRoles -> seleccionarTodos();
+        $registroRoles = $gestarRoles -> seleccionarTodos(1);
     
         session_start();
     
@@ -119,7 +119,7 @@ class RolControlador{
 
     public function eliminarRol(){
         $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarRoles = $gestarRoles -> eliminar(array($this->datos['rolId']));
+        $inhabilitarRoles = $gestarRoles -> eliminarLogico(array($this->datos['rolId']));
 
         session_start();
 

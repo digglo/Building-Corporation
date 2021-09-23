@@ -24,21 +24,34 @@ class Usuario_sDAO extends ConBdMySql{
 
     public function seleccionarID($sId){
 
-        $consulta="select * FROM usuario_s WHERE usuId=?";
-
-        $lista=$this->conexion->prepare($consulta);
-        $lista->execute(array($sId[0]));
-
-        $registroEnco = array();
-
-        while( $registro = $lista->fetch(PDO::FETCH_OBJ)){
-            $registroEnco[]=$registro;
+        if (!isset($sId[2])) { //si la consulta no viene con el password (PARA REGISTRARSE)
+            $planConsulta = "select * from persona p join usuario_s u on p.perId=u.usuId ";
+            $planConsulta .= " where p.perDocumento= ? or u.usuLogin = ? ;";
+            $listar = $this->conexion->prepare($planConsulta);
+            $listar->execute(array($sId[0], $sId[1]));
         }
-          
-        if(!empty($registroEnco)){
-            return ['exitoSeleccionId' => true, 'registroEncontrado' => $registroEnco];
-        }else{
-            return ['exitosaSeleccionId' => false, 'registroEncontrado' => $registroEnco];
+        if (isset($sId[2])) {//si la consulta viene con el password (PARA LOGUEARSE)
+            $planConsulta = "select * from persona p join usuario_s u on p.perId=u.usuId ";
+            $planConsulta .= " where u.usuLogin= ? and u.usuPassword = ? ;";
+            $listar = $this->conexion->prepare($planConsulta);
+            $listar->execute(array($sId[1], $sId[2]));
+        }
+        if (!isset($sId[1]) && !isset($sId[2])) {//si la consulta viene con solo el documento (PARA ENCONTRAR PERSONA)
+            $planConsulta = "select * from persona p join usuario_s u on p.perId=u.usuId ";
+            $planConsulta .= " where p.perDocumento = ? ;";
+            $listar = $this->conexion->prepare($planConsulta);
+            $listar->execute(array($sId[0]));
+        }
+
+        $registroEncontrado = array();
+        while ($registro = $listar->fetch(PDO::FETCH_OBJ)) {
+            $registroEncontrado[] = $registro;
+        }
+
+        if (isset($registroEncontrado[0]->usuId) && $registroEncontrado[0]->usuId != FALSE) {
+            return ['exitoSeleccionId' => 1, 'registroEncontrado' => $registroEncontrado];
+        } else {
+            return ['exitoSeleccionId' => 0, 'registroEncontrado' => $registroEncontrado];
         }
 
     }
@@ -47,14 +60,12 @@ class Usuario_sDAO extends ConBdMySql{
 
         try {
             
-            $consulta="INSERT INTO usuario_s (usuId, usuLogin, usuPassword, usuEstado) VALUES (:usuId, :usuLogin, :usuPassword, :usuEstado);" ;
+            $consulta="INSERT INTO usuario_s (usuLogin, usuPassword) VALUES (:usuLogin, :usuPassword);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
-            $insertar -> bindParam(":usuId", $registro['usuId']);
-            $insertar -> bindParam(":usuLogin", $registro['usuLogin']);
-            $insertar -> bindParam(":usuPassword", $registro['usuPassword']);
-            $insertar -> bindParam(":usuEstado", $registro['usuEstado']);
+            $insertar -> bindParam(":usuLogin", $registro['email']);
+            $insertar -> bindParam(":usuPassword", $registro['password']);
 
             $insercion = $insertar->execute();
 
