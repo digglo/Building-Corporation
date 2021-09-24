@@ -6,13 +6,17 @@ if (isset($_SESSION['actualizarDatosRecibido'])) {
     $actualizarDatosRecibido = $_SESSION['actualizarDatosRecibido'];
 }
 
-if (isset($_SESSION['listaDeRecibido'])) {
-    $listaDeRecibido= $_SESSION['listaDeRecibido'];
-    $RecibidoCantidad = count($listaDeRecibido);
+if (isset($_SESSION['listarMaterialConstruccion'])) {
+    $listarMaterialConstruccion = $_SESSION['listarMaterialConstruccion'];
+    $MaterialConstruccionCantidad = count($listarMaterialConstruccion);
 }
+
 
 //echo "<pre>";
 //print_r($_SESSION['actualizarDatosRecibido']);
+//echo "</pre>";
+//echo "<pre>";
+//print_r($_SESSION['listarRecibido']);
 //echo "</pre>";
 //echo "<pre>";
 //print_r($_SESSION['listarRecibido']);
@@ -78,7 +82,7 @@ form select{
 <div>
     <fieldset>
         <center>
-        <form role="form" action="Controlador.php" method="POST" id="rec_id" >
+        <form role="form" action="Controlador.php" method="POST" id="formRecibido" >
             <table>
                 <tr>
                     <td>Id:</td>
@@ -91,7 +95,7 @@ form select{
                 <tr>
                     <td>Fecha Recibido:</td>
                     <td>
-                            <input type="form-control" type="text" name="rec_fecha_recibido" placeholder="Fecha Recbido"  size="50"
+                            <input type="form-control" type="text" name="rec_fecha_recibido" placeholder="Fecha Recibido"  size="50"
                             value="<?php if (isset($actualizarDatosRecibido->rec_fecha_recibido)) {
                                 echo $actualizarDatosRecibido->rec_fecha_recibido;
                             } ?>">
@@ -100,39 +104,59 @@ form select{
                 <tr>
                     <td>Cantidad Recibido:</td>
                     <td>
-                            <input type="form-control" type="text" name="rec_cantidad_recibido" placeholder="Cantidad Recibido" size="50" 
+                            <input type="form-control" type="text" name="rec_cantidad_recibido" placeholder="Cantidad recibido" size="50" 
                             value="<?php if (isset($actualizarDatosRecibido->rec_cantidad_recibido)) {
                                 echo $actualizarDatosRecibido->rec_cantidad_recibido;
                             } ?>">
                     </td>
 
+                </tr>
+                <tr>
                     <td>Material Construccion Recibido:</td>
                     <td>
-                            <input type="form-control" type="text" name="rec_mat_id" placeholder="Cantidad Recibido" size="50" 
-                            value="<?php if (isset($actualizarDatosRecibido->rec_mat_id_id)) {
+                            <input type="form-control" type="text" name="rec_mat_id" placeholder="Material Construccion Recibido" size="50" 
+                            value="<?php if (isset($actualizarDatosRecibido->rec_mat_id)) {
                                 echo $actualizarDatosRecibido->rec_mat_id;
                             } ?>">
                     </td>
-
+                </tr>
+                <tr>
                     <td>Numero Factura:</td>
                     <td>
-                            <input type="form-control" type="text" name="rec_numero_factura" placeholder="Cantidad Recibido" size="50" 
+                            <input type="form-control" type="text" name="rec_numero_factura" placeholder="Numero Factura" size="50" 
                             value="<?php if (isset($actualizarDatosRecibido->rec_numero_factura)) {
                                 echo $actualizarDatosRecibido->rec_numero_factura;
                             } ?>">
                     </td>
-                
-
-
                 </tr>
+                <tr>
+                <td>Material Construccion:</td>
+                    <td>
+                            <select name="rec_mat_id" id="rec_mat_id" style="width: 338px">
+                                <?php for ($i=0; $i < $MaterialConstruccionCantidadCantidad; $i++) { 
+                                ?>
+                                    <option value="<?php echo $listarMaterialConstruccion[$i]->mat_id; ?>" 
+                                    <?php if (isset($listarMaterialConstruccion[$i]->mat_id) && isset($actualizarDatosRecibido->rec_mat_id) && $listarMaterialConstruccion[$i]->mat_id == $actualizarDatosRecibido->rec_mat_id) {
+                                        echo " selected";
+                                    } ?>
+                                    >
+
+                                    <?php echo $listarMaterialConstruccion[$i]->mat_id.' - '.$listarMaterialConstruccion[$i]->mat_nombre_material; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                    </td>
+                </tr>
+
                 <tr>
                     <td>
                         <br>
-                        <button type="submit" name="ruta" value="cancelarActualizarRecibido" >Cancelar</button>
+                        <button type="submit" name="ruta" value="cancelarActualizarConstructora" >Cancelar</button>
                     </td>
                     <td>
                         <br>
-                        <button type="submit" name="ruta" value="confirmarActualizarRecibido">Confirmar</button>
+                        <button type="submit" name="ruta" value="confirmarActualizarConstructora">Confirmar</button>
                     </td>
                 </tr>
             </table>

@@ -46,7 +46,7 @@ class TrabajadorControlador{
     
         $_SESSION['listaDeTrabajador'] = $registroTrabajador;
     
-        header("location:principal.php?contenido=vistas/vistasTrabajador/listarTrabajador.php");
+        header("location:principal1.php?contenido=vistas/vistasTrabajador/listarTrabajador.php");
     }
 
     public  function mostrarActualizarTrabajador(){
@@ -67,7 +67,7 @@ class TrabajadorControlador{
         $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
         $_SESSION['listaDeSede'] = $registroSede;
 
-        header("location:principal.php?contenido=vistas/vistasTrabajador/vistaActualizarTrabajador.php");
+        header("location:principal1.php?contenido=vistas/vistasTrabajador/vistaActualizarTrabajador.php");
         
     }
 
@@ -101,7 +101,7 @@ class TrabajadorControlador{
         $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
         $_SESSION['listaDeSede'] = $registroSede;
 		
-        header("Location: principal.php?contenido=vistas/vistasTrabajador/vistaIngresarTrabajador.php");
+        header("Location: principal1.php?contenido=vistas/vistasTrabajador/vistaIngresarTrabajador.php");
 
 }
     

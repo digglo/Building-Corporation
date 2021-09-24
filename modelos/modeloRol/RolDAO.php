@@ -7,11 +7,19 @@ class RolDAO extends ConBdMySql {
         parent::__construct($servidor, $base, $loginDB, $passwordDB);  
     }
     
+<<<<<<< HEAD
     public function seleccionarTodos($Estado){
         $planconsulta = "SELECT * FROM rol WHERE rol_estado=:rol_estado;";
 
         $registroRol = $this->conexion->prepare($planconsulta);
         $registroRol -> bindParam(":rol_estado", $Estado);
+=======
+    public function seleccionarTodos($status){
+        $planconsulta = "SELECT * FROM rol WHERE rol_estado=:rol_estado;";
+
+        $registroRol = $this->conexion->prepare($planconsulta);
+        $registroRol->bindParam(':rol_estado',$status);
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
         $registroRol->execute();
 
         $listadoRegistrosRol = array();
@@ -129,12 +137,12 @@ class RolDAO extends ConBdMySql {
     public function eliminarLogico($sId = array()){
 
         try {
-            $Estado = 0;
+            $status = 0;
 
             if(isset($sId[0])){
                 $actualizar = "UPDATE rol SET rol_estado = ? WHERE rol_id_rol = ?";
                 $actualizacion = $this->conexion->prepare($actualizar);
-                $actualizacion = $actualizacion->execute(array($Estado, $sId[0]));
+                $actualizacion = $actualizacion->execute(array($status, $sId[0]));
                 return ['actualizacion' => $actualizacion, 'mensaje' => 'Resgistro Desactivado'];
             }
         } catch (PDOException $pdoExc) {
@@ -144,5 +152,4 @@ class RolDAO extends ConBdMySql {
     }
 
     }
-
 ?>

@@ -119,7 +119,7 @@ class RolControlador{
 
     public function eliminarRol(){
         $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarRoles = $gestarRoles -> eliminar(array($this->datos['rolId']));
+        $inhabilitarRoles = $gestarRoles -> eliminarLogico(array($this->datos['rolId']));
 
         session_start();
 

@@ -1,7 +1,7 @@
 <?php
 
 /*echo "<pre>";
-print_r($_SESSION['listarTiposDocumentos']);
+print_r($_SESSION['listarUtilizado']);
 echo "</pre>";*/
 
 if (isset($_SESSION['mensaje'])) {
@@ -22,15 +22,15 @@ if (isset($_SESSION['mensaje'])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
+        <link rel="stylesheet" typ|e="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
     </head>
-	<h1>Listado de la tabla Recibido</h1>
+	<h1>Listado de la tabla Utilizado</h1>
     <br>
 <body>
 <?php
-if(isset($_SESSION['listaDeRecibido'])){
+if(isset($_SESSION['listaDeUtilizado'])){
 	
-	 $listaDeRecibido = $_SESSION['listaDeRecibido'];	
+	 $listaDeUtilizado = $_SESSION['listaDeUtilizado'];	
 }
 
 ?>
@@ -38,10 +38,8 @@ if(isset($_SESSION['listaDeRecibido'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>Fecha Recibido</th> 
-                <th>Cantidad Recibido</th>  
-                <th>Material construccion Recibido</th>
-                <th>Numero Factura</th>
+                <th>Fecha Utilizado</th> 
+                <th>Cantidad Utilizado</th>  
                 <th>Editar</th> 
                 <th>Eliminar</th> 
             </tr>
@@ -49,27 +47,27 @@ if(isset($_SESSION['listaDeRecibido'])){
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeRecibido as $key => $value) {
+            foreach ($listaDeUtilizado as  $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeRecibido[$i]->rec_id; ?></td>  
-                    <td><?php echo $listaDeRecibido[$i]->rec_fecha_recibido; ?></td>  
-                    <td><?php echo $listaDeRecibido[$i]->rec_cantidad_recibido; ?></td>   
-                    <td><?php echo $listaDeRecibido[$i]->rec_mat_id; ?></td>  
-                    <td><?php echo $listaDeRecibido[$i]->rec_numero_factura; ?></td> 
-                    <td><a href="Controlador.php?ruta=mostrarActualizarRecibido&idAct=<?php echo $listaDeRecibido[$i]->rec_id; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarRecibido&idAct=<?php echo $listaDeRecibido[$i]->rec_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeUtilizado[$i]->uti_id; ?></td>  
+                    <td><?php echo $listaDeConstructora[$i]->uti_fecha_uso; ?></td>  
+                    <td><?php echo $listaDeConstructora[$i]->uti_cantidad_utilizado; ?></td>    
+                    <td><a href="Controlador.php?ruta=mostrarActualizarUtilizado&idAct=<?php echo $listaDeUtilizado[$i]->uti_id; ?>">Actualizar</a></td>  
+                    <td><a href="Controlador.php?ruta=eliminarUtilizado&idAct=<?php echo $listaDeUtilizado[$i]->uti_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeRecibido=null;
+            $listaDeUtilizado=null;
             ?>
         </tbody>
     </table>
 
 
 
+
+    
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">

@@ -1,5 +1,31 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
+=======
+<?php
+
+session_start();
+
+if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION['apellido']))
+{
+    $mensaje = $_SESSION['mensaje'];
+    $nombre = $_SESSION['nombre'];
+    $apellido = $_SESSION['apellido'];
+    echo "<script languaje='javascript'>alert('$mensaje '+'$nombre '+'$apellido')</script>";
+    unset($_SESSION['mensaje']);
+    unset($_SESSION['nombre']);
+    unset($_SESSION['apellido']);
+}else if (isset($_SESSION['mensaje']))
+{
+    $mensaje = $_SESSION['mensaje'];
+    echo "<script languaje='javascript'>alert('$mensaje')</script>";
+    unset($_SESSION['mensaje']);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
 
 <head>
 
@@ -9,7 +35,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+<<<<<<< HEAD
     <title>Building Corporation</title>
+=======
+    <title>SB Admin 2 - Blank</title>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
 
     <!-- Custom fonts for this template-->
     <link href="plantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +65,11 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
+<<<<<<< HEAD
                 <div class="sidebar-brand-text mx-3">Building Corporation </div>
+=======
+                <div class="sidebar-brand-text mx-3">BUILDING COP</div>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
             </a>
 
             <!-- Divider -->
@@ -61,6 +95,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
+<<<<<<< HEAD
                     <span>Components</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -68,6 +103,15 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="plantilla/buttons.html">Buttons</a>
                         <a class="collapse-item" href="plantilla/cards.html">Cards</a>
+=======
+                    <span>Administar Rol</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">ROL</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarRol">Listar</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRol">Modificar</a>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                     </div>
                 </div>
             </li>
@@ -75,18 +119,50 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+<<<<<<< HEAD
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Utilities</span>
+=======
+                    aria-expanded="true" aria-controls="collapseUtilitie">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Materiales</span>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+<<<<<<< HEAD
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="plantilla/utilities-color.html">Colors</a>
                         <a class="collapse-item" href="plantilla/utilities-border.html">Borders</a>
                         <a class="collapse-item" href="plantilla/utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="plantilla/utilities-other.html">Other</a>
+=======
+                        <h6 class="collapse-header">Despliegue</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar
+                            Material Construcción</a>
+                        <a class="collapse-item"
+                            href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material
+                            Construcción</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
+                    aria-expanded="true" aria-controls="collapseUtilitie">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Proyectos</span>
+                </a>
+                <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilitie"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Operaciones</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Modificar
+                            lista</a>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                     </div>
                 </div>
             </li>
@@ -110,6 +186,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
+<<<<<<< HEAD
                         <a class="collapse-item" href="plantilla/login.html">Login</a>
                         <a class="collapse-item" href="plantilla/register.html">Register</a>
                         <a class="collapse-item" href="plantilla/forgot-password.html">Forgot Password</a>
@@ -117,6 +194,15 @@
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="plantilla/404.html">404 Page</a>
                         <a class="collapse-item active" href="plantilla/blank.html">Blank Page</a>
+=======
+                        <a class="collapse-item" href="login.php">Login</a>
+                        <a class="collapse-item" href="registro.php">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item active" href="principal.php">Blank Page</a>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                     </div>
                 </div>
             </li>
@@ -160,6 +246,23 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+<<<<<<< HEAD
+=======
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -254,8 +357,12 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
+<<<<<<< HEAD
                                         <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
+=======
+                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_1.svg" alt="...">
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -266,8 +373,12 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
+<<<<<<< HEAD
                                         <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
+=======
+                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_2.svg" alt="...">
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -278,8 +389,12 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
+<<<<<<< HEAD
                                         <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
+=======
+                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_3.svg" alt="...">
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -311,8 +426,12 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+<<<<<<< HEAD
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
+=======
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -345,6 +464,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+<<<<<<< HEAD
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
@@ -353,6 +473,15 @@
                          include($_GET['contenido']);
                         }
                     ?>
+=======
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <?php
+                        if(isset($_GET['contenido'])) include($_GET['contenido']);
+                    ?>
+
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                 </div>
                 <!-- /.container-fluid -->
 
@@ -376,7 +505,11 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
+<<<<<<< HEAD
     <a class="scroll-to-top rounded" href="plantilla/#page-top">
+=======
+    <a class="scroll-to-top rounded" href="#page-top">
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
         <i class="fas fa-angle-up"></i>
     </a>
 
@@ -394,13 +527,18 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+<<<<<<< HEAD
                     <a class="btn btn-primary" href="login.html">Logout</a>
+=======
+                    <a class="btn btn-primary" href="login.php">Logout</a>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
+<<<<<<< HEAD
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -409,6 +547,16 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+=======
+    <script src="plantilla/vendor/jquery/jquery.min.js"></script>
+    <script src="plantilla/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="plantilla/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="plantilla/js/sb-admin-2.min.js"></script>
+>>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
 
 </body>
 

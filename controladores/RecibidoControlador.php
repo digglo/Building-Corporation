@@ -44,20 +44,26 @@ class RecibidoControlador{
     
         $_SESSION['listaDeRecibido'] = $registroRecibido;
     
-        header("location:principal.php?contenido=vistas/vistasRecibido/vistaListarRecibido.php");
+        header("location:principal1.php?contenido=vistas/vistasRecibido/vistaListarRecibido.php");
     }
 
     public  function mostrarActualizarRecibido(){
 
-        $gestarRecibido = new MaterialConstruccionDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $actualizarRecibido = $gestarRecibido -> seleccionarID(array($this->datos['rec_id']));
+        $gestarRecibido = new RecibidoDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $actualizarRecibido = $gestarRecibido -> seleccionarID(array($this->datos['idAct']));
 
         $actualizarDatosRecibido = $actualizarRecibido['registroEncontrado'][0];
+        
+
+        $gestarMaterialConstruccion = new   MaterialConstruccionDAO (SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $materialConstruccion= $gestarMaterialConstruccion -> seleccionarTodos();
+    
 
         session_start();
         $_SESSION['actualizarDatosRecibido']=$actualizarDatosRecibido;
+        $_SESSION['listarMaterialConstruccion']=$materialConstruccion;
 
-        header("location:principal.php?contenido=vistas/vistasRecibido/vistaActualizarRecibido.php");
+        header("location:principal1.php?contenido=vistas/vistasRecibido/vistaActualizarRecibido.php");
         
     }
 
@@ -82,7 +88,7 @@ class RecibidoControlador{
 
     public function mostrarInsertarRecibido(){
 		
-        header("Location: principal.php?contenido=vistas/vistasRecibido/vistaIngresarRecibido.php");
+        header("Location: principal1.php?contenido=vistas/vistasRecibido/vistaIngresarRecibido.php");
 
 }
     

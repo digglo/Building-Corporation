@@ -1,5 +1,10 @@
 <?php
 
+require_once PATH . 'modelos/modeloConstructora/constructoraDAO.php';
+require_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
+require_once PATH . 'modelos/modeloRol/RolDAO.php';
+require_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
+
 class Usuario_sControlador
 {
     private $datos = array();
@@ -54,9 +59,9 @@ class Usuario_sControlador
             $exitoInsercionUsuario_s = $insertoUsuario_s['inserto'];
 //Traer el id con que quedó el usuario de lo contrario la excepción o fallo					
             $resultadoInsercionUsuario_s = $insertoUsuario_s['resultado'];
-            $gestarPersona = new PersonaDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+            $gestarPersona = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 //Id 'usuID' con quedó insertado el usuario, con el fin que quede el mismo en la tabla 'persona'
-            $this->datos['perId'] = $resultadoInsercionUsuario_s;
+            $this->datos['con_id'] = $resultadoInsercionUsuario_s;
 //inserción de los campos en la tabla persona
             $insertoPersona = $gestarPersona->insertar($this->datos);
             $exitoInsercionPersona = $insertoPersona['inserto']; //indica si se logró inserción de los campos en la tabla persona
@@ -94,11 +99,10 @@ class Usuario_sControlador
 
             session_start(); //se abre sesión para almacenar en ella el mensaje
             $_SESSION['mensaje'] = "Bienvenido a nuestra Aplicación."; //mensaje
-            $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->perNombre; // para mensaje de bienvenida
-            $_SESSION['perApellido'] = $existeUsuario_s['registroEncontrado'][0]->perApellido; // para mensaje de bienvenida
+            $_SESSION['perNombre'] = $existeUsuario_s['registroEncontrado'][0]->con_nombre_empresa; // para mensaje de bienvenida
             //Consultamos los roles de la persona logueada
             $consultaRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-            $rolesUsuario = $consultaRoles->seleccionarRolPorPersona(array($existeUsuario_s['registroEncontrado'][0]->perDocumento));
+            $rolesUsuario = $consultaRoles->seleccionarID(array($existeUsuario_s['registroEncontrado'][0]->con_numero_documento));
             $cantidadRoles = count($rolesUsuario['registroEncontrado']);
             $rolesEnSesion = array();
             for ($i = 0; $i < $cantidadRoles; $i++)
@@ -110,7 +114,7 @@ class Usuario_sControlador
             $sesionPermitida = new ClaseSesion(); // se abre la sesión					
             $sesionPermitida->crearSesion(array($existeUsuario_s['registroEncontrado'][0], "", $rolesEnSesion)); //Se envìa a la sesiòn los datos del usuario logeado					
 
-            header("location:principal.php");
+            header("location:principal1.php");
         } else {
             session_start(); //se abre sesión para almacenar en ella el mensaje de inserción
             $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; //mensaje de inserción
