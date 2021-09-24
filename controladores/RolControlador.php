@@ -39,11 +39,12 @@ class RolControlador{
     public function listarRol(){
         $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
         $registroRoles = $gestarRoles -> seleccionarTodos(1);
-    
+
         session_start();
+        
     
         $_SESSION['listaDeRoles'] = $registroRoles;
-    
+        
         header("location:principal.php?contenido=vistas/vistasRoles/listarRegistroRoles.php");
     }
 

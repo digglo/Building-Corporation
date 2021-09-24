@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
+    $mensaje = $_SESSION['mensaje'];
+    $nombre = $_SESSION['nombre'];
+    $apellido = $_SESSION['apellido'];
+    echo "<script languaje='javascript'>alert('$mensaje '+'$nombre '+'$apellido')</script>";
+    unset($_SESSION['mensaje']);
+    unset($_SESSION['nombre']);
+    unset($_SESSION['apellido']);
+}else if (isset($_SESSION['mensaje'])){
+    $mensaje = $_SESSION['mensaje'];
+    echo "<script languaje='javascript'>alert('$mensaje')</script>";
+    unset($_SESSION['mensaje']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +26,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Building Corporation</title>
+    <title>SB Admin 2 - Blank</title>
 
     <!-- Custom fonts for this template-->
     <link href="plantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +39,14 @@
 
     <!-- Custom styles for this template-->
     <link href="plantilla/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!--LAS siguientes lìneas se agregan con el propòsito de dar funcionalidad a un DataTable-->
+        <!--**************************************** -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
+        <!--**************************************** -->
 
 </head>
 
@@ -31,11 +59,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="plantilla/index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Building Corporation</div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -43,7 +71,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="plantilla/index.html">
+                <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -61,13 +89,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Gestion de Rol</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="plantilla/buttons.html">Buttons</a>
-                        <a class="collapse-item" href="plantilla/cards.html">Cards</a>
+                        <h6 class="collapse-header">Gestion Rol:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarRol">Listar Rol</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRol">Agregar Rol</a>
                     </div>
                 </div>
             </li>
@@ -77,16 +105,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Constructora</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="plantilla/utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="plantilla/utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="plantilla/utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="plantilla/utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarConstructora">Listar Constructora</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>
                     </div>
                 </div>
             </li>
@@ -110,27 +136,27 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="plantilla/login.html">Login</a>
-                        <a class="collapse-item" href="plantilla/register.html">Register</a>
-                        <a class="collapse-item" href="plantilla/forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="plantilla/404.html">404 Page</a>
-                        <a class="collapse-item active" href="plantilla/blank.html">Blank Page</a>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item active" href="blank.html">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="plantilla/charts.html">
+                <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="plantilla/tables.html">
+                <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -160,6 +186,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                   
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -349,6 +376,15 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
+                    <div id="contenido">
+                       <?php
+                         if(isset($_GET['contenido'])){
+                         include($_GET['contenido']);
+                         }
+
+                        ?>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -372,7 +408,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="plantilla/#page-top">
+    <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
@@ -397,14 +433,30 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plantilla/vendor/jquery/jquery.min.js"></script>
+    <script src="plantilla/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="plantilla/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="plantilla/js/sb-admin-2.min.js"></script>
+
+    <!--**************************************** -->  
+    <!--LAS siguientes lìneas se agregan con el propòsito de dar funcionalidad a un DataTable-->
+    <!--**************************************** -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#example').DataTable({
+                                pageLength: 5,
+                                lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]],
+                            });
+                        });
+    </script>     
+    <!--**************************************** -->
+    <!--**************************************** -->   
 
 </body>
 

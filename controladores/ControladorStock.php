@@ -44,7 +44,7 @@ class StockControlador{
     
         $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
     
-        header("location:principal1.php?contenido=vistas/vistasIdentificacion/listarIdentificacion.php");
+        header("location:principal.php?contenido=vistas/vistasIdentificacion/listarIdentificacion.php");
     }
 
     public  function mostrarActualizarIdentificacion(){
@@ -57,7 +57,7 @@ class StockControlador{
         session_start();
         $_SESSION['actualizarDatosIdentificacion']=$actualizarDatosIdentificacion;
 
-        header("location:principal1.php?contenido=vistas/vistasIdentificacion/vistaActualizarIdentificacion.php");
+        header("location:principal.php?contenido=vistas/vistasIdentificacion/vistaActualizarIdentificacion.php");
         
     }
 
@@ -81,7 +81,7 @@ class StockControlador{
 
     public function mostrarInsertarIdentificacion(){
 		
-        header("Location: principal1.php?contenido=vistas/vistasIdentificacion/vistaIngresarIndentificacion.php");
+        header("Location: principal.php?contenido=vistas/vistasIdentificacion/vistaIngresarIndentificacion.php");
 
 }
     

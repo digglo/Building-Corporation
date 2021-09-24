@@ -1,7 +1,5 @@
 <?php
-//echo "<pre>";
-//print_r($_SESSION['listaDeLibros']);
-//echo "</pre>";
+
 
 if (isset($_SESSION['mensaje'])) {
     $mensaje = $_SESSION['mensaje'];
@@ -31,14 +29,13 @@ if (isset($_SESSION['mensaje'])) {
 	<body>
 <?php
 if(isset($_SESSION['listaDeRoles'])){
-	
     $listaDeRoles=$_SESSION['listaDeRoles'];
 	 unset($_SESSION['listaDeRoles']);
 	
 }
 ?>
     <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
-        <thead>
+        <thead >
             <h3>Listado de la Tabla Rol</h3>
             <tr> 
                 <th>Id</th>

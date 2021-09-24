@@ -15,23 +15,6 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
     echo "<script languaje='javascript'>alert('$mensaje')</script>";
     unset($_SESSION['mensaje']);
 }
-    session_start();
-
-    if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION['apellido']))
-    {
-        $mensaje = $_SESSION['mensaje'];
-        $nombre = $_SESSION['nombre'];
-        $apellido = $_SESSION['apellido'];
-        echo "<script languaje='javascript'>alert('$mensaje '+'$nombre '+'$apellido')</script>";
-        unset($_SESSION['mensaje']);
-        unset($_SESSION['nombre']);
-        unset($_SESSION['apellido']);
-    }else if (isset($_SESSION['mensaje']))
-    {
-        $mensaje = $_SESSION['mensaje'];
-        echo "<script languaje='javascript'>alert('$mensaje')</script>";
-        unset($_SESSION['mensaje']);
-    }
 ?>
 
 <!DOCTYPE html>

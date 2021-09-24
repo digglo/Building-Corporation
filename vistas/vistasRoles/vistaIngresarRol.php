@@ -13,7 +13,7 @@
                 <tr>
                     <td>Id:</td>
                     <td>
-                        <input class="form-control" placeholder="Id" autocomplete="off" name="rol_id_rol" type="number" patter="" required="requires"value="<?php 
+                        <input class="form-control" placeholder="Id" autocomplete="off" name="rol_id_rol" type="number" patter="" value="<?php 
                         if(isset($_SESSION['rol_id_rol'])){echo($_SESSION['rol_id_rol']);} 
                         ?>">
                     </td>
@@ -28,7 +28,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit" name="ruta" value="listarRoles">Cancelar</button>
+                        <button type="submit" name="ruta" value="listarRol">Cancelar</button>
                     </td>
                     <td>
                         <button type="submit" name="ruta" value="insertarRol">Confirmar</button>

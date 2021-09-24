@@ -46,7 +46,7 @@ class ConstructoraControlador{
     
         $_SESSION['listaDeConstructora'] = $registroConstructora;
     
-        header("location:principal1.php?contenido=vistas/vistasConstructora/listarConstructora.php");
+        header("location:principal.php?contenido=vistas/vistasConstructora/listarConstructora.php");
     }
 
     public  function mostrarActualizarConstructora(){
@@ -67,7 +67,7 @@ class ConstructoraControlador{
         $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
         $_SESSION['listaDeUsuario'] = $registroUsuario;
 
-        header("location:principal1.php?contenido=vistas/vistasConstructora/vistaActualizarConstructora.php");
+        header("location:principal.php?contenido=vistas/vistasConstructora/vistaActualizarConstructora.php");
         
     }
 
@@ -101,7 +101,7 @@ class ConstructoraControlador{
         $_SESSION['listaDeIdentificacion'] = $registroIdentificacion;
         $_SESSION['listaDeUsuario'] = $registroUsuario;
 		
-        header("Location: principal1.php?contenido=vistas/vistasConstructora/vistaIngresarConstructora.php");
+        header("Location: principal.php?contenido=vistas/vistasConstructora/vistaIngresarConstructora.php");
 
 }
     

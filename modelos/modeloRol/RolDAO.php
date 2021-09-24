@@ -7,19 +7,12 @@ class RolDAO extends ConBdMySql {
         parent::__construct($servidor, $base, $loginDB, $passwordDB);  
     }
     
-<<<<<<< HEAD
     public function seleccionarTodos($Estado){
         $planconsulta = "SELECT * FROM rol WHERE rol_estado=:rol_estado;";
 
         $registroRol = $this->conexion->prepare($planconsulta);
         $registroRol -> bindParam(":rol_estado", $Estado);
-=======
-    public function seleccionarTodos($status){
-        $planconsulta = "SELECT * FROM rol WHERE rol_estado=:rol_estado;";
 
-        $registroRol = $this->conexion->prepare($planconsulta);
-        $registroRol->bindParam(':rol_estado',$status);
->>>>>>> 166d15b1b83f1111d23f05bf3ab892401171d3ce
         $registroRol->execute();
 
         $listadoRegistrosRol = array();
