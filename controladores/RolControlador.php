@@ -38,7 +38,7 @@ class RolControlador{
     }
     public function listarRol(){
         $gestarRoles = new RolDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroRoles = $gestarRoles -> seleccionarTodos();
+        $registroRoles = $gestarRoles -> seleccionarTodos(1);
     
         session_start();
     
