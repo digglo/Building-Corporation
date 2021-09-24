@@ -104,24 +104,28 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Despliegue</h6>
-                        <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar Material Construcción</a>
-                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material Construcción</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar
+                            Material Construcción</a>
+                        <a class="collapse-item"
+                            href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material
+                            Construcción</a>
                     </div>
                 </div>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
-                   aria-expanded="true" aria-controls="collapseUtilitie">
+                    aria-expanded="true" aria-controls="collapseUtilitie">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Proyectos</span>
                 </a>
                 <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilitie"
-                     data-parent="#accordionSidebar">
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operaciones</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
-                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Modificar lista</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Modificar
+                            lista</a>
                     </div>
                 </div>
             </li>
@@ -303,8 +307,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_1.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -315,8 +318,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_2.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -327,8 +329,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_3.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="plantilla/img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -360,8 +361,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
