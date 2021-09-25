@@ -117,6 +117,23 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 </div>
             </li>
 
+            <!-- Nav Item - Proyecto Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Proyectos</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
+                    </div>
+                </div>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -139,26 +156,136 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                         <a class="collapse-item" href="login.html">Login</a>
                         <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item active" href="blank.html">Blank Page</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Sede Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Sede</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Sede:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarSede">Listar Sedes</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarSede">Agregar Sede</a>
+                    </div>
+                </div>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Identificacion -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Identificacion</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Sede:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarIdentificacion">Listar Identificaciones</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarIdentificacion">Agregar Identificacion</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Ubicacion Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Gestion de Ubicacion</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Rol:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarUbicacion">Listar Ubicaciones</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarUbicacion">Agregar Ubicacion</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Trabajador Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Gestion de Trabajadores</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarTrabajador">Listar Trabajadores</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarTrabajador">Agregar Trabajador</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Material Construccion Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Materiales de Construccion</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar Materiales</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Recibidos Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Materiales Recibidos</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarRecibido">Listar Materiales Recibidos</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Material Recibido</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Registro Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Registros</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarRegistro">Listar Registros</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRegistro">Agregar Registro</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
