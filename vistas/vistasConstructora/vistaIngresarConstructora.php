@@ -22,8 +22,8 @@ if (isset($_SESSION['listaDeUsuario'])) {
 
 ?>
 <div class="panel-heading">
-     <h2 class="panel-title">Gestion de Vehiculo</h2>
-     <h3 class="panel-title">Insertar Vehiculo</h3>
+     <h2 class="panel-title">Gestion de Constructora</h2>
+     <h3 class="panel-title">Insertar Constructora</h3>
 </div>
 <div>
     <fieldset>

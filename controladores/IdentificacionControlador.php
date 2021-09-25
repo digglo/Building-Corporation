@@ -34,11 +34,17 @@ class IdentificacionControlador{
             case 'eliminarIdentificacion':
                 $this -> eliminarIdentificacion();
                 break;
+            case 'listarIdentificacionInactivos':
+                $this -> listarIdentificacionInactivos();
+                break;
+            case 'habilitarIdentificacion':
+                $this -> habilitarIdentificacion();
+                break;
         }
     }
     public function listarIdentificacion(){
         $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroIdentificacion = $gestarIdentificacion -> seleccionarTodos();
+        $registroIdentificacion = $gestarIdentificacion -> seleccionarTodos(1);
     
         session_start();
     
@@ -119,7 +125,7 @@ class IdentificacionControlador{
 
     public function eliminarIdentificacion(){
         $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarIdentificacion = $gestarIdentificacion -> eliminar(array($this->datos['idAct']));
+        $inhabilitarIdentificacion = $gestarIdentificacion -> eliminarLogico(array($this->datos['idAct']));
 
         session_start();
 
@@ -127,6 +133,27 @@ class IdentificacionControlador{
         header("location:Controlador.php?ruta=listarIdentificacion");
 
 
+    }
+
+    public function listarIdentificacionInactivos(){
+        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $listarInactivos = $gestarIdentificacion -> seleccionarTodos(0);
+
+        session_start();
+
+        $_SESSION['listaDeIdentificacion'] = $listarInactivos;
+
+        header("location:principal.php?contenido=vistas/vistasIdentificacion/listarIdentificacionInactivos.php");
+    }
+
+    public function habilitarIdentificacion(){
+        $gestarIdentificacion = new IdentificacionDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $habilitarIdentificacion = $gestarIdentificacion -> habilitar(array($this -> datos['idAct']));
+
+        session_start();
+
+        $_SESSION['mensaje'] = "Registro Habilitado";
+        header("location:Controlador.php?ruta=listarIdentificacionInactivos");
     }
         
     

@@ -6,11 +6,13 @@ class ProyectoDAO extends ConBdMySql{
     public function __construct($servidor, $base, $loginDB, $passwordDB){
         parent::__construct($servidor, $base, $loginDB, $passwordDB);  
     }
-    
-    public function seleccionarTodos(){
-        $planconsulta = "select * from proyecto;";
+
+    public function seleccionarTodos($Estado){
+        $planconsulta = "SELECT * FROM proyecto WHERE pro_estado=:pro_estado;";
 
         $registroProyecto = $this->conexion->prepare($planconsulta);
+        $registroProyecto -> bindParam(":pro_estado", $Estado);
+
         $registroProyecto->execute();
 
         $listadoRegistrosProyecto = array();

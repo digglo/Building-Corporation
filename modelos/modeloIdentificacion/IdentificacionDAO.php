@@ -6,11 +6,13 @@ class IdentificacionDAO extends ConBdMySql{
     public function __construct($servidor, $base, $loginDB, $passwordDB){
         parent::__construct($servidor, $base, $loginDB, $passwordDB);  
     }
-    
-    public function seleccionarTodos(){
-        $planconsulta = "select * FROM identificacion  ;";
+
+    public function seleccionarTodos($Estado){
+        $planconsulta = "SELECT * FROM identificacion WHERE ide_estado=:ide_estado;";
 
         $registroTipoDocumento = $this->conexion->prepare($planconsulta);
+        $registroTipoDocumento -> bindParam(":ide_estado", $Estado);
+
         $registroTipoDocumento->execute();
 
         $listadoRegistrosTipoDocumento = array();

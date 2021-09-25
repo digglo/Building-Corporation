@@ -90,13 +90,17 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <br/>
             <a href="./Controlador.php?ruta=listarIdentificacion">Listar Identificaciones</a>
             <br/>
-            <a href="./Controlador.php?ruta=mostrarInsertarIdentificacion">Agregar Identificacion</a>
+            <a href="./Controlador.php?ruta=listarConstructoraInactivos">Agregar Identificacion</a>
+            <br/>
+            <a href="./Controlador.php?ruta=listarIdentificacionInactivos">Listar Inactivos</a>
         </div>
         <div class="gestion">Menú Operaciones de Tabla Constructora
             <br/>
             <a href="./Controlador.php?ruta=listarConstructora">Listar Constructoras</a>
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>
+            <br/>
+            <a href="./Controlador.php?ruta=listarConstructoraInactivos">Listar Inactivos</a>
         </div>
         <div class="gestion">Menú Operaciones de Tabla Sede
             <br/>
@@ -133,12 +137,20 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
             <a href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
+            <br/>
+            <a href="./Controlador.php?ruta=listarProyectoInactivos">Listar Inactivos</a>
         </div>
         <div class="gestion">Menú Operaciones de Tabla Registro
             <br/>
             <a href="./Controlador.php?ruta=listarRegistro">Listar Registros</a>
             <br/>
             <a href="./Controlador.php?ruta=mostrarInsertarRegistro">Agregar Registro</a>
+        </div>
+        <div class="gestion">Menú Operaciones de Tabla Stock
+            <br/>
+            <a href="./Controlador.php?ruta=listarStock">Listar Stock</a>
+            <br/>
+            <a href="./Controlador.php?ruta=mostrarInsertarStock">Agregar Stock</a>
         </div>
         <div id="contenido">
             <?php

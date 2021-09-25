@@ -37,11 +37,17 @@ class ProyectoControlador{
             case 'eliminarProyecto':
                 $this -> eliminarProyecto();
                 break;
+            case 'listarProyectoInactivos':
+                $this -> listarProyectoInactivos();
+                break;
+            case 'habilitarProyecto':
+                $this -> habilitarProyecto();
+                break;
         }
     }
     public function listarProyecto(){
         $gestarProyecto = new ProyectoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroProyecto = $gestarProyecto -> seleccionarTodos();
+        $registroProyecto = $gestarProyecto -> seleccionarTodos(1);
     
         session_start();
     
@@ -160,7 +166,7 @@ class ProyectoControlador{
 
     public function eliminarProyecto(){
         $gestarProyecto = new ProyectoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarProyecto = $gestarProyecto -> eliminar(array($this->datos['idAct']));
+        $inhabilitarProyecto = $gestarProyecto -> eliminarLogico(array($this->datos['idAct']));
 
         session_start();
 
@@ -168,6 +174,27 @@ class ProyectoControlador{
         header("location:Controlador.php?ruta=listarProyecto");
 
 
+    }
+
+    public function listarProyectoInactivos(){
+        $gestarProyecto = new ProyectoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $listarInactivos = $gestarProyecto -> seleccionarTodos(0);
+
+        session_start();
+
+        $_SESSION['listaDeProyecto'] = $listarInactivos;
+
+        header("location:principal.php?contenido=vistas/vistasProyecto/listarProyectoInactivos.php");
+    }
+
+    public function habilitarProyecto(){
+        $gestarProyecto = new ProyectoDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $inhabilitarProyecto = $gestarProyecto -> habilitar(array($this -> datos['idAct']));
+
+        session_start();
+
+        $_SESSION['mensaje'] = "Registro Habilitado";
+        header("location:Controlador.php?ruta=listarProyectoInactivos");
     }
         
     

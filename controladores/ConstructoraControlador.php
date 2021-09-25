@@ -36,11 +36,17 @@ class ConstructoraControlador{
             case 'eliminarConstructora':
                 $this -> eliminarConstructora();
                 break;
+            case 'listarConstructoraInactivos':
+                $this -> listarConstructoraInactivos();
+                break;
+            case 'habilitarConstructora':
+                $this -> habilitarConstructora();
+                break;
         }
     }
     public function listarConstructora(){
         $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $registroConstructora = $gestarConstructora -> seleccionarTodos();
+        $registroConstructora = $gestarConstructora -> seleccionarTodos(1);
     
         session_start();
     
@@ -141,7 +147,7 @@ class ConstructoraControlador{
 
     public function eliminarConstructora(){
         $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
-        $inhabilitarConstructora = $gestarConstructora -> eliminar(array($this->datos['idAct']));
+        $inhabilitarConstructora = $gestarConstructora -> eliminarLogico(array($this->datos['idAct']));
 
         session_start();
 
@@ -149,6 +155,27 @@ class ConstructoraControlador{
         header("location:Controlador.php?ruta=listarConstructora");
 
 
+    }
+        
+    public function listarConstructoraInactivos(){
+        $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $listarInactivos = $gestarConstructora -> seleccionarTodos(0);
+
+        session_start();
+
+        $_SESSION['listaDeConstructora'] = $listarInactivos;
+
+        header("location:principal.php?contenido=vistas/vistasConstructora/listarConstructoraInactivos.php");
+    }
+
+    public function habilitarConstructora(){
+        $gestarConstructora = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
+        $inhabilitarConstructora = $gestarConstructora -> habilitar(array($this -> datos['idAct']));
+
+        session_start();
+
+        $_SESSION['mensaje'] = "Registro Habilitado";
+        header("location:Controlador.php?ruta=listarConstructoraInactivos");
     }
         
     

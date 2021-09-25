@@ -80,8 +80,8 @@ form select{
 </style>
 
 <div class="penek-heading">
-    <h2 class="panel-title">Gestión de Vehiculos</h2>
-    <h3 class="panel-title">Actualización de Vehiculos</h3>
+    <h2 class="panel-title">Gestión de Constructora</h2>
+    <h3 class="panel-title">Actualización de Constructora</h3>
 </div>
 <div>
     <fieldset>

@@ -3,23 +3,27 @@
 
 
 if (isset($_SESSION['actualizarDatosStock'])) {
-    $actualizarDatosUtilizado = $_SESSION['actualizarDatosStock'];
+    $actualizarDatosStock = $_SESSION['actualizarDatosStock'];
 }
 
-if (isset($_SESSION['listaDeStock'])) {
-    $listaDeStock = $_SESSION['listaDeStock'];
-    $StockCantidad = count($listaDeStock);
+if (isset($_SESSION['listaDeRecibido'])) {
+    $listaDeRecibido = $_SESSION['listaDeRecibido'];
+    $recibidoCantidad = count($listaDeRecibido);
 }
 
+if (isset($_SESSION['listaDeUtilizado'])) {
+    $listaDeUtilizado = $_SESSION['listaDeUtilizado'];
+    $utilizadoCantidad = count($listaDeUtilizado);
+}
 
 //echo "<pre>";
-//print_r($_SESSION['actualizarDatosStock']);
+//print_r($_SESSION['actualizarDatosVehiculos']);
 //echo "</pre>";
 //echo "<pre>";
-//print_r($_SESSION['listarStock']);
+//print_r($_SESSION['listarTickets']);
 //echo "</pre>";
 //echo "<pre>";
-//print_r($_SESSION['listarStock']);
+//print_r($_SESSION['listarEmpleados']);
 //echo "</pre>";
 //exit();
 
@@ -82,7 +86,7 @@ form select{
 <div>
     <fieldset>
         <center>
-        <form role="form" action="Controlador.php" method="POST" id="formStock" >
+        <form role="form" action="Controlador.php" method="POST" id="formVehiculos" >
             <table>
                 <tr>
                     <td>Id:</td>
@@ -91,45 +95,55 @@ form select{
                         value="<?php if (isset($actualizarDatosStock->sto_id)) {
                             echo $actualizarDatosStock->sto_id;}?>">
                     </td>
-                    </tr>
+                </tr>
                 <tr>
-                    <td>Utilizado:</td>
+                    <td>Cantidad Almacenado:</td>
                     <td>
-                            <input type="form-control" type="text" name="sto_utilizado_id" placeholder="Utilizado"  size="50"
-                            value="<?php if (isset($actualizarDatosStock->uti_utilizado_id)) {
-                                echo $actualizarDatosStock->sto_utilizado_id;
+                            <input type="form-control" type="number" name="sto_cantidad_almacenada" placeholder="Cantidad Almacenada"  size="50"
+                            value="<?php if (isset($actualizarDatosStock->sto_cantidad_almacenada)) {
+                                echo $actualizarDatosStock->sto_cantidad_almacenada;
                             } ?>">
                     </td>
                 </tr>
-                <tr>
-                    <td>Recibido:</td>
+                <td>Id Recibido:</td>
                     <td>
-                            <input type="form-control" type="text" name="sto_recibido_id" placeholder="Recibido" size="50" 
-                            value="<?php if (isset($actualizarDatosStock->sto_recibido_id)) {
-                                echo $actualizarDatosStock->sto_recibido_id;
-                            } ?>">
-            
-                    </td>
-                    </tr>
-               
-                    <td>Fecha Modificacion:</td>
-                    <td>
-                            <input type="form-control" type="text" name="sto__fecha_modificacion" placeholder="Fecha Modificacion" size="50" 
-                            value="<?php if (isset($actualizarDatosStock->sto__fecha_modificacion)) {
-                                echo $actualizarDatosStock->sto__fecha_modificacion;
-                            } ?>">
-            
-                    </td>
+                            <select name="sto_recibido_id" id="sto_recibido_id" style="width: 338px">
+                                <?php for ($i=0; $i < $recibidoCantidad; $i++) { 
+                                ?>
+                                    <option value="<?php echo $listaDeRecibido[$i]->rec_id; ?>" 
+                                    <?php if (isset($listaDeRecibido[$i]->rec_id) && isset($actualizarDatosStock->sto_recibido_id) && $listaDeRecibido[$i]->rec_id == $actualizarDatosStock->sto_recibido_id) {
+                                        echo " selected";
+                                    } ?>
+                                    >
 
-                    <tr>
-                    
-                    <td>Cantidad Almacenada:</td>
+                                    <?php echo $listaDeRecibido[$i]->rec_id.'. Cantidad Recibida:'.$listaDeRecibido[$i]->rec_cantidad_recibido; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                    </td>
+                </tr>
+                <tr>
+                <td>Id Utilizado:</td>
                     <td>
-                            <input type="form-control" type="text" name="sto_cantidad_almacenada" placeholder="Cantidad Almacenada" size="50" 
-                            value="<?php if (isset($actualizarDatosStock->sto__cantidad_almacenada)) {
-                                echo $actualizarDatosStock->sto_cantidad_almacenada;
-                            } ?>">
-            
+                            <select name="sto_utilizado_id" id="sto_utilizado_id" style="width: 338px">
+                                <?php for ($i=0; $i < $utilizadoCantidad; $i++) { 
+                                ?>
+                                    <option value="<?php echo $listaDeUtilizado[$i]->uti_id; ?>" 
+                                    <?php if (isset($listaDeUtilizado[$i]->uti_id) && isset($actualizarDatosStock->sto_utilizado_id) && $listaDeUtilizado[$i]->uti_id == $actualizarDatosStock->sto_utilizado_id) {
+                                        echo "selected";
+                                    } ?>
+                                    >
+
+                                    <?php echo $listaDeUtilizado[$i]->uti_id.'. Cantidad Utilizada: '.$listaDeUtilizado[$i] ->uti_cantidad_utilizado; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                    </td>
+                </tr>
+
+                <tr>
                     <td>
                         <br>
                         <button type="submit" name="ruta" value="cancelarActualizarStock" >Cancelar</button>

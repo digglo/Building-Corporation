@@ -113,6 +113,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                         <h6 class="collapse-header">Gestion Constructora:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarConstructora">Listar Constructora</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarConstructora">Agregar Constructora</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarConstructoraInactivos">Listar Inactivos</a>
                     </div>
                 </div>
             </li>
@@ -130,6 +131,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                         <h6 class="collapse-header">Gestion Constructora:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarProyectoInactivos">Listar Inactivos</a>
                     </div>
                 </div>
             </li>
@@ -190,6 +192,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                         <h6 class="collapse-header">Sede:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarIdentificacion">Listar Identificaciones</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarIdentificacion">Agregar Identificacion</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarIdentificacionInactivos">Listar Inactivos</a>
                     </div>
                 </div>
             </li>
@@ -228,7 +231,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Trabajadores:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarTrabajador">Listar Trabajadores</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarTrabajador">Agregar Trabajador</a>
                     </div>
@@ -246,7 +249,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Materiales:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar Materiales</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material</a>
                     </div>
@@ -263,7 +266,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Recibido:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarRecibido">Listar Materiales Recibidos</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Material Recibido</a>
                     </div>
@@ -281,9 +284,26 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Registros:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarRegistro">Listar Registros</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRegistro">Agregar Registro</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Stock Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Stock</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Stock:</h6>
+                        <a class="collapse-item" href="./Controlador.php?ruta=listarStock">Listar Stock</a>
+                        <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarStock">Agregar Stock</a>
                     </div>
                 </div>
             </li>

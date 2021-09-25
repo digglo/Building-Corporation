@@ -6,11 +6,13 @@ class ConstructoraDAO extends ConBdMySql{
     public function __construct($servidor, $base, $loginDB, $passwordDB){
         parent::__construct($servidor, $base, $loginDB, $passwordDB);  
     }
-    
-    public function seleccionarTodos(){
-        $planconsulta = "select * from constructora c JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuld=u.usuId;;";
+
+    public function seleccionarTodos($Estado){
+        $planconsulta = "SELECT * FROM constructora C JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuld=u.usuId WHERE con_estado=:con_estado;";
 
         $registroConstructora = $this->conexion->prepare($planconsulta);
+        $registroConstructora -> bindParam(":con_estado", $Estado);
+
         $registroConstructora->execute();
 
         $listadoRegistrosConstructora = array();

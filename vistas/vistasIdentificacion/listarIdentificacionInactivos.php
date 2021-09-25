@@ -1,7 +1,7 @@
 <?php
 
 /*echo "<pre>";
-print_r($_SESSION['listarActualizado']);
+print_r($_SESSION['listarTiposDocumentos']);
 echo "</pre>";*/
 
 if (isset($_SESSION['mensaje'])) {
@@ -22,15 +22,15 @@ if (isset($_SESSION['mensaje'])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" typ|e="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
     </head>
-	<h1>Listado de la tabla Stock</h1>
+	<h1>Listado de la tabla Identificacion</h1>
     <br>
 <body>
 <?php
-if(isset($_SESSION['listaDeStock'])){
+if(isset($_SESSION['listaDeIdentificacion'])){
 	
-	 $listaDeStock = $_SESSION['listaDeStock'];	
+	 $listaDeIdentificacion = $_SESSION['listaDeIdentificacion'];	
 }
 
 ?>
@@ -38,40 +38,32 @@ if(isset($_SESSION['listaDeStock'])){
         <thead>
             <tr>
                 <th>Id</th> 
-                <th>Utilizado</th> 
-                <th>Recibido</th>
-                <th>Fecha Modificacion</th> 
-                <th>Cantidad Almacenada</th>
-                <th>Editar</th> 
-                <th>Eliminar</th> 
+                <th>Sigla</th> 
+                <th>Nombre Documento</th>  
+                <th>Habilitar</th>  
             </tr>
         </thead>
         <tbody>
             <?php
             $i = 0;
-            foreach ($listaDeStock as  $key => $value) {
+            foreach ($listaDeIdentificacion as $key => $value) {
                 ?>
                 <tr>
-                    <td><?php echo $listaDeStock[$i]->sto_id; ?></td>  
-                    <td><?php echo $listaDeStock[$i]->sto_utilizado_id; ?></td>  
-                    <td><?php echo $listaDeStock[$i]->sto_recibido_id; ?></td>
-                    <td><?php echo $listaDeStock[$i]->sto_cantidad_almacenada; ?></td>
-                            
-                    <td><a href="Controlador.php?ruta=mostrarActualizarStock&idAct=<?php echo $listaDeStock[$i]->sto_id; ?>">Actualizar</a></td>  
-                    <td><a href="Controlador.php?ruta=eliminarStock&idAct=<?php echo $listaDeStock[$i]->sto_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
+                    <td><?php echo $listaDeIdentificacion[$i]->ide_id; ?></td>  
+                    <td><?php echo $listaDeIdentificacion[$i]->ide_sigla; ?></td>  
+                    <td><?php echo $listaDeIdentificacion[$i]->ide_descripcion; ?></td>   
+                    <td><a href="Controlador.php?ruta=habilitarIdentificacion&idAct=<?php echo $listaDeIdentificacion[$i]->ide_id; ?>" onclick="return confirm('Está seguro de habilitar el registro?')">Habilitar</a></td>  
                 </tr>   
                 <?php
                 $i++;
             }
-            $listaDeStock=null;
+            $listaDeIdentificacion=null;
             ?>
         </tbody>
     </table>
 
 
 
-
-    
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
@@ -83,3 +75,8 @@ if(isset($_SESSION['listaDeStock'])){
                         });
     </script>     
 
+
+
+
+</body>
+</html>

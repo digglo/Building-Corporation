@@ -11,6 +11,7 @@
     include_once PATH . 'controladores/ProyectoControlador.php';
     include_once PATH . 'controladores/RegistroControlador.php';
     include_once PATH . 'controladores/Usuario_sControlador.php';
+    include_once PATH . 'controladores/StockControlador.php';
 
     class ControladorPrincipal
     {
@@ -48,6 +49,11 @@
                 case 'eliminarRol':
                     $this->eliminarRol();
                     break;
+
+
+
+
+
                 case 'listarIdentificacion':
                     $this -> listarIdentificacion();
                     break;
@@ -66,6 +72,16 @@
                 case 'eliminarIdentificacion':
                     $this -> eliminarIdentificacion();
                     break;
+                case 'listarIdentificacionInactivos':
+                    $this -> listarIdentificacionInactivos();
+                    break;
+                case 'habilitarIdentificacion':
+                    $this -> habilitarIdentificacion();
+                    break;
+
+
+
+
                 case 'listarConstructora':
                     $this -> listarConstructora();
                     break;
@@ -84,6 +100,17 @@
                 case 'eliminarConstructora':
                     $this -> eliminarConstructora();
                     break;
+                case 'listarConstructoraInactivos':
+                    $this -> listarConstructoraInactivos();
+                    break;
+                case 'habilitarConstructora':
+                    $this -> habilitarConstructora();
+                    break;
+
+
+
+
+
                 case 'listarSede':
                     $this -> listarSede();
                     break;
@@ -102,6 +129,11 @@
                 case 'eliminarSede':
                     $this -> eliminarSede();
                     break;
+
+
+
+
+
                 case 'listarUbicacion':
                     $this -> listarUbicacion();
                     break;
@@ -120,6 +152,12 @@
                 case 'eliminarUbicacion':
                     $this -> eliminarUbicacion();
                     break;
+
+
+
+
+
+
                 case 'listarTrabajador':
                     $this -> listarTrabajador();
                     break;
@@ -138,6 +176,10 @@
                 case 'eliminarTrabajador':
                     $this -> eliminarTrabajador();
                     break;
+
+
+
+
                 case 'listarMaterial_construccion':
                     $this->listarMaterial_construccion();
                     break;
@@ -159,6 +201,12 @@
                 case 'eliminarMaterial_construccion':
                     $this->eliminarMaterial_construccion();
                     break;
+
+
+
+
+
+
                 case 'listarRecibido':
                     $this -> listarRecibido();
                     break;
@@ -177,6 +225,12 @@
                 case 'eliminarRecibido':
                     $this -> eliminarRecibido();
                     break;
+
+
+
+
+
+
                 case 'listarProyecto':
                     $this->listarProyecto();
                     break;
@@ -195,6 +249,19 @@
                 case 'eliminarProyecto':
                     $this->eliminarProyecto();
                     break;
+                case 'listarProyectoInactivos':
+                    $this->listarProyectoInactivos();
+                    break;
+                case 'habilitarProyecto':
+                    $this->habilitarProyecto();
+                    break;
+
+
+
+
+
+
+
                 case 'listarRegistro':
                     $this->listarRegistro();
                     break;
@@ -213,6 +280,29 @@
                 case 'eliminarRegistro':
                     $this->eliminarRegistro();
                     break;
+
+
+
+
+
+                case 'listarStock':
+                    $this->listarStock();
+                    break;
+                    case 'mostrarActualizarStock':
+                        $this->mostrarActualizarStock();
+                        break;
+                    case 'confirmarActualizarStock':
+                        $this->confirmarActualizarStock();
+                        break;
+                    case 'mostrarInsertarStock':
+                        $this->mostrarInsertarStock();
+                        break;
+                    case 'insertarStock':
+                        $this->insertarStock();
+                        break;
+                    case 'eliminarStock':
+                        $this->eliminarStock();
+                        break;
             }
         }
 
@@ -261,6 +351,13 @@
             $Usuario_sControlador = new gestionDeRegistro($this->datos);
         }
 
+
+
+
+
+
+
+
         public function listarIdentificacion(){
             $identificacionControlador = new IdentificacionControlador($this -> datos);
         }
@@ -288,6 +385,20 @@
         public function eliminarIdentificacion(){
             $identificacionControlador = new IdentificacionControlador($this -> datos);
         }
+
+        public function listarIdentificacionInactivos(){
+            $identificacionControlador = new IdentificacionControlador($this -> datos);
+        }
+
+        public function habilitarIdentificacion(){
+            $identificacionControlador = new IdentificacionControlador($this -> datos);
+        }
+
+
+
+
+
+
 
         public function listarConstructora(){
             $constructoraControlador = new ConstructoraControlador($this -> datos);
@@ -317,6 +428,21 @@
             $constructoraControlador = new ConstructoraControlador($this -> datos);
         }
 
+        public function listarConstructoraInactivos(){
+            $constructoraControlador = new ConstructoraControlador($this -> datos);
+        }
+
+        public function habilitarConstructora(){
+            $constructoraControlador = new ConstructoraControlador($this -> datos);
+        }
+
+
+
+
+
+
+
+
         public function listarSede(){
             $sedeControlador = new SedeControlador($this -> datos);
         }
@@ -344,6 +470,11 @@
         public function eliminarSede(){
             $sedeControlador = new SedeControlador($this -> datos);
         }
+
+
+
+
+
 
         public function listarUbicacion(){
             $ubicacionControlador = new UbicacionControlador($this -> datos);
@@ -373,6 +504,12 @@
             $ubicacionControlador = new UbicacionControlador($this -> datos);
         }
 
+
+
+
+
+
+
         public function listarTrabajador(){
             $ubicacionControlador = new TrabajadorControlador($this -> datos);
         }
@@ -400,6 +537,11 @@
         public function eliminarTrabajador(){
             $ubicacionControlador = new TrabajadorControlador($this -> datos);
         }
+
+
+
+
+
 
         public function listarRecibido(){
             $RecibidoControlador = new RecibidoControlador($this -> datos);
@@ -429,6 +571,11 @@
             $RecibidoControlador = new RecibidoControlador($this -> datos);
         }
 
+
+
+
+
+
         public function listarMaterial_construccion(){
             $material_construccionControlador = new Material_contruccionControlador($this->datos);
         }
@@ -456,6 +603,11 @@
         public function eliminarMaterial_construccion(){
             $material_construccionControlador = new Material_contruccionControlador($this->datos);
         }
+
+
+
+
+
 
         public function listarProyecto(){
             $proyectoControlador = new ProyectoControlador($this -> datos);
@@ -485,6 +637,21 @@
             $proyectoControlador = new ProyectoControlador($this -> datos);
         }
 
+        public function listarProyectoInactivos(){
+            $proyectoControlador = new ProyectoControlador($this -> datos);
+        }
+
+        public function habilitarProyecto(){
+            $proyectoControlador = new ProyectoControlador($this -> datos);
+        }
+
+
+
+
+
+
+
+
         public function listarRegistro(){
             $registroControlador = new RegistroControlador($this -> datos);
         }
@@ -511,6 +678,39 @@
 
         public function eliminarRegistro(){
             $registroControlador = new RegistroControlador($this -> datos);
+        }
+
+
+
+
+
+        
+        public function listarStock(){
+            $stockControlador = new StockControlador($this -> datos);
+        }
+
+        public function mostrarActualizarStock(){
+            $stockControlador = new StockControlador($this -> datos);
+        }
+
+        public function confirmarActualizarStock(){
+            $stockControlador = new StockControlador($this -> datos);
+        }
+
+        public function cancelarActualizarStock(){
+            $stockControlador = new StockControlador($this -> datos);
+        }
+
+        public function mostrarInsertarStock(){
+            $stockControlador = new StockControlador($this -> datos);
+        }
+
+        public function insertarStock(){
+            $stockControlador = new StockControlador($this -> datos);
+        }
+
+        public function eliminarStock(){
+            $stockControlador = new StockControlador($this -> datos);
         }
     }
 ?>
