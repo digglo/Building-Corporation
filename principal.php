@@ -100,14 +100,14 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item - Gestion Constructora -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie"
+                    aria-expanded="true" aria-controls="collapseUtilitie">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Constructora</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilitie"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestion Constructora:</h6>
@@ -117,17 +117,17 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 </div>
             </li>
 
-            <!-- Nav Item - Proyecto Collapse Menu -->
+            <!-- Nav Item - Gestion Proyecto -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesP"
+                    aria-expanded="true" aria-controls="collapseUtilitiesP">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Proyectos</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesP" class="collapse" aria-labelledby="headingUtilitiesP"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Proyecto:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarProyecto">Listar Proyectos</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarProyecto">Agregar Proyecto</a>
                     </div>
@@ -142,14 +142,14 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 Addons
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Login Screens: -->
             <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagesL" aria-expanded="true"
+                    aria-controls="collapsePagesL">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                <div id="collapsePagesL" class="collapse show" aria-labelledby="headingPagesL"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
@@ -162,12 +162,12 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Sede Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesS"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Sede</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesS" class="collapse" aria-labelledby="headingUtilitiesS"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Sede:</h6>
@@ -179,12 +179,12 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Identificacion -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesI"
+                    aria-expanded="true" aria-controls="collapseUtilitiesI">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Identificacion</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesI" class="collapse" aria-labelledby="headingUtilitiesI"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Sede:</h6>
@@ -204,14 +204,14 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Ubicacion Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoU"
+                    aria-expanded="true" aria-controls="collapseTwoU">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Gestion de Ubicacion</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwoU" class="collapse" aria-labelledby="headingTwoU" data-parent="#accordionSidebarU">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Rol:</h6>
+                        <h6 class="collapse-header">Gestion Ubicacion:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarUbicacion">Listar Ubicaciones</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarUbicacion">Agregar Ubicacion</a>
                     </div>
@@ -220,15 +220,15 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Trabajador Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesT"
+                    aria-expanded="true" aria-controls="collapseUtilitiesT">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Gestion de Trabajadores</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesT" class="collapse" aria-labelledby="headingUtilitiesT"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Trabajador:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarTrabajador">Listar Trabajadores</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarTrabajador">Agregar Trabajador</a>
                     </div>
@@ -238,15 +238,15 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Material Construccion Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesM"
+                    aria-expanded="true" aria-controls="collapseUtilitiesM">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Materiales de Construccion</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesM" class="collapse" aria-labelledby="headingUtilitiesM"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion Materiales:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarMaterial_construccion">Listar Materiales</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarMaterial_construccion">Agregar Material</a>
                     </div>
@@ -255,15 +255,15 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Recibidos Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesR"
+                    aria-expanded="true" aria-controls="collapseUtilitiesR">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Materiales Recibidos</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesR" class="collapse" aria-labelledby="headingUtilitiesR"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Constructora:</h6>
+                        <h6 class="collapse-header">Gestion M Recibido:</h6>
                         <a class="collapse-item" href="./Controlador.php?ruta=listarRecibido">Listar Materiales Recibidos</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Material Recibido</a>
                     </div>
@@ -273,12 +273,12 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
 
             <!-- Nav Item - Registro Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesR"
+                    aria-expanded="true" aria-controls="collapseUtilitiesR">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Registros</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilitiesR" class="collapse" aria-labelledby="headingUtilitiesR"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestion Constructora:</h6>
