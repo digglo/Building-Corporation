@@ -231,11 +231,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 <div id="collapseUtilitiesT" class="collapse" aria-labelledby="headingUtilitiesT"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-<<<<<<< HEAD
                         <h6 class="collapse-header">Gestion Trabajadores:</h6>
-=======
-                        <h6 class="collapse-header">Gestion Trabajador:</h6>
->>>>>>> 936892c409ecbce99507ecae67fefcc14d93e275
                         <a class="collapse-item" href="./Controlador.php?ruta=listarTrabajador">Listar Trabajadores</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarTrabajador">Agregar Trabajador</a>
                     </div>
@@ -270,11 +266,7 @@ if (isset($_SESSION['mensaje']) && isset($_SESSION['nombre']) && isset($_SESSION
                 <div id="collapseUtilitiesR" class="collapse" aria-labelledby="headingUtilitiesR"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-<<<<<<< HEAD
                         <h6 class="collapse-header">Gestion Recibido:</h6>
-=======
-                        <h6 class="collapse-header">Gestion M Recibido:</h6>
->>>>>>> 936892c409ecbce99507ecae67fefcc14d93e275
                         <a class="collapse-item" href="./Controlador.php?ruta=listarRecibido">Listar Materiales Recibidos</a>
                         <a class="collapse-item" href="./Controlador.php?ruta=mostrarInsertarRecibido">Agregar Material Recibido</a>
                     </div>
