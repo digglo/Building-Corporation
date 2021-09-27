@@ -8,7 +8,7 @@ class ConstructoraDAO extends ConBdMySql{
     }
 
     public function seleccionarTodos($Estado){
-        $planconsulta = "SELECT * FROM constructora C JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuId=u.usuId WHERE con_estado=:con_estado;";
+        $planconsulta = "SELECT * FROM constructora c JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuId=u.usuId WHERE con_estado=:con_estado;";
 
         $registroConstructora = $this->conexion->prepare($planconsulta);
         $registroConstructora -> bindParam(":con_estado", $Estado);
@@ -48,8 +48,8 @@ class ConstructoraDAO extends ConBdMySql{
     public function insertar($registro){
 
         try {
-            
-            $consulta="insert into  constructora (con_nombre_empresa, `con_numero_documento`, con_id_identificacion,usuario_s_usuId) values (:con_nombre_empresa,:con_numero_documento,:con_id_identificacion,:usuario_s_usuId);";
+
+            $consulta="insert into  constructora (con_nombre_empresa, con_numero_documento, con_id_identificacion,usuario_s_usuId) values (:con_nombre_empresa,:con_numero_documento,:con_id_identificacion,:usuario_s_usuId);";
 
             $insertar=$this->conexion->prepare($consulta);
 
