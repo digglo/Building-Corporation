@@ -47,7 +47,7 @@ class Usuario_sControlador
 
         $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 //Se revisa si existe la persona en la base 
-        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["documento"], $this->datos['email']));
+        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["tra_numero_documento"], $this->datos['usulogin']));
 //Si no existe la persona en la base se procede a insertar
         if (0 == $existeUsuario_s['exitoSeleccionId']) 
         {
@@ -76,10 +76,12 @@ class Usuario_sControlador
             header("location:login.php");
         } else {//Si la persona ya existe se abre sesión para almacenar en ella el mensaje de NO inserción y devolver datos al formulario por medio de la sesión
             session_start();
-            $_SESSION['documento'] = $this->datos['documento'];
-            $_SESSION['nombre'] = $this->datos['nombre'];
-            $_SESSION['apellidos'] = $this->datos['apellidos'];
-            $_SESSION['email'] = $this->datos['email'];
+            $_SESSION['tra_primer_nombre'] = $this->datos['tra_primer_nombre'];
+            $_SESSION['tra_segundo_nombre'] = $this->datos['tra_segundo_nombre'];
+            $_SESSION['tra_primer_apellido'] = $this->datos['tra_primer_apellido'];
+            $_SESSION['tra_segundo_apellido'] = $this->datos['tra_segundo_apellido'];
+            $_SESSION['tra_numero_documento'] = $this->datos['tra_numero_documento'];
+            $_SESSION['usulogin'] = $this->datos['usulogin'];
             $_SESSION['mensaje'] = "El usuario ya existe en el sistema.";
             header("location:registro.php");
         }
@@ -91,8 +93,8 @@ class Usuario_sControlador
         $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
         $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para que coincida con la base de datos				
-        $this->datos["documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación				
-        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["documento"], $this->datos['email'], $this->datos["password"])); //Se revisa si existe la persona en la base  				
+        $this->datos["tra_numero_documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación
+        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["tra_numero_documento"], $this->datos['usulogin'], $this->datos["password"])); //Se revisa si existe la persona en la base
 
         if ((0 != $existeUsuario_s['exitoSeleccionId']) && ($existeUsuario_s['registroEncontrado'][0]->usuLogin == $this->datos['email']))
         {

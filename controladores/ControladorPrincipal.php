@@ -50,8 +50,18 @@
                     $this->eliminarRol();
                     break;
 
+                case "gestionDeRegistro":
+                    $this->gestionDeRegistro();
+                    break;
 
+                case "gestionDeAcceso":
+                    $this->gestionDeAcceso();
+                    break;
 
+                case "cerrarSesion":
+
+                    $this->cerrarSesion();
+                    break;
 
 
                 case 'listarIdentificacion':
@@ -341,14 +351,21 @@
             $rolesControlador = new RolControlador($this->datos);
         }
 
-        public function gestionDeAcceso()
-        {
-            $Usuario_sControlador = new gestionDeAcceso($this->datos);
+        public function gestionDeRegistro() {
+
+            $usuario_sControlador = new Usuario_sControlador($this->datos);
         }
 
-        public function gestionDeRegistro()
+        public function gestionDeAcceso()
         {
-            $Usuario_sControlador = new gestionDeRegistro($this->datos);
+
+            $usuario_sControlador = new Usuario_sControlador($this->datos);
+        }
+
+        public function cerrarSesion()
+        {
+
+            $usuario_sControlador = new Usuario_sControlador($this->datos);
         }
 
 

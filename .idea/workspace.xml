@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a96c48e-c9fd-4546-917c-49eddd7aa9b4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+    <list default="true" id="3a96c48e-c9fd-4546-917c-49eddd7aa9b4" name="Changes" comment="registro.php fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseDatos/BuildingCop.sql" beforeDir="false" afterPath="$PROJECT_DIR$/baseDatos/BuildingCop.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla/css/sb-admin-2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla/css/sb-admin-2.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro.php" beforeDir="false" afterPath="$PROJECT_DIR$/registro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro1.php" beforeDir="false" afterPath="$PROJECT_DIR$/registro1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controladores/ControladorPrincipal.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ControladorPrincipal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelos/modeloUsuario_s/Usuario_sDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/modeloUsuario_s/Usuario_sDAO.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,8 +91,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632696096559</updated>
-      <workItem from="1632696097931" duration="10749000" />
+      <workItem from="1632696097931" duration="12676000" />
     </task>
+    <task id="LOCAL-00001" summary="registro.php fix">
+      <created>1632713049139</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632713049139</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,5 +116,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="registro.php fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="registro.php fix" />
   </component>
 </project>

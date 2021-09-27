@@ -25,20 +25,20 @@ class Usuario_sDAO extends ConBdMySql{
     public function seleccionarID($sId){
 
         if (!isset($sId[2])) { //si la consulta no viene con el password (PARA REGISTRARSE)
-            $planConsulta = "select * from constructora c join usuario_s u on c.con_id=u.usuId ";
-            $planConsulta .= " where c.con_numero documento= ? or u.usuLogin = ? ;";
+            $planConsulta = "select * from trabajador t join usuario_s u on t.tra_id=u.usuId ";
+            $planConsulta .= " where t.tra_numero_documento = ? or u.usuLogin = ? ;";
             $listar = $this->conexion->prepare($planConsulta);
             $listar->execute(array($sId[0], $sId[1]));
         }
         if (isset($sId[2])) {//si la consulta viene con el password (PARA LOGUEARSE)
-            $planConsulta = "select * from constructora c join usuario_s u on c.con_id=u.usuId ";
+            $planConsulta = "select * from trabajador t join usuario_s u on t.tra_id=u.usuId ";
             $planConsulta .= " where u.usuLogin= ? and u.usuPassword = ? ;";
             $listar = $this->conexion->prepare($planConsulta);
             $listar->execute(array($sId[1], $sId[2]));
         }
         if (!isset($sId[1]) && !isset($sId[2])) {//si la consulta viene con solo el documento (PARA ENCONTRAR PERSONA)
-            $planConsulta = "select * from constructora c join usuario_s u on c.con_id=u.usuId ";
-            $planConsulta .= " where c.con_numero documento = ? ;";
+            $planConsulta = "select * from trabajador t join usuario_s u on t.tra_id=u.usuId ";
+            $planConsulta .= " where t.tra_numero_documento = ? ;";
             $listar = $this->conexion->prepare($planConsulta);
             $listar->execute(array($sId[0]));
         }
