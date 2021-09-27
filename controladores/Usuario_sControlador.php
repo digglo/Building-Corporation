@@ -5,6 +5,7 @@ require_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
 require_once PATH . 'modelos/modeloRol/RolDAO.php';
 require_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
 include_once PATH . 'controladores/ManejoSesiones/BloqueDeSeguridad.php';
+include_once PATH . 'controladores/ManejoSesiones/ClaseSesion.php';
 
 class Usuario_sControlador
 {

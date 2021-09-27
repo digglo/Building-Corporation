@@ -136,7 +136,7 @@ class ConstructoraControlador{
             $_SESSION['con_nombre_empresa'] = $this->datos['con_nombre_empresa'];		
             $_SESSION['con_numero_documento'] = $this->datos['con_numero_documento'];	
             $_SESSION['con_id_identificacion'] = $this->datos['con_id_identificacion'];		
-            $_SESSION['usuario_s_usuld'] = $this->datos['usuario_s_usuld'];
+            $_SESSION['usuario_s_usuId'] = $this->datos['usuario_s_usuId'];
             
             $_SESSION['mensaje'] = " El id que trata de insertar ya existe en el sistema ";
 

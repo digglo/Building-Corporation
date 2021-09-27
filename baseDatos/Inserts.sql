@@ -29,7 +29,7 @@ VALUES (1, 'cll 184#22-16', '02/09/2021 04:21', 1, '02/09/2021 04:21', ''),
  (5, 'cll 180#5-22', '02/09/2021 04:24', 1, '02/09/2021 04:24', ''),
  (6, 'cll 170#6-20', '02/09/2021 04:25', 1, '02/09/2021 04:25', '');
 
-INSERT INTO constructora (con_id, usuario_s_usuld, con_id_identificacion, con_created_at, con_estado, con_nombre_empresa, con_numero_documento, con_updated_at, con_usuSesion)
+INSERT INTO constructora (con_id, usuario_s_usuid, con_id_identificacion, con_created_at, con_estado, con_nombre_empresa, con_numero_documento, con_updated_at, con_usuSesion)
 VALUES 
 (1, 1, 1, '02/09/2021 04:30', 1, 'building corporation', '1000572910', '02/09/2021 04:33', ''),
 (2, 2, 2, '02/09/2021 04:34', 1, 'building', '1000572911', '02/09/2021 04:34', ''),

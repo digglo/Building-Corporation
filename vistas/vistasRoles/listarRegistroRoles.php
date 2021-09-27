@@ -34,7 +34,7 @@ if(isset($_SESSION['listaDeRoles'])){
 	
 }
 ?>
-    <table id="example" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
+    <table id="example1" class="table-responsive table-hover table-bordered table-striped" style="width:100%">
         <thead >
             <h3>Listado de la Tabla Rol</h3>
             <tr> 

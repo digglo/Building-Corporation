@@ -136,11 +136,11 @@ form select{
                 <tr>
                 <td>Usuario:</td>
                     <td>
-                            <select name="usuario_s_usuld" id="usuario_s_usuld" style="width: 338px">
+                            <select name="usuario_s_usuId" id="usuario_s_usuId" style="width: 338px">
                                 <?php for ($i=0; $i < $usuarioCantidad; $i++) { 
                                 ?>
                                     <option value="<?php echo $listaDeUsuario[$i]->usuId; ?>" 
-                                    <?php if (isset($listaDeUsuario[$i]->usuId) && isset($actualizarDatosConstructora->usuario_s_usuld) && $listaDeUsuario[$i]->usuId == $actualizarDatosConstructora->usuario_s_usuld) {
+                                    <?php if (isset($listaDeUsuario[$i]->usuId) && isset($actualizarDatosConstructora->usuario_s_usuId) && $listaDeUsuario[$i]->usuId == $actualizarDatosConstructora->usuario_s_usuId) {
                                         echo "selected";
                                     } ?>
                                     >

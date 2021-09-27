@@ -11,7 +11,7 @@ $registro['con_nombre_empresa']='camilo';
 $registro['con_numero_documento']='869864';
 $registro['con_estado']='inactivo';
 $registro['con_id_identificacion']=1;
-$registro['usuario_s_usuld']=1;
+$registro['usuario_s_usuId']=1;
 
 //echo "<pre>";
 //print_r($registro);
