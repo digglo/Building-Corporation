@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a96c48e-c9fd-4546-917c-49eddd7aa9b4" name="Changes" comment="login.php fix">
+    <list default="true" id="3a96c48e-c9fd-4546-917c-49eddd7aa9b4" name="Changes" comment="login.php complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseDatos/Inserts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/baseDatos/Inserts.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseDatos/Temp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/baseDatos/Temp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/ConstructoraControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/ConstructoraControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/Usuario_sControlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas/Testing_ConstructoraDAO/testing_ConstructoraDAO_actualizar.php" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas/Testing_ConstructoraDAO/testing_ConstructoraDAO_actualizar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas/Testing_ConstructoraDAO/testing_ConstructoraDAO_insertar.php" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas/Testing_ConstructoraDAO/testing_ConstructoraDAO_insertar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasConstructora/listarConstructora.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasConstructora/listarConstructora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasConstructora/listarConstructoraInactivos.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasConstructora/listarConstructoraInactivos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasConstructora/vistaActualizarConstructora.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasConstructora/vistaActualizarConstructora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasConstructora/vistaIngresarConstructora.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasConstructora/vistaIngresarConstructora.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasRecibido/vistasIngresarRecibido.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasRecibido/vistasIngresarRecibido.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/vistasRoles/listarRegistroRoles.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/vistasRoles/listarRegistroRoles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/principal.php" beforeDir="false" afterPath="$PROJECT_DIR$/principal.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632696096559</updated>
-      <workItem from="1632696097931" duration="25483000" />
+      <workItem from="1632696097931" duration="26244000" />
     </task>
     <task id="LOCAL-00001" summary="registro.php fix">
       <created>1632713049139</created>
@@ -132,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632728995446</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="login.php complete">
+      <created>1632729435622</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632729435622</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +149,7 @@
     <MESSAGE value="registro.php fix" />
     <MESSAGE value="registro.php Complete &amp; Usuario_sDAO.php" />
     <MESSAGE value="login.php fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="login.php fix" />
+    <MESSAGE value="login.php complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="login.php complete" />
   </component>
 </project>
