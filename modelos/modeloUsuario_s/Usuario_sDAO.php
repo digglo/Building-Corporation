@@ -158,5 +158,3 @@ class Usuario_sDAO extends ConBdMySql{
 
     }
 ?>
-
-
