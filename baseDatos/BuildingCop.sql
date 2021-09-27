@@ -184,6 +184,7 @@ CREATE TABLE IF NOT EXISTS `id17639196_proyecto`.`trabajador` (
   `tra_segundo_nombre` VARCHAR(20) NULL,
   `tra_primer_apellido` VARCHAR(20) NULL,
   `tra_segundo_apellido` VARCHAR(20) NULL,
+  'tra_numero_documento' INT,
   `tra_estado` TINYINT NOT NULL DEFAULT 1,
   `tra_sede_id` INT NULL,
   `tra_identificacion_id` INT NULL,

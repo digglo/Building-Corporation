@@ -4,22 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4570467-ad57-4c29-a8a7-bf2d189c20dc" name="Changes" comment="Plantilla Proyecto" />
+    <list default="true" id="3a96c48e-c9fd-4546-917c-49eddd7aa9b4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseDatos/BuildingCop.sql" beforeDir="false" afterPath="$PROJECT_DIR$/baseDatos/BuildingCop.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla/css/sb-admin-2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla/css/sb-admin-2.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registro.php" beforeDir="false" afterPath="$PROJECT_DIR$/registro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registro1.php" beforeDir="false" afterPath="$PROJECT_DIR$/registro1.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="8d5ed2f70d6b03c9e8a84a46f75731a3e835c8ef" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.0">
@@ -61,31 +69,21 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1yEPjczxk2eqTEFCT8IIKEnmw8Y" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1yhFpeTv1FdZ42163rZ5cAGVJwv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Building-Corporation" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -96,54 +94,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e4570467-ad57-4c29-a8a7-bf2d189c20dc" name="Changes" comment="" />
-      <created>1631813917756</created>
+      <changelist id="3a96c48e-c9fd-4546-917c-49eddd7aa9b4" name="Changes" comment="" />
+      <created>1632696096559</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1631813917756</updated>
-      <workItem from="1631813919518" duration="118000" />
-      <workItem from="1631814659245" duration="31000" />
-      <workItem from="1631815123435" duration="4000" />
-      <workItem from="1631815139302" duration="4000" />
-      <workItem from="1631815165100" duration="695000" />
-      <workItem from="1632086360631" duration="1879000" />
+      <updated>1632696096559</updated>
+      <workItem from="1632696097931" duration="10749000" />
     </task>
-    <task id="LOCAL-00001" summary="Plantilla">
-      <created>1632401829818</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1632401829818</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Plantilla Registro">
-      <created>1632403387961</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1632403387961</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Usuario_sDAO.php Fix">
-      <created>1632404821135</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1632404821135</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Plantilla Fix">
-      <created>1632417418713</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1632417418713</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Plantilla Proyecto">
-      <created>1632421385782</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1632421385782</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,45 +109,12 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="10296f7d-ab00-46a3-b5ce-29c45c737cbe">
+        <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="BEK_SORT_TYPE" value="1" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
       </map>
     </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="10296f7d-ab00-46a3-b5ce-29c45c737cbe" value="TOOL_WINDOW" />
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Plantilla" />
-    <MESSAGE value="Plantilla Registro" />
-    <MESSAGE value="Usuario_sDAO.php Fix" />
-    <MESSAGE value="Plantilla Fix" />
-    <MESSAGE value="Plantilla Proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plantilla Proyecto" />
   </component>
 </project>

@@ -49,66 +49,108 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Registrate</h1>
                             </div>
-                            <form class="user">
+                            <form method="POST" action="Controlador.php" id="formRegistro" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" required="required"
-                                            placeholder="nombre"
+                                        <input type="text" class="form-control form-control-user" name = "tra_primer_nombre" id="exampleFirstName" required="required"
+                                            placeholder="Primer nombre"
                                                value=<?php
-                                               if (isset($_SESSION['nombre'])){
-                                                   echo "\"".$_SESSION['nombre']."\"";
-                                                   unset($_SESSION['nombre']);}
+                                               if (isset($_SESSION['tra_primer_nombre'])){
+                                                   echo "\"".$_SESSION['tra_primer_nombre']."\"";
+                                                   unset($_SESSION['tra_primer_nombre']);
+                                               }
                                                ?>
                                         >
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="apellidos" required="required"
+
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name = "tra_segundo_nombre" id="exampleSecondName" required="required"
+                                               placeholder="Segundo nombre"
                                                value=<?php
-                                               if (isset($_SESSION['apellidos'])){
-                                                   echo "\"".$_SESSION['apellidos']."\"";
-                                                   unset($_SESSION['apellidos']);}
+                                               if (isset($_SESSION['tra_segundo_nombre'])){
+                                                   echo "\"".$_SESSION['tra_segundo_nombre']."\"";
+                                                   unset($_SESSION['tra_segundo_nombre']);
+                                               }
                                                ?>
                                         >
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" name = "tra_primer_apellido" id="exampleLastName"
+                                               placeholder="Primer apellido" required="required"
+                                               value=<?php
+                                               if (isset($_SESSION['tra_primer_apellido'])){
+                                                   echo "\"".$_SESSION['tra_primer_apellido']."\"";
+                                                   unset($_SESSION['tra_primer_apellido']);}
+                                               ?>
+                                        >
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" name="tra_segundo_apellido" id="exampleLastName"
+                                               placeholder="Segundo apellido" required="required"
+                                               value=<?php
+                                               if (isset($_SESSION['tra_segundo_apellido'])){
+                                                   echo "\"".$_SESSION['tra_segundo_apellido']."\"";
+                                                   unset($_SESSION['tra_segundo_apellido']);}
+                                               ?>
+                                        >
+                                    </div>
+                                </div>
+
+                                <center>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <select name="tra_identificacion_id" style="width: 80%; margin-top: 10px">
+                                                <option value="1">NIT</option>
+                                                <option value="2" selected>CC</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="number" class="form-control form-control-user" name="tra_numero_documento" id="identificacion"
+                                                   placeholder="identificación" required="required"
+                                                   value=<?php
+                                                   if (isset($_SESSION['tra_numero_documento'])){
+                                                       echo "\"".$_SESSION['tra_numero_documento']."\"";
+                                                       unset($_SESSION['tra_numero_documento']);
+                                                   }
+                                                   ?>
+                                            >
+                                        </div>
+                                    </div>
+                                </center>
+
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+
+
+                                    <input type="email" class="form-control form-control-user" name="usulogin" id="exampleInputEmail"
                                         placeholder="email" required="required"
                                            value=<?php
-                                           if (isset($_SESSION['email'])){
-                                               echo "\"".$_SESSION['email']."\"";
-                                               unset($_SESSION['email']);}
+                                           if (isset($_SESSION['usulogin'])){
+                                               echo "\"".$_SESSION['usulogin']."\"";
+                                               unset($_SESSION['usulogin']);}
                                            ?>
                                     >
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                               id="InputPassword" name="usuPassword" placeholder="Password" required="required">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                               id="InputPassword2" name="password2" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="plantilla/login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                <hr>
-                                <a href="plantilla/index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="plantilla/index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                    <input type="hidden" name="ruta" value="gestionDeRegistro">
+                                    <button  class="btn btn-primary btn-user btn-block" onclick="valida_registro()">Registrar</button>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="plantilla/forgot-password.html">¿Olvidaste tu contraseña?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="plantilla/login.html">¿Ya tienes una cuenta? Inicia sesion</a>
+                                <a class="small" href="login.php">¿Ya tienes una cuenta? Inicia sesión</a>
                             </div>
                         </div>
                     </div>

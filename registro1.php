@@ -29,12 +29,11 @@
             <h3 class="panel-title">Datos básicos de Registro</h3>
         </div>
         <div>
-            <form method="POST" action="Controlador.php" id="formRegistro">
+            <form method="POST" action="Controlador.php" id="formRegistro" class="user">
                 <fieldset>
                     <div>
                         <input placeholder="Documento" name="documento" type="number" required="required" autofocus 
-						value=
-                               <?php 
+						value=<?php
 							   if (isset($_SESSION['documento'])){
                                    echo "\"".$_SESSION['documento']."\"";
                                unset($_SESSION['documento']);
