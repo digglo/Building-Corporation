@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `id17639196_proyecto`.`usuario_s`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `id17639196_proyecto`.`usuario_s` (
-  `usuId` INT NOT NULL,
+  `usuId` INT NOT NULL AUTO_INCREMENT,
   `usulogin` VARCHAR(45) NULL,
   `usuPassword` VARCHAR(45) NULL,
   `usuSesion` VARCHAR(20) NULL,
@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 -- Table `id17639196_proyecto`.`identificacion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `id17639196_proyecto`.`identificacion` (
-  `ide_id` INT NOT NULL,
+  `ide_id` INT NOT NULL AUTO_INCREMENT,
   `ide_sigla` VARCHAR(45) NULL,
   `ide_descripcion` VARCHAR(45) NULL,
   `ide_estado` TINYINT NOT NULL DEFAULT 1,
@@ -64,10 +64,10 @@ ENGINE = InnoDB;
 -- Table `id17639196_proyecto`.`constructora`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `id17639196_proyecto`.`constructora` (
-  `con_id` INT NOT NULL,
+  `con_id` INT NOT NULL AUTO_INCREMENT,
   `con_estado` TINYINT NOT NULL DEFAULT 1,
   `con_nombre_empresa` VARCHAR(10) NULL,
-  `con_numero documento` INT NULL,
+  `con_numero_documento` INT NULL,
   `con_id_identificacion` INT NULL,
   `con_created_at` TIMESTAMP NULL,
   `con_updated_at` TIMESTAMP NULL,
@@ -184,7 +184,6 @@ CREATE TABLE IF NOT EXISTS `id17639196_proyecto`.`trabajador` (
   `tra_segundo_nombre` VARCHAR(20) NULL,
   `tra_primer_apellido` VARCHAR(20) NULL,
   `tra_segundo_apellido` VARCHAR(20) NULL,
-  'tra_numero_documento' INT,
   `tra_estado` TINYINT NOT NULL DEFAULT 1,
   `tra_sede_id` INT NULL,
   `tra_identificacion_id` INT NULL,

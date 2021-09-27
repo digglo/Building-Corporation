@@ -47,31 +47,30 @@ class TrabajadorDAO extends ConBdMySql {
 
         try {
             
-            $consulta="insert into  trabajador ";
-            $consulta.= "(tra_id, 
+            $consulta="insert into  trabajador";
+            $consulta.= "( 
                           tra_primer_nombre, 
                           tra_segundo_nombre,
-                          tra_primer_apellido,
+                          tra_numero_documento,
                           tra_segundo_apellido,
-                          tra_identificacion_id,
-                          tra_sede_id) ";
-            $consulta.= "values (:tra_id, 
+                          tra_primer_apellido,
+                          tra_identificacion_id)";
+            $consulta.= "values (
                                  :tra_primer_nombre, 
                                  :tra_segundo_nombre,
+                                 :tra_numero_documento,
                                  :tra_primer_apellido,
                                  :tra_segundo_apellido,
-                                 :tra_identificacion_id,
-                                 :tra_sede_id);" ;
+                                 :tra_identificacion_id);";
 
             $insertar=$this->conexion->prepare($consulta);
 
-            $insertar -> bindParam(":tra_id", $registro['tra_id']);
             $insertar -> bindParam(":tra_primer_nombre", $registro['tra_primer_nombre']);
             $insertar -> bindParam(":tra_segundo_nombre", $registro['tra_segundo_nombre']);
             $insertar -> bindParam(":tra_primer_apellido", $registro['tra_primer_apellido']);
+            $insertar -> bindParam(":tra_numero_documento", $registro['tra_numero_documento']);
             $insertar -> bindParam(":tra_segundo_apellido", $registro['tra_segundo_apellido']);
             $insertar -> bindParam(":tra_identificacion_id", $registro['tra_identificacion_id']);
-            $insertar -> bindParam(":tra_sede_id", $registro['tra_sede_id']);
 
             $insercion = $insertar->execute();
 

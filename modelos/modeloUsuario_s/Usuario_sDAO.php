@@ -25,20 +25,20 @@ class Usuario_sDAO extends ConBdMySql{
     public function seleccionarID($sId){
 
         if (!isset($sId[2])) { //si la consulta no viene con el password (PARA REGISTRARSE)
-            $planConsulta = "select * from trabajador t join usuario_s u on t.tra_id=u.usuId ";
-            $planConsulta .= " where t.tra_numero_documento = ? or u.usuLogin = ? ;";
+            $planConsulta = "select * from constructora c join usuario_s u on c.usuario_s_usuId = u.usuId";
+            $planConsulta .= " where c.con_numero_documento = ? or u.usulogin = ? ;";
             $listar = $this->conexion->prepare($planConsulta);
             $listar->execute(array($sId[0], $sId[1]));
         }
         if (isset($sId[2])) {//si la consulta viene con el password (PARA LOGUEARSE)
-            $planConsulta = "select * from trabajador t join usuario_s u on t.tra_id=u.usuId ";
-            $planConsulta .= " where u.usuLogin= ? and u.usuPassword = ? ;";
+            $planConsulta = "select * from constructora c join usuario_s u on c.usuario_s_usuId = u.usuId";
+            $planConsulta .= " where u.usulogin = ? and u.usuPassword = ? ;";
             $listar = $this->conexion->prepare($planConsulta);
             $listar->execute(array($sId[1], $sId[2]));
         }
         if (!isset($sId[1]) && !isset($sId[2])) {//si la consulta viene con solo el documento (PARA ENCONTRAR PERSONA)
-            $planConsulta = "select * from trabajador t join usuario_s u on t.tra_id=u.usuId ";
-            $planConsulta .= " where t.tra_numero_documento = ? ;";
+            $planConsulta = "select * from constructora c join usuario_s u on c.usuario_s_usuId = u.usuId";
+            $planConsulta .= " where c.con_numero_documento = ? ;";
             $listar = $this->conexion->prepare($planConsulta);
             $listar->execute(array($sId[0]));
         }
@@ -60,11 +60,11 @@ class Usuario_sDAO extends ConBdMySql{
 
         try {
             
-            $consulta="INSERT INTO usuario_s (usuLogin, usuPassword) VALUES (:usuLogin, :usuPassword);" ;
+            $consulta="INSERT INTO usuario_s (usulogin, usuPassword) VALUES (:usulogin, :usuPassword);" ;
 
             $insertar=$this->conexion->prepare($consulta);
 
-            $insertar -> bindParam(":usuLogin", $registro['email']);
+            $insertar -> bindParam(":usulogin", $registro['usulogin']);
             $insertar -> bindParam(":usuPassword", $registro['password']);
 
             $insercion = $insertar->execute();
@@ -83,12 +83,12 @@ class Usuario_sDAO extends ConBdMySql{
 
         try {
 
-            $login = $registro[0]['usuLogin'];
+            $login = $registro[0]['usulogin'];
             $password = $registro[0]['usuPassword'];
             $usuId = $registro[0]['usuId'];
             
             if(isset($usuId)){
-                $consulta = "UPDATE usuario_s SET  usuLogin = ?, usuPassword = ?
+                $consulta = "UPDATE usuario_s SET  usulogin = ?, usuPassword = ?
                 WHERE usuId = ?";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
@@ -157,7 +157,6 @@ class Usuario_sDAO extends ConBdMySql{
     }
 
     }
-
 ?>
 
 

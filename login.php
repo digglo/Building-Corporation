@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['mensaje'])) {
+    $mensaje = $_SESSION['mensaje'];
+    echo "<script languaje='javascript'>alert('$mensaje')</script>";
+    unset($_SESSION['mensaje']);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,15 +51,17 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <script type="text/javascript" src="javascript/funciones.js" defer></script>
+                                    <script type="text/javascript" src="javascript/md5.js"></script>
+                                    <form method="POST" action="Controlador.php" name="formLogin" class="user">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                id="InputCorreo" name="usulogin" aria-describedby="emailHelp"
+                                                placeholder="Ingrese Correo" autofocus>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="InputPassword" name="password" placeholder="Contraseña">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,16 +70,12 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="login.php" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <input type="hidden" name="ruta" value="gestionDeAcceso">
+                                        <button class="btn btn-lg btn-success btn-block" onclick="validar_logueo();">Ingresar</button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="registro.php">Create an Account!</a>
+                                        <a class="small" href="registro.php">¡Registrate!</a>
                                     </div>
                                 </div>
                             </div>

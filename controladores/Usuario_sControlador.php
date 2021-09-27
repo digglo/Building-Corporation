@@ -4,6 +4,7 @@ require_once PATH . 'modelos/modeloConstructora/constructoraDAO.php';
 require_once PATH . 'modelos/modeloUsuario_s/Usuario_sDAO.php';
 require_once PATH . 'modelos/modeloRol/RolDAO.php';
 require_once PATH . 'modelos/modeloUsuario_s_roles/Usuario_s_rolesDAO.php';
+include_once PATH . 'controladores/ManejoSesiones/BloqueDeSeguridad.php';
 
 class Usuario_sControlador
 {
@@ -47,7 +48,8 @@ class Usuario_sControlador
 
         $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 //Se revisa si existe la persona en la base 
-        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["tra_numero_documento"], $this->datos['usulogin']));
+        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["con_numero_documento"], $this->datos['usulogin']));
+        //print_r($existeUsuario_s);
 //Si no existe la persona en la base se procede a insertar
         if (0 == $existeUsuario_s['exitoSeleccionId']) 
         {
@@ -55,13 +57,12 @@ class Usuario_sControlador
 //inserción de los campos en la tabla usuario_s
             $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para guardar en la base de datos  					
             $insertoUsuario_s = $gestarUsuario_s->insertar($this->datos);
-//indica si se logró inserción de los campos en la tabla usuario_s	
+            //print_r($insertoUsuario_s);
             $exitoInsercionUsuario_s = $insertoUsuario_s['inserto'];
-//Traer el id con que quedó el usuario de lo contrario la excepción o fallo					
             $resultadoInsercionUsuario_s = $insertoUsuario_s['resultado'];
             $gestarPersona = new ConstructoraDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 //Id 'usuID' con quedó insertado el usuario, con el fin que quede el mismo en la tabla 'persona'
-            $this->datos['con_id'] = $resultadoInsercionUsuario_s;
+            $this->datos['usuario_s_usuId'] = $resultadoInsercionUsuario_s;
 //inserción de los campos en la tabla persona
             $insertoPersona = $gestarPersona->insertar($this->datos);
             $exitoInsercionPersona = $insertoPersona['inserto']; //indica si se logró inserción de los campos en la tabla persona
@@ -76,11 +77,8 @@ class Usuario_sControlador
             header("location:login.php");
         } else {//Si la persona ya existe se abre sesión para almacenar en ella el mensaje de NO inserción y devolver datos al formulario por medio de la sesión
             session_start();
-            $_SESSION['tra_primer_nombre'] = $this->datos['tra_primer_nombre'];
-            $_SESSION['tra_segundo_nombre'] = $this->datos['tra_segundo_nombre'];
-            $_SESSION['tra_primer_apellido'] = $this->datos['tra_primer_apellido'];
-            $_SESSION['tra_segundo_apellido'] = $this->datos['tra_segundo_apellido'];
-            $_SESSION['tra_numero_documento'] = $this->datos['tra_numero_documento'];
+            $_SESSION['con_nombre_empresa'] = $this->datos['con_nombre_empresa'];
+            $_SESSION['con_numero_documento'] = $this->datos['con_numero_documento'];
             $_SESSION['usulogin'] = $this->datos['usulogin'];
             $_SESSION['mensaje'] = "El usuario ya existe en el sistema.";
             header("location:registro.php");
@@ -92,11 +90,12 @@ class Usuario_sControlador
 
         $gestarUsuario_s = new Usuario_sDAO(SERVIDOR, BASE, USUARIO_BD, CONTRASENIA_BD);
 
-        $this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para que coincida con la base de datos				
-        $this->datos["tra_numero_documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación
-        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["tra_numero_documento"], $this->datos['usulogin'], $this->datos["password"])); //Se revisa si existe la persona en la base
+        //$this->datos["password"] = md5($this->datos["password"]); //Encriptamos password para que coincida con la base de datos
+        //print_r($this->datos["password"]);
+        $this->datos["con_numero_documento"] = ""; //Para logueo crear ésta variable límpia por cuanto se utiliza el mismo método de registrarse a continuación
+        $existeUsuario_s = $gestarUsuario_s->seleccionarId(array($this->datos["con_numero_documento"], $this->datos['usulogin'], $this->datos["password"])); //Se revisa si existe la persona en la base
 
-        if ((0 != $existeUsuario_s['exitoSeleccionId']) && ($existeUsuario_s['registroEncontrado'][0]->usuLogin == $this->datos['email']))
+        if ((0 != $existeUsuario_s['exitoSeleccionId']) && ($existeUsuario_s['registroEncontrado'][0]->usulogin == $this->datos['usulogin']))
         {
 
             session_start(); //se abre sesión para almacenar en ella el mensaje
@@ -113,10 +112,10 @@ class Usuario_sControlador
             }
 
             //ABRIR  SESION**************************
-            $sesionPermitida = new ClaseSesion(); // se abre la sesión					
+            $sesionPermitida = new ClaseSesion(); // se abre la sesión
             $sesionPermitida->crearSesion(array($existeUsuario_s['registroEncontrado'][0], "", $rolesEnSesion)); //Se envìa a la sesiòn los datos del usuario logeado					
 
-            header("location:principal1.php");
+            header("location:principal.php");
         } else {
             session_start(); //se abre sesión para almacenar en ella el mensaje de inserción
             $_SESSION['mensaje'] = "Credenciales de acceso incorrectas"; //mensaje de inserción
