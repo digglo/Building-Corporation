@@ -56,7 +56,7 @@ if(isset($_SESSION['listaDeConstructora'])){
                     <td><?php echo $listaDeConstructora[$i]->con_nombre_empresa; ?></td>  
                     <td><?php echo $listaDeConstructora[$i]->con_numero_documento; ?></td>   
                     <td><?php echo $listaDeConstructora[$i]->con_id_identificacion; ?></td>  
-                    <td><?php echo $listaDeConstructora[$i]->usuario_s_usuld; ?></td> 
+                    <td><?php echo $listaDeConstructora[$i]->usuario_s_usuId; ?></td>
                     <td><a href="Controlador.php?ruta=mostrarActualizarConstructora&idAct=<?php echo $listaDeConstructora[$i]->con_id; ?>">Actualizar</a></td>  
                     <td><a href="Controlador.php?ruta=eliminarConstructora&idAct=<?php echo $listaDeConstructora[$i]->con_id; ?>" onclick="return confirm('Está seguro de eliminar el registro?')">Eliminar</a></td>  
                 </tr>   

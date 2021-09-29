@@ -77,11 +77,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`constructora` (
   `con_created_at` TIMESTAMP NULL,
   `con_updated_at` TIMESTAMP NULL,
   `con_usuSesion` VARCHAR(20) NULL,
-  `usuario_s_usuld` INT NULL,
+  `usuario_s_usuId` INT NULL,
   `constructoracol` VARCHAR(45) NULL,
   PRIMARY KEY (`con_id`),
   INDEX `fk_constructora_identificacion1_idx` (`con_id_identificacion` ASC) VISIBLE,
-  INDEX `fk_constructora_usuario_s1_idx` (`usuario_s_usuld` ASC) VISIBLE,
+  INDEX `fk_constructora_usuario_s1_idx` (`usuario_s_usuId` ASC) VISIBLE,
   UNIQUE INDEX `con_numero documento_UNIQUE` (`con_numero documento` ASC) VISIBLE,
   CONSTRAINT `fk_constructora_identificacion1`
     FOREIGN KEY (`con_id_identificacion`)
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`constructora` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_constructora_usuario_s1`
-    FOREIGN KEY (`usuario_s_usuld`)
+    FOREIGN KEY (`usuario_s_usuId`)
     REFERENCES `mydb`.`usuario_s` (`usuId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

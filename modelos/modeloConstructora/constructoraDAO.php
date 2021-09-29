@@ -8,7 +8,7 @@ class ConstructoraDAO extends ConBdMySql{
     }
 
     public function seleccionarTodos($Estado){
-        $planconsulta = "SELECT * FROM constructora C JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuld=u.usuId WHERE con_estado=:con_estado;";
+        $planconsulta = "SELECT * FROM constructora c JOIN identificacion i on c.con_id_identificacion=i.ide_id JOIN usuario_s u on c.usuario_s_usuId=u.usuId WHERE con_estado=:con_estado;";
 
         $registroConstructora = $this->conexion->prepare($planconsulta);
         $registroConstructora -> bindParam(":con_estado", $Estado);
@@ -48,27 +48,16 @@ class ConstructoraDAO extends ConBdMySql{
     public function insertar($registro){
 
         try {
-            
-            $consulta="insert into  constructora ";
-            $consulta.= "(con_id, 
-                          con_nombre_empresa, 
-                          con_numero_documento,
-                          con_id_identificacion,
-                          usuario_s_usuld) ";
-            $consulta.= "values (:con_id, 
-                                 :con_nombre_empresa, 
-                                 :con_numero_documento,
-                                 :con_id_identificacion,
-                                 :usuario_s_usuld);" ;
+
+            $consulta="insert into  constructora (con_nombre_empresa, con_numero_documento, con_id_identificacion,usuario_s_usuId) values (:con_nombre_empresa,:con_numero_documento,:con_id_identificacion,:usuario_s_usuId);";
 
             $insertar=$this->conexion->prepare($consulta);
 
 
-            $insertar -> bindParam(":con_id", $registro['con_id']);
             $insertar -> bindParam(":con_nombre_empresa", $registro['con_nombre_empresa']);
             $insertar -> bindParam(":con_numero_documento", $registro['con_numero_documento']);
             $insertar -> bindParam(":con_id_identificacion", $registro['con_id_identificacion']);
-            $insertar -> bindParam(":usuario_s_usuld", $registro['usuario_s_usuld']);
+            $insertar -> bindParam(":usuario_s_usuId", $registro['usuario_s_usuId']);
 
 
             $insercion = $insertar->execute();
@@ -90,7 +79,7 @@ class ConstructoraDAO extends ConBdMySql{
             $nombreEmpresa = $registro[0]['con_nombre_empresa'];
             $numeroDocumento = $registro[0]['con_numero_documento'];
             $identificacion = $registro[0]['con_id_identificacion'];
-            $usuario = $registro[0]['usuario_s_usuld'];
+            $usuario = $registro[0]['usuario_s_usuId'];
             $con_id = $registro[0]['con_id'];
             
             if(isset($con_id)){
@@ -98,7 +87,7 @@ class ConstructoraDAO extends ConBdMySql{
                 $consulta .= "SET  con_nombre_empresa = ?,
                                    con_numero_documento = ?,
                                    con_id_identificacion = ?,
-                                   usuario_s_usuld = ?";
+                                   usuario_s_usuId = ?";
                 $consulta .= "WHERE con_id = ?";
                 
                 $actualizar = $this -> conexion -> prepare($consulta);
